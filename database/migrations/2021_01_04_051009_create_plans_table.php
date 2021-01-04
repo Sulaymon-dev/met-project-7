@@ -21,9 +21,9 @@ class CreatePlansTable extends Migration
             $table->boolean('status')->default(0);
             $table->timestamps();
 
-            $table->foreign('subject_id')->references('id')->on('subjects');
-            $table->foreign('sinf_id')->references('id')->on('sinfs');
-            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
+            $table->foreign('sinf_id')->references('id')->on('sinfs')->cascadeOnDelete();
+            $table->foreign('book_id')->references('id')->on('books')->cascadeOnDelete();
         });
     }
 

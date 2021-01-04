@@ -29,6 +29,8 @@ class CreateClustersTable extends Migration
      */
     public function down()
     {
+
         Schema::dropIfExists('clusters');
+
     }
 }

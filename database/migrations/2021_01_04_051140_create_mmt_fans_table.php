@@ -20,7 +20,7 @@ class CreateMmtFansTable extends Migration
             $table->string('pdf_src')->nullable();
             $table->timestamps();
 
-            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
         });
     }
 

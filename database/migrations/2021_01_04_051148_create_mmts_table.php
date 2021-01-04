@@ -20,8 +20,8 @@ class CreateMMTSTable extends Migration
             $table->enum('component', ['A', 'B', 'C']);
             $table->timestamps();
 
-            $table->foreign('mmt_fan_id')->references('id')->on('mmt_fans');
-            $table->foreign('cluster_id')->references('id')->on('clusters');
+            $table->foreign('mmt_fan_id')->references('id')->on('mmt_fans')->cascadeOnDelete();
+            $table->foreign('cluster_id')->references('id')->on('clusters')->cascadeOnDelete();
         });
     }
 
@@ -32,6 +32,6 @@ class CreateMMTSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_m_t_s');
+        Schema::dropIfExists('mmts');
     }
 }

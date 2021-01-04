@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MMT extends Model
 {
-    protected $fillable = ['mmt_fan_id', 'cluster', 'component'];
+    protected $fillable = ['mmt_fan_id', 'cluster_id', 'component'];
+
+
 }

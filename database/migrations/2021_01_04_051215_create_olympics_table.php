@@ -22,8 +22,8 @@ class CreateOlympicsTable extends Migration
             $table->string('pdf_src');
             $table->timestamps();
 
-            $table->foreign('subject_id')->references('id')->on('subjects');
-            $table->foreign('sinf_id')->references('id')->on('sinfs');
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
+            $table->foreign('sinf_id')->references('id')->on('sinfs')->cascadeOnDelete();
 
         });
     }
