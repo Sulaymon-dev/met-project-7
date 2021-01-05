@@ -27,6 +27,7 @@ class CreateThemesTable extends Migration
             $table->timestamps();
 
             $table->foreign('plan_id')->references('id')->on('plans')->cascadeOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

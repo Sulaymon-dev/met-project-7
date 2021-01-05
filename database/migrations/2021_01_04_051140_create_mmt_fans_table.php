@@ -15,12 +15,9 @@ class CreateMmtFansTable extends Migration
     {
         Schema::create('mmt_fans', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('subject_id');
             $table->longText('test')->nullable();
             $table->string('pdf_src')->nullable();
             $table->timestamps();
-
-            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
         });
     }
 

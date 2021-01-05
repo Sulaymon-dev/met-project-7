@@ -16,12 +16,14 @@ class CreateMMTSTable extends Migration
         Schema::create('mmts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('mmt_fan_id');
+            $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('cluster_id');
             $table->enum('component', ['A', 'B', 'C']);
             $table->timestamps();
 
             $table->foreign('mmt_fan_id')->references('id')->on('mmt_fans')->cascadeOnDelete();
             $table->foreign('cluster_id')->references('id')->on('clusters')->cascadeOnDelete();
+            $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
         });
     }
 
