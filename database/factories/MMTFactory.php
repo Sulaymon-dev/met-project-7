@@ -13,3 +13,5 @@ $factory->define(MMT::class, function (Faker $faker) {
         'component' => $faker->randomElement(['a', 'b', 'c']),
     ];
 });
+
+
