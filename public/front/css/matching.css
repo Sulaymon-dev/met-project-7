@@ -1,0 +1,301 @@
+/* https://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/*html,*/
+/*body,*/
+/*div,*/
+/*span,*/
+/*applet,*/
+/*object,*/
+/*iframe,*/
+/*h1,*/
+/*h2,*/
+/*h3,*/
+/*h4,*/
+/*h5,*/
+/*h6,*/
+/*p,*/
+/*blockquote,*/
+/*pre,*/
+/*a,*/
+/*abbr,*/
+/*acronym,*/
+/*address,*/
+/*big,*/
+/*cite,*/
+/*code,*/
+/*del,*/
+/*dfn,*/
+/*em,*/
+/*img,*/
+/*ins,*/
+/*kbd,*/
+/*q,*/
+/*s,*/
+/*samp,*/
+/*small,*/
+/*strike,*/
+/*strong,*/
+/*sub,*/
+/*sup,*/
+/*tt,*/
+/*var,*/
+/*b,*/
+/*u,*/
+/*i,*/
+/*center,*/
+/*dl,*/
+/*dt,*/
+/*dd,*/
+/*ol,*/
+/*ul,*/
+/*li,*/
+/*fieldset,*/
+/*form,*/
+/*label,*/
+/*legend,*/
+/*table,*/
+/*caption,*/
+/*tbody,*/
+/*tfoot,*/
+/*thead,*/
+/*tr,*/
+/*th,*/
+/*td,*/
+/*article,*/
+/*aside,*/
+/*canvas,*/
+/*details,*/
+/*embed,*/
+/*figure,*/
+/*figcaption,*/
+/*footer,*/
+/*header,*/
+/*hgroup,*/
+/*menu,*/
+/*nav,*/
+/*output,*/
+/*ruby,*/
+/*section,*/
+/*summary,*/
+/*time,*/
+/*mark,*/
+/*audio,*/
+/*video {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  border: 0;*/
+/*  font-size: 100%;*/
+/*  font: inherit;*/
+/*  vertical-align: baseline;*/
+/*}*/
+/*!* HTML5 display-role reset for older browsers *!*/
+
+/*article,*/
+/*aside,*/
+/*details,*/
+/*figcaption,*/
+/*figure,*/
+/*footer,*/
+/*header,*/
+/*hgroup,*/
+/*menu,*/
+/*nav,*/
+/*section {*/
+/*  display: block;*/
+/*}*/
+
+/*body {*/
+/*  line-height: 1;*/
+/*}*/
+
+/*ol,*/
+/*ul {*/
+/*  list-style: none;*/
+/*}*/
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+style
+
+body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  ackground: #1D1F20;
+  background: #1D1F20;
+}
+
+.section1 {
+  position: relative;
+  /*top: 100px;*/
+  margin: 0 auto;
+  width: 960px;
+  height: 420px;
+}
+
+ul.upper {
+  list-style: none;
+  width: 240px;
+  font-size: 0.75em;
+  position: absolute;
+  /*padding: 10px;*/
+}
+
+ul.upper#terms {
+  left: 200px;
+  /*margin: 0 auto;*/
+}
+
+ul.upper#defs {
+  left: 500px;
+  /*margin: auto  ;*/
+}
+
+ul.upper#terms li {
+  background: #808080;
+  color: #ffffff;
+}
+
+ul.upper#defs li {
+  color: #808080
+}
+
+li.up {
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  background: white;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease-out;
+  border-radius: 0;
+  -webkit-box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 1);
+  box-shadow: 0 5px 10px 2px rgba(0, 0, 0, 1);
+}
+
+li.up:hover {
+  transform: scale(1.05, 1.05);
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 1);
+}
+
+li.up[data-selected] {
+  transform: scale(1.05, 1.05);
+  box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.75);
+  outline: 4px solid #00A0DF;
+}
+
+div#counter {
+  position: absolute;
+  left: 600px;
+  margin: 1rem;
+  font-size: 3em;
+  display: none;
+}
+
+ul.upper li.up span {
+  width: 100px;
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10px;
+  padding-top: 0;
+  transform: none;
+  transition: opacity 0.2s ease-out;
+}
+
+span:hover {
+  transform: none;
+}
+
+button {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  width: 100px;
+  height: 30px;
+  left: 640px;
+  bottom: 0px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-out;
+  background-color: #00A0DF;
+  border-radius: 3px;
+  border: none;
+  color: #fff;
+  -webkit-box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
+}
+
+button:hover {
+  background-color: #30BCF3;
+  cursor: pointer;
+}
+
+button:active {
+  box-shadow: none;
+  outline: none;
+  transform: scale(0.95, 0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+.descore{
+  background: black!important;
+  box-shadow: none;
+  color: #fff!important;
+  /*background: ;!important;*/
+  outline: 4px solid #ff0000;
+  border-radius: 15px;
+}
+
+.descore:hover {
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.score {
+  background: none!important;
+  box-shadow: none;
+  color: #fff!important;
+  background: #00A0DF!important;
+  border-radius: 15px;
+}
+
+.score:hover {
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.fadeOut li.upper span {
+  transition: opacity 0.25s ease-out;
+
+  opacity: 0;
+}
+
+.fadeOut li.upper {
+  transition: transform .5s ease-out;
+  transform: rotateX(360deg);
+}
