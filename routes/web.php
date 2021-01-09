@@ -17,11 +17,16 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+Route::prefix('/admin/')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+    Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
+    Route::resource('subjects', 'Admin\SubjectsController');
+});
+
 Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

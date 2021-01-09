@@ -17,6 +17,7 @@ class CreateSubjectsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
+            $table->string('image_src')->nullable();
             $table->boolean('is_mmt')->default(0);
             $table->boolean('status')->default(0);
             $table->timestamps();

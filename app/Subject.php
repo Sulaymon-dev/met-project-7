@@ -2,11 +2,14 @@
 
 namespace App;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
 
 class Subject extends Model
 {
-    protected $fillable = ['name', 'slug', 'is_mmt'];
+    use Sluggable;
+
+    protected $fillable = ['name', 'slug', 'is_mmt', 'status', 'image_src'];
 
     public function mmts()
     {
@@ -21,5 +24,15 @@ class Subject extends Model
     public function plans()
     {
         return $this->hasMany(Plan::class);
+    }
+
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
     }
 }
