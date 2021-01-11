@@ -1,4 +1,3 @@
-
 <header id="header-part" class="header-four">
 
     <div class="navigation">
@@ -9,7 +8,9 @@
                         <a class="navbar-brand" href="{{route('index')}}">
                             <img src="/front/images/logo.svg" alt="Logo" height=70px width=auto>
                         </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -18,22 +19,22 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
-                                    <a href="">ФАНҲО</a>
+                                    <a href="{{route('subjects')}}">ФАНҲО</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="">СИНФҲО</a>
+                                    <a href="{{route('class')}}">СИНФҲО</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="">БА ТАЛАБАҲО</a>
+                                    <a href="{{route('info')}}">БА ТАЛАБАҲО</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="">БА МУАЛЛИМОН</a>
+                                    <a href="{{route('info')}}">БА МУАЛЛИМОН</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="">БА ВОЛИДАЙН</a>
+                                    <a href="{{route('info')}}">БА ВОЛИДАЙН</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="">БА МАКТАБ</a>
+                                    <a href="{{route('info')}}">БА МАКТАБ</a>
                                 </li>
 
                             </ul>
