@@ -26,6 +26,15 @@ Route::prefix('/admin/')->group(function () {
 });
 
 Route::get('/', 'IndexController@index')->name('index');
+Route::get('/subjects', 'SubjectsController@index')->name('subjects');
+Route::get('/subject/{slug}', 'SubjectsController@show')->name('subject');
+
+Route::get('/class', 'SinfController@index')->name('class');
+
+
+Route::get('/for-pupil', function () {
+    return view('front.pages.info');
+})->name('info');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

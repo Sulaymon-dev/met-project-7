@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('front.layout')
 
 
 @section('style')
@@ -8,7 +8,7 @@
 @section('content')
 
     <!--====== SLIDER PART START ======-->
-    @include('pages.layouts.slider')
+    @include('front.layouts.slider')
     <!--====== SLIDER PART ENDS ======-->
 
     <!--====== CATEGORY PART START ======-->

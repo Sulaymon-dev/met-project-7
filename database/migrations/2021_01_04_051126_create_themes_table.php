@@ -17,6 +17,7 @@ class CreateThemesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('plan_id');
             $table->unsignedBigInteger('user_id');
+            $table->string('theme_num');
             $table->string('name');
             $table->text('introduction')->nullable();
             $table->string('video_src')->nullable();

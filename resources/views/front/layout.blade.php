@@ -50,14 +50,14 @@
 
 <body>
 <!--====== HEADER PART START ======-->
-@include('pages.layouts.header')
+@include('front.layouts.header')
 <!--====== HEADER PART ENDS ======-->
 
 @yield('content')
 
 
 <!--====== FOOTER PART START ======-->
-@include('pages/layouts/footer')
+@include('front/layouts/footer')
 <!--====== FOOTER PART ENDS ======-->
 
 <!--====== BACK TO TP PART START ======-->
