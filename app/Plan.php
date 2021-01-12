@@ -25,6 +25,6 @@ class Plan extends Model
 
     public function theme()
     {
-        return $this->hasOne(Theme::class);
+        return $this->hasMany(Theme::class);
     }
 }

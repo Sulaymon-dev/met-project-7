@@ -50,9 +50,10 @@
                                     @foreach($subjects as $subject)
                                         <div class="col-md-3">
                                             <div class="single-items text-center mt-30">
-                                                <a href="{{route('subject',['slug'=>$subject->slug])}}">
-                                                    {{--                                                <a href="{{route('subject', [ 'class'=>$subject->class, 'book'=>$subject->id])}}">--}}
-
+                                                <a href="{{route('subject',[
+                                                    'slug'=>$subject->slug,
+                                                    'sinf'=>$subject->plans()->pluck('sinf_id')->first()
+                                                ])}}">
 
                                                     <div class="items-image">
                                                         <img src="/storage/uploads/img/{{$subject->image_src}}"

@@ -53,6 +53,7 @@
         background: #fff; */
             color: white;
             background: #07294d;
+            pointer-events: none;
         }
 
         /* Add indicator arrow for the active tab */
@@ -78,111 +79,130 @@
 
     </style>
 
+    @if(sizeof($subject->plans)<=0)
+        <div class="reviews-cont">
+            <div class="instructor-description pt-25">
+                <p>
+                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд надорад...</h4>
+                </p>
+            </div>
+        </div>
 
-    <section class="py-5 header">
-        <div class="container py-4">
+    @else
 
-            <div class="row">
-                <div class="col-md-3">
-                    <!-- Tabs nav -->
-                    <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
-                         aria-orientation="vertical" style="color: #234565">
+        <section class="py-5 header">
+            <div class="container py-4">
 
-
-                        @foreach($subject->plans as $key=>$item)
-
-                            <a class="nav-link mb-3 p-3 shadow  {{($key==0)? $active = 'active' : $active = ''}}  "
-                               id="v-pills-home-tab" href="" role="tab" aria-controls="v-pills-home"
-                               aria-selected="true">
-                                <i class="fa fa-user-circle-o mr-2"></i>
-                                <span class="font-weight-bold small text-uppercase">Синфи {{$item->sinf->class}} </span></a>
-
-                        @endforeach
-
-
-                    </div>
-                </div>
-
-                <div class="col-md-9 shadow">
-
-                    <div class="courses-single-left mt-30">
+                <div class="row">
+                    <div class="col-md-3">
+                        <!-- Tabs nav -->
+                        <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
+                             aria-orientation="vertical" style="color: #234565">
 
 
-                        <div class="title">
-                            <h3> {{$subject->name}}</h3>
+                            @foreach($subject->plans as $key=>$item)
+
+                                <a class="nav-link mb-3 p-3 shadow  {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
+                                   id="v-pills-home-tab" href="{{route('subject',[
+                                                    'slug'=>$subject->slug,
+                                                    'sinf'=>$item->sinf_id
+                                                ])}}" role="tab"
+                                   aria-controls="v-pills-home"
+                                   aria-selected="true"
+                                >
+                                    <i class="fa fa-user-circle-o mr-2"></i>
+                                    <span
+                                        class="font-weight-bold small text-uppercase">Синфи {{$item->sinf->class}} </span></a>
+
+                            @endforeach
+
+
                         </div>
-                        <!-- title -->
+                    </div>
 
-                        <!-- course terms -->
+                    <div class="col-md-9 shadow">
 
-                        <div class="courses-tab mt-30">
-                            <div class="curriculum-cont">
-                                <div class="title">
-                                    <h6>СИНФИ 1</h6>
-                                </div>
-                                <div class="accordion" id="accordionExample">
+                        <div class="courses-single-left mt-30">
 
-                                    @foreach($subject->plans as $key=>$item)
-                                        <div class="card">
-                                            <div class="card-header" id="heading{{$key}}">
-                                                <a href="#" data-toggle="collapse"
-                                                   class=" {{($key==0) ? 'collapse' : 'collapsed'}} "
-                                                   data-target="#collapse{{$key}}" aria-expanded="true"
-                                                   aria-controls="collapse{{$key}}">
-                                                    <ul>
-                                                        <li><i class="fa fa-file-o"></i></li>
-                                                        <li><span class="lecture">МАВЗӮИ 1</span>
-                                                            {{--                                                        <li><span class="lecture">МАВЗӮИ {{$chapter->theme_num}}</span>--}}
-                                                        </li>
-                                                        <li><span class="head">{{$item->theme->name}}</span></li>
-                                                        <li><span class="time d-none d-md-block">
+
+                            <div class="title">
+                                <h3> {{$subject->name}}</h3>
+                            </div>
+                            <!-- title -->
+
+                            <!-- course terms -->
+
+                            <div class="courses-tab mt-30">
+                                <div class="curriculum-cont">
+                                    <div class="title">
+                                        <h6>СИНФИ {{$sinf}}</h6>
+                                    </div>
+                                    <div class="accordion" id="accordionExample">
+
+                                        @foreach($subject->plans as $key=>$item)
+                                            <div class="card">
+                                                <div class="card-header" id="heading{{$key}}">
+                                                    <a href="{{route('theme',['sinf'=>$item->sinf_id])}}"
+                                                       data-toggle="collapse"
+                                                       class=" {{($key==0) ? 'collapse' : 'collapsed'}} "
+                                                       data-target="#collapse{{$key}}" aria-expanded="true"
+                                                       aria-controls="collapse{{$key}}">
+                                                        <ul>
+                                                            <li><i class="fa fa-file-o"></i></li>
+                                                            <li><span class="lecture">МАВЗӮИ 1</span>
+                                                                {{--                                                        <li><span class="lecture">МАВЗӮИ {{$chapter->theme_num}}</span>--}}
+                                                            </li>
+                                                            <li><span class="head">{{$item->theme->name}}</span></li>
+                                                            <li><span class="time d-none d-md-block">
                                                                                                                         <!-- <span> 00.30.00</span> -->
                                                                                                                         </span>
 
-                                                        </li>
-                                                    </ul>
-                                                </a>
-                                            </div>
+                                                            </li>
+                                                        </ul>
+                                                    </a>
+                                                </div>
 
-                                            <div id="collapse{{$key}}"
-                                                 class="{{($key==0) ? 'collapse show' : 'collapse'}} "
-                                                 aria-labelledby="heading{{$key}}"
-                                                 data-parent="#accordionExample">
-                                                <div class="card-body">
-                                                    <p>{{$item->introduction}} <a
-                                                            href=""
-                                                            class="btn btn-primary stretched-link">Дидан</a>
-                                                    </p>
+                                                <div id="collapse{{$key}}"
+                                                     class="{{($key==0) ? 'collapse show' : 'collapse'}} "
+                                                     aria-labelledby="heading{{$key}}"
+                                                     data-parent="#accordionExample">
+                                                    <div class="card-body">
+                                                        <p>{{$item->introduction}} <a
+                                                                href=""
+                                                                class="btn btn-primary stretched-link">Дидан</a>
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                    @endforeach
+                                        @endforeach
+
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" id="myTabContent">
+
+                                    <div class="tab-pane fade active show" id="curriculum" role="tabpanel"
+                                         aria-labelledby="curriculum-tab">
+
+                                        <!-- curriculum cont -->
+                                    </div>
 
 
                                 </div>
+                                <!-- tab content -->
                             </div>
-
-                            <div class="tab-content" id="myTabContent">
-
-                                <div class="tab-pane fade active show" id="curriculum" role="tabpanel"
-                                     aria-labelledby="curriculum-tab">
-
-                                    <!-- curriculum cont -->
-                                </div>
-
-
-                            </div>
-                            <!-- tab content -->
                         </div>
+                        <!-- courses single left -->
+
+
                     </div>
-                    <!-- courses single left -->
-
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    @endif
 @endsection
 
 
