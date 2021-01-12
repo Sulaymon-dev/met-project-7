@@ -24,7 +24,7 @@ class SubjectsController extends Controller
     public function index()
     {
 //        $subjects = Subject::get();
-        $subjects = Subject::paginate(10);
+        $subjects = Subject::latest()->paginate(10);
 //        dd($subjects);
         return view('admin.subjects.index', compact('subjects'));
     }
@@ -49,23 +49,25 @@ class SubjectsController extends Controller
     {
         $data = $request->validate([
             'name' => 'required|string',
-            'is_mmt' => 'required|boolean',
             'status' => 'required|boolean',
-            'image' => 'nullable|file'
+            'image_src' => 'nullable|file'
         ]);
 
         try {
-            $image = $request->file('image');
-            $now = Carbon::now();
-            $filePath = '/uploads/img/' . Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.png';
-            $img = Image::make($image)->stream();
-            Storage::disk('public')->put($filePath, $img);
+            $image = $request->file('image_src');
+            if (!isset($image)) {
+                $data['image_src'] = null;
+            } else {
+                $now = Carbon::now();
+                $filePath = Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.' . $request->file('image_src')->getClientOriginalExtension();
+                $img = Image::make($image)->stream();
+                Storage::disk('public')->put('/uploads/img/' . $filePath, $img);
+            }
         } catch (\Exception $error) {
             $filePath = null;
         }
 
-//        $data['image_src'] = '/storage' . $filePath;
-        $data['image_src'] =  Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day .'.'. $request->file('image')->getClientOriginalExtension();
+        $data['image_src'] = $filePath;
 
         if (Subject::create($data)) {
             alert()->success('Фан бо муваффақият илова шуд', 'Илова шуд');
@@ -92,6 +94,7 @@ class SubjectsController extends Controller
      */
     public function edit(Subject $subject)
     {
+//        return  $subject;
         return view('admin.subjects.edit', compact('subject'));
     }
 
@@ -105,29 +108,32 @@ class SubjectsController extends Controller
     public function update(Request $request, Subject $subject)
     {
         $data = $request->validate([
-            'label' => 'required|string',
-            'slug' => 'required|string',
-            'class' => 'required|numeric',
-            'type' => 'required|numeric',
+            'name' => 'required|string',
             'status' => 'required|boolean',
+            'image_src' => 'nullable|file'
         ]);
 
+
         try {
-            $image = $request->file('image');
-            $now = Carbon::now();
-            $filePath = '/uploads/img/' . Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.png';
-            $img = Image::make($image)->stream();
-            Storage::disk('public')->put($filePath, $img);
-            $data['images'] = '/storage' . $filePath;
-            Storage::disk('public')->delete(str_replace('/storage', "", $subject->images));
+            $image = $request->file('image_src');
+            if (!isset($image)) {
+                $data['image_src'] = null;
+            } else {
+                $now = Carbon::now();
+                $filePath = Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.' . $request->file('image_src')->getClientOriginalExtension();
+                $img = Image::make($image)->stream();
+                Storage::disk('public')->put('/uploads/img/' . $filePath, $img);
+                $data['image_src'] = $filePath;
+                Storage::disk('public')->delete('/uploads/img/' . $subject->image_src);
+            }
         } catch (\Exception $error) {
-            $data['images'] = $subject->images;
+            $data['image_src'] = $subject->images;
         }
 
         if ($subject->update($data)) {
+            alert()->success('Фан бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
             return redirect(route('subjects.index'));
         }
-
     }
 
     /**
@@ -151,18 +157,6 @@ class SubjectsController extends Controller
             ], 401);
         }
 
-
-//        if ($subject->delete()) {
-//            return response()->json([
-//                'status' => 'ok',
-//                'message' => 'subject deleted successfully'
-//            ], 200);
-//        } else {
-//            return response()->json([
-//                'status' => 'error',
-//                'message' => 'something error'
-//            ], 401);
-//        }
     }
 
     public function makePdf()

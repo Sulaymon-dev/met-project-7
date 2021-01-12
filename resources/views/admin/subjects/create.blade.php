@@ -27,29 +27,11 @@
                                 </div>
 
                                 <div class="row">
-
-                                    <div class="col-sm-6">
-                                        <div class="form-group row">
-                                            <label class="col-md-6 col-form-label">Ба олимпиада тааллуқ дорад?</label>
-                                            <div class="col-md-6 col-form-label">
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="active1" type="radio" value="1"
-                                                           name="is_mmt" checked>
-                                                    <label class="form-check-label" for="active1">Ҳа</label>
-                                                </div>
-                                                <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" id="inactive2" type="radio" value="0"
-                                                           name="is_mmt">
-                                                    <label class="form-check-label" for="inactive2">Не</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-3">
                                         <div class="form-group row d-flex align-items-baseline">
                                             <label class="col-md-3 col-form-label" for="image">Акс : </label>
                                             <div class="col-md-9">
-                                                <input class="" type="file" name="image" id="image">
+                                                <input class="" type="file" name="image_src" id="image">
                                             </div>
                                         </div>
                                     </div>
