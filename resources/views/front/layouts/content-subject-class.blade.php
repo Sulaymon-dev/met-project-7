@@ -1,0 +1,43 @@
+<div class="courses-single-left " style="padding: 30px 50px;">
+    @if(sizeof($theme)<=0)
+        <div class="reviews-cont">
+            <div class="instructor-description pt-25">
+                <p>
+                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд
+                    надорад...</h4>
+                </p>
+            </div>
+        </div>
+    @else
+
+
+        <div class="category-2-items">
+            <div class="row">
+                @foreach($theme as $item)
+{{--                    {{dd($item->subject)}}--}}
+                    <div class="col-md-6">
+                        <div class="single-items text-center mt-30 ">
+                            <a href="{{route('subject',[
+                                                    'slug'=>$item->subject->slug,
+                                                    'sinf'=>$item->subject->plans()->pluck('sinf_id')->first()
+                                                ])}}">
+                                <div class="items-image">
+                                    <img src="/storage/uploads/img/{{$item->book->img_src}}" width="372px"
+                                         height="145px" alt="Category">
+                                </div>
+                                <div class="items-cont">
+                                    <h5>Meredith Halvorson</h5>
+                                    <span>{{$item->theme_count}} мавзӯъҳо</span>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- single items -->
+                    </div>
+                @endforeach
+            </div>
+            <!-- row -->
+        </div>
+
+    @endif
+</div>
+<!-- courses single left -->

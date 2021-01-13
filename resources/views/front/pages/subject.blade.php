@@ -7,7 +7,7 @@
 
 @section('content')
     <section id="page-banner" class="pt-10 pb-10 bg_cover" data-overlay="8"
-             style="background-image: url(images/page-banner-1.jpg)">
+             style="background-image: url('../front/images/page-banner-1.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -27,6 +27,7 @@
         </div>
         <!-- container -->
     </section>
+
 
 
     <!--====== FAQ PART START ======-->
@@ -83,7 +84,8 @@
         <div class="reviews-cont">
             <div class="instructor-description pt-25">
                 <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд надорад...</h4>
+                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд
+                    надорад...</h4>
                 </p>
             </div>
         </div>
@@ -100,7 +102,10 @@
                              aria-orientation="vertical" style="color: #234565">
 
 
+{{--                            {{dd( $subject->plans)}}--}}
+
                             @foreach($subject->plans as $key=>$item)
+
 
                                 <a class="nav-link mb-3 p-3 shadow  {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
                                    id="v-pills-home-tab" href="{{route('subject',[
@@ -137,48 +142,9 @@
                                     <div class="title">
                                         <h6>СИНФИ {{$sinf}}</h6>
                                     </div>
-                                    <div class="accordion" id="accordionExample">
 
-                                        @foreach($subject->plans as $key=>$item)
-                                            <div class="card">
-                                                <div class="card-header" id="heading{{$key}}">
-                                                    <a href="{{route('theme',['sinf'=>$item->sinf_id])}}"
-                                                       data-toggle="collapse"
-                                                       class=" {{($key==0) ? 'collapse' : 'collapsed'}} "
-                                                       data-target="#collapse{{$key}}" aria-expanded="true"
-                                                       aria-controls="collapse{{$key}}">
-                                                        <ul>
-                                                            <li><i class="fa fa-file-o"></i></li>
-                                                            <li><span class="lecture">МАВЗӮИ 1</span>
-                                                                {{--                                                        <li><span class="lecture">МАВЗӮИ {{$chapter->theme_num}}</span>--}}
-                                                            </li>
-                                                            <li><span class="head">{{$item->theme->name}}</span></li>
-                                                            <li><span class="time d-none d-md-block">
-                                                                                                                        <!-- <span> 00.30.00</span> -->
-                                                                                                                        </span>
+                                    @include('front\layouts\content-subject', ['theme'=>$theme])
 
-                                                            </li>
-                                                        </ul>
-                                                    </a>
-                                                </div>
-
-                                                <div id="collapse{{$key}}"
-                                                     class="{{($key==0) ? 'collapse show' : 'collapse'}} "
-                                                     aria-labelledby="heading{{$key}}"
-                                                     data-parent="#accordionExample">
-                                                    <div class="card-body">
-                                                        <p>{{$item->introduction}} <a
-                                                                href=""
-                                                                class="btn btn-primary stretched-link">Дидан</a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        @endforeach
-
-
-                                    </div>
                                 </div>
 
                                 <div class="tab-content" id="myTabContent">

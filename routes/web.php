@@ -28,9 +28,10 @@ Route::prefix('/admin/')->group(function () {
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/subjects', 'SubjectsController@index')->name('subjects');
 Route::get('/subject/{slug}', 'SubjectsController@show')->name('subject');
-Route::get('/theme/{sinf}', 'SubjectsController@show')->name('theme');
 
-Route::get('/class', 'SinfController@index')->name('class');
+Route::get('/class', 'SubjectsController@sinf')->name('class');
+
+Route::get('/theme/{slug}', 'SubjectsController@theme')->name('theme');
 
 
 Route::get('/for-pupil', function () {
