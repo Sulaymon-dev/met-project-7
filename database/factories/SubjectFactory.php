@@ -9,7 +9,6 @@ $factory->define(Subject::class, function (Faker $faker) {
     return [
         'name'=>$faker->name,
         'slug'=>$faker->slug,
-        'is_mmt'=>$faker->numberBetween(0,1),
         'status'=>$faker->numberBetween(0,1),
     ];
 });

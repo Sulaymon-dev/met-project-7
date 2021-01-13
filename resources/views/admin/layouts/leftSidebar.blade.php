@@ -11,6 +11,21 @@
 
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Синфҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sinfs.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати синфҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sinfs.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Синфи нав</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="nav-icon icon-puzzle"></i> Фанҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">

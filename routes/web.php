@@ -23,6 +23,7 @@ Route::prefix('/admin/')->group(function () {
     });
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
+    Route::resource('sinfs', 'Admin\SinfsController');
 });
 
 Route::get('/', 'IndexController@index')->name('index');

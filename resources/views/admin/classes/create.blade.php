@@ -10,45 +10,24 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                        <form action="{{route('subjects.store')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{route('sinfs.store')}}" method="post">
                             @csrf
                             <div class="card-header">
-                                Иловаи <strong> фанни </strong> нав
+                                Иловаи <strong> синфи </strong> нав
                             </div>
                             <div class="card-body">
 
                                 <div class="form-group">
-                                    <label class="form-col-form-label" for="name">Номи Фан :</label>
+                                    <label class="form-col-form-label" for="name">Синф :</label>
                                     <input class="form-control @error('label') is-invalid @enderror" id="name"
                                            type="text" name="label" value="{{old('label')}}">
                                     @error('label')
-                                    <div class="invalid-feedback">Лутфан номи фанро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан номи синфро ворид намоед</div>
                                     @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-col-form-label" for="inputError1">Номи Фан (бо англисӣ): </label>
-                                    <input class="form-control @error('slug') is-invalid @enderror" id="inputError1"
-                                           type="text" name="slug" value="{{old('slug')}}">
-                                    @error('slug')
-                                    <div class="invalid-feedback">Лутфан номи фанро ворид намоед</div>
-                                    @enderror
-                                </div>
-                                <div class="row">
-
-
-                                    <div class="col-sm-3">
-                                        <div class="form-group row d-flex align-items-baseline">
-                                            <label class="col-md-3 col-form-label" for="image">Акс : </label>
-                                            <div class="col-md-9">
-                                                <input class="" type="file" name="image" id="image">
-                                            </div>
-                                        </div>
-                                    </div>
-
                                 </div>
 
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Ваъият</label>
+                                    <label class="col-md-3 col-form-label">Ваъият : </label>
                                     <div class="col-md-9 col-form-label">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" id="active" type="radio" value="1"
