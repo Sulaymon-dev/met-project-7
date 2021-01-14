@@ -110,24 +110,22 @@ class SubjectsController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'status' => 'required|boolean',
-            'image_src' => 'nullable|file'
+            'image_src' => 'nullable|file',
+            'saveOldImage' => 'nullable|boolean'
         ]);
+        $image = $request->file('image_src');
 
-
-        try {
-            $image = $request->file('image_src');
-            if (!isset($image)) {
-                $data['image_src'] = null;
-            } else {
-                $now = Carbon::now();
-                $filePath = Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.' . $request->file('image_src')->getClientOriginalExtension();
-                $img = Image::make($image)->stream();
-                Storage::disk('public')->put('/uploads/img/' . $filePath, $img);
-                $data['image_src'] = $filePath;
-                Storage::disk('public')->delete('/uploads/img/' . $subject->image_src);
-            }
-        } catch (\Exception $error) {
-            $data['image_src'] = $subject->images;
+        if (isset($data['saveOldImage']) && $data['saveOldImage'] == '1') {
+            $data['image_src'] = $subject->image_src;
+        } elseif (!isset($image)) {
+            $data['image_src'] = null;
+        } else {
+            $now = Carbon::now();
+            $filePath = Str::random(5) . '-' . $now->year . '-' . $now->month . '-' . $now->day . '.' . $request->file('image_src')->getClientOriginalExtension();
+            $img = Image::make($image)->stream();
+            Storage::disk('public')->put('/uploads/img/' . $filePath, $img);
+            $data['image_src'] = $filePath;
+            Storage::disk('public')->delete('/uploads/img/' . $subject->image_src);
         }
 
         if ($subject->update($data)) {

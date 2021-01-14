@@ -36,6 +36,13 @@
                                             <label class="col-md-4 col-form-label" for="image">Ивази акс : </label>
                                             <div class="col-md-8">
                                                 <input class="" type="file" name="image_src" id="image">
+                                                @if(isset($subject->image_src))
+                                                    <label for="oldImage">
+                                                        <input value="1" type="checkbox" name="saveOldImage"
+                                                               id="oldImage">
+                                                        Акси Кӯҳнаро нигоҳ дор
+                                                    </label>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
