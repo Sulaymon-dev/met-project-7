@@ -5,7 +5,8 @@
         <div class="reviews-cont">
             <div class="instructor-description pt-25">
                 <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар синфи зерин маводи чунин фан вуҷуд
+                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар синфи зерин маводи чунин фан
+                    вуҷуд
                     надорад...</h4>
                 </p>
             </div>
@@ -36,9 +37,10 @@
                      aria-labelledby="heading{{$key}}"
                      data-parent="#accordionExample">
                     <div class="card-body">
-                        <p>{{$item->introduction}} <a
-                                href="#"
-                                class="btn btn-primary stretched-link">Дидан</a>
+                        <p>{{Illuminate\Support\Str::limit($item->introduction , 70, ' ...')}}
+                            <a href="{{route('theme',['id'=> $item->id,'content'=>'123'])}}"
+                               class="btn btn-met stretched-link"
+                               style="float: right;">Дидан</a>
                         </p>
                     </div>
                 </div>

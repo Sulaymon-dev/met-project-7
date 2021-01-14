@@ -45,6 +45,9 @@
     <!--====== Responsive css ======-->
     <link rel="stylesheet" href="/front/css/responsive.css">
 
+
+    <link rel="stylesheet" href="/front/css/my.css">
+
     @yield('style')
 </head>
 

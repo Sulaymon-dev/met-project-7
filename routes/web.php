@@ -32,7 +32,7 @@ Route::get('/subject/{slug}', 'SubjectsController@show')->name('subject');
 
 Route::get('/class', 'SubjectsController@sinf')->name('class');
 
-Route::get('/theme/{slug}', 'SubjectsController@theme')->name('theme');
+Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
 
 
 Route::get('/for-pupil', function () {

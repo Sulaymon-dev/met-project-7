@@ -101,11 +101,7 @@
                         <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
                              aria-orientation="vertical" style="color: #234565">
 
-
-{{--                            {{dd( $subject->plans)}}--}}
-
                             @foreach($subject->plans as $key=>$item)
-
 
                                 <a class="nav-link mb-3 p-3 shadow  {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
                                    id="v-pills-home-tab" href="{{route('subject',[
@@ -129,9 +125,8 @@
 
                         <div class="courses-single-left mt-30">
 
-
                             <div class="title">
-                                <h3> {{$subject->name}}</h3>
+                                <h3> {{$theme->book->name}}</h3>
                             </div>
                             <!-- title -->
 

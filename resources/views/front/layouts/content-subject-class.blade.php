@@ -19,14 +19,14 @@
                         <div class="single-items text-center mt-30 ">
                             <a href="{{route('subject',[
                                                     'slug'=>$item->subject->slug,
-                                                    'sinf'=>$item->subject->plans()->pluck('sinf_id')->first()
+                                                    'sinf'=>$sinf
                                                 ])}}">
                                 <div class="items-image">
                                     <img src="/storage/uploads/img/{{$item->book->img_src}}" width="372px"
                                          height="145px" alt="Category">
                                 </div>
                                 <div class="items-cont">
-                                    <h5>Meredith Halvorson</h5>
+                                    <h5>{{$item->book->name}}</h5>
                                     <span>{{$item->theme_count}} мавзӯъҳо</span>
                                 </div>
                             </a>

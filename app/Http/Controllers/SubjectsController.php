@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Plan;
 use App\Sinf;
 use App\Subject;
+use App\Theme;
 use Illuminate\Http\Request;
 
 class SubjectsController extends Controller
@@ -23,8 +24,9 @@ class SubjectsController extends Controller
 
         ($request->query('sinf')) ? $sinf = $request->query('sinf') : $sinf = 1;
 
-        $theme = Plan::where('sinf_id', $sinf)->where('subject_id', $subject->id)->with('theme')->first();
+        $theme = Plan::where('sinf_id', $sinf)->where('subject_id', $subject->id)->with(['theme', 'book'])->first();
 
+//        return $theme;
 
         return view('front.pages.subject', compact(['subject', 'sinf', 'theme']));
     }
@@ -35,20 +37,27 @@ class SubjectsController extends Controller
         ($request->query('id')) ? $sinf = $request->query('id') : $sinf = 1;
 
 
-
         $class = Sinf::where('status', 1)->get()->sortBy("class");
 
-        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf','subject')->withCount('theme')->get();
+        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('theme')->get();
 
 //        return $theme;
 
         return view('front.pages.subject-class', compact(['theme', 'class', 'sinf']));
     }
 
-    public function theme($slug)
+    public function theme($id, Request $request)
     {
 
+        $theme = Theme::where('id', $id)->with(['plan.book', 'plan.sinf', 'plan.subject'])->first();
 
+        ($request->query('content')) ? $content = $request->query('content') : $content = 'dars';
+
+        $path = '';
+
+//        return $theme;
+
+        return view('front.pages.theme', compact(['theme', 'path', 'content']));
 
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8f83efda1f404f5da9042e9177eef6f3",
+    "content-hash": "2cc52b43028343506dcd981ffbda410c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -997,6 +997,44 @@
                 }
             ],
             "time": "2020-04-28T08:47:37+00:00"
+        },
+        {
+            "name": "goodnesskay/laravelpdfviewer",
+            "version": "v1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/goodnesskay/LARAVEL-PDF-VIEWER.git",
+                "reference": "f0808b98aab3c3dc080847e22ee7cc614bb6ed19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/goodnesskay/LARAVEL-PDF-VIEWER/zipball/f0808b98aab3c3dc080847e22ee7cc614bb6ed19",
+                "reference": "f0808b98aab3c3dc080847e22ee7cc614bb6ed19",
+                "shasum": ""
+            },
+            "type": "laravel-package",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Goodness Toluwanimi Kayode",
+                    "email": "gtkbrain@gmail.com"
+                }
+            ],
+            "description": "A Laravel Package for viewing PDF files or documents on Web App",
+            "keywords": [
+                "ViewerJS",
+                "laravel",
+                "laravel-viewerJS",
+                "pdf-viewer"
+            ],
+            "support": {
+                "issues": "https://github.com/goodnesskay/LARAVEL-PDF-VIEWER/issues",
+                "source": "https://github.com/goodnesskay/LARAVEL-PDF-VIEWER/tree/master"
+            },
+            "time": "2017-05-23T07:24:26+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

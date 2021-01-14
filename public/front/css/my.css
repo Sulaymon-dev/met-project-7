@@ -1,0 +1,28 @@
+.btn-met {
+    color: #fff;
+    background-color: #07294d;
+    border-color: #07294d;
+}
+
+.btn-met:hover {
+     color: #07294d;
+     background-color: #ffc600;
+     border-color: #07294d;
+}
+
+.overview-description {
+    padding: 25px 30px 25px;
+}
+.theme-category   {
+    color: #ffc600;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.theme-category:hover{
+    color: #07294d;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
