@@ -38,6 +38,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Китобҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('books.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати китобҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('books.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Китоби нав</a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
     </nav>
