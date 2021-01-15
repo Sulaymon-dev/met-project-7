@@ -24,6 +24,12 @@ Route::prefix('/admin/')->group(function () {
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::resource('sinfs', 'Admin\SinfsController');
+    Route::resource('books', 'Admin\BooksController');
+});
+
+Route::get('logout', function (){
+    Auth::logout();
+    return view('auth.login');
 });
 
 Route::get('/', 'IndexController@index')->name('index');

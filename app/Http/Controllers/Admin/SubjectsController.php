@@ -143,6 +143,7 @@ class SubjectsController extends Controller
     public function destroy(Subject $subject)
     {
         try {
+            Storage::delete('/public/uploads/img/'.$subject->image_src);
             $subject->delete();
             return response()->json([
                 'status' => 'ok',
