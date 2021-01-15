@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
 
-                                @if(in_array(auth()->user()->role,['admin','moderator']))
+                                @if(in_array(auth()->user()->role,['admin','moderator','superadmin']))
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Ваъият : </label>
                                         <div class="col-md-9 col-form-label">

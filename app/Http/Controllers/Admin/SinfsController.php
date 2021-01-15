@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class SinfsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isAdmin', ['except' => ['index']]);
+    }
 
     /**
      * Display a listing of the resource.

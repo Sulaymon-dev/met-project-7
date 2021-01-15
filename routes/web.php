@@ -25,6 +25,7 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::resource('sinfs', 'Admin\SinfsController');
     Route::resource('books', 'Admin\BooksController');
+    Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 
 Route::get('/logout', function () {

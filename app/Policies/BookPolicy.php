@@ -41,7 +41,7 @@ class BookPolicy
      */
     public function create(User $user)
     {
-        return $user->role == 'admin' || $user->role == 'teacher';
+        return in_array($user->role, ['admin', 'superadmin', 'teacher']);
     }
 
     /**
@@ -56,7 +56,7 @@ class BookPolicy
         if ($user->role == 'teacher') {
             return $user->id == $book->user_id;
         }
-        return $user->role == 'admin' || $user->role == 'moderator';
+        return in_array($user->role, ['admin', 'superadmin', 'moderator']);
     }
 
     /**
@@ -71,7 +71,8 @@ class BookPolicy
         if ($user->role == 'teacher') {
             return $user->id = $book->user_id;
         }
-        return $user->role == 'admin';
+        return in_array($user->role, ['admin', 'superadmin']);
+
     }
 
     /**

@@ -78,7 +78,7 @@
                                     </div>
                                 </div>
 
-                                @if(in_array($role,['admin','teacher']))
+                                @if(in_array($role,['admin','teacher','superadmin']))
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Нашр шавад ? </label>
                                         <div class="col-md-9 col-form-label">
@@ -96,7 +96,7 @@
                                     </div>
                                 @endif
 
-                                @if(in_array($role,['admin','moderator']))
+                                @if(in_array($role,['admin','moderator','superadmin']))
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label">Ваъият</label>
                                         <div class="col-md-9 col-form-label">

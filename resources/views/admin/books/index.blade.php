@@ -43,7 +43,7 @@
                                             <a class="btn btn-primary"
                                                href="{{route('books.edit',$book->id)}}"><i
                                                     class="fa fa-edit"></i></a>
-                                            @if(in_array(auth()->user()->role,['admin','teacher']))
+                                            @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
                                                 <a class="btn btn-danger"
                                                    onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
                                                         class="fa fa-trash-o"></i></a>

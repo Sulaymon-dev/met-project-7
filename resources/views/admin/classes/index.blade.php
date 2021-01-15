@@ -25,7 +25,9 @@
                                     <th>ID</th>
                                     <th>Синф</th>
                                     <th>Статус</th>
-                                    <th>Амал</th>
+                                    @if(in_array(auth()->user()->role,['admin','superadmin'] ))
+                                        <th>Амал</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -36,14 +38,16 @@
                                         <td>{{$sinf->class}}</td>
                                         <td>{!!  $sinf->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('sinfs.edit',$sinf->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            <a class="btn btn-danger"
-                                               onclick="deleteSubjectHandler(event,{{$sinf->id}})"> <i
-                                                    class="fa fa-trash-o"></i></a>
-                                        </td>
+                                        @if(in_array(auth()->user()->role,['admin','superadmin'] ))
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('sinfs.edit',$sinf->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                <a class="btn btn-danger"
+                                                   onclick="deleteSubjectHandler(event,{{$sinf->id}})"> <i
+                                                        class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
