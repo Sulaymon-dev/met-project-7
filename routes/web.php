@@ -26,6 +26,11 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('sinfs', 'Admin\SinfsController');
 });
 
+Route::get('logout', function (){
+    Auth::logout();
+    return view('auth.login');
+});
+
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/subjects', 'SubjectsController@index')->name('subjects');
 Route::get('/subject/{slug}', 'SubjectsController@show')->name('subject');
