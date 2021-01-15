@@ -52,23 +52,43 @@
                                     </div>
                                 </div>
 
-
                                 <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Ваъият : </label>
+                                    <label class="col-md-3 col-form-label">Нашр шавад ? </label>
                                     <div class="col-md-9 col-form-label">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="active" type="radio" value="1"
-                                                   name="status" checked>
-                                            <label class="form-check-label" for="active">Фаъол</label>
+                                            <input class="form-check-input" id="publish" type="radio" value="1"
+                                                   name="is_show" checked>
+                                            <label class="form-check-label" for="publish">Ҳа</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="inactive" type="radio" value="0"
-                                                   name="status">
-                                            <label class="form-check-label" for="inactive">Ғайрифаъол</label>
+                                            <input class="form-check-input" id="unpablish" type="radio" value="0"
+                                                   name="is_show">
+                                            <label class="form-check-label" for="unpablish">Не</label>
                                         </div>
                                     </div>
                                 </div>
+
+                                @if(in_array(auth()->user()->role,['admin','moderator']))
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Ваъият : </label>
+                                        <div class="col-md-9 col-form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="active" type="radio" value="1"
+                                                       name="status" checked>
+                                                <label class="form-check-label" for="active">Фаъол</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="inactive" type="radio" value="0"
+                                                       name="status">
+                                                <label class="form-check-label" for="inactive">Ғайрифаъол</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
                             </div>
+
+
                             <div class="card-footer">
                                 <button class="btn btn-sm btn-success" type="submit">
                                     <i class="fa fa-dot-circle-o"></i> OK

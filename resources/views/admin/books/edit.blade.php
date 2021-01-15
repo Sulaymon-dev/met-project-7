@@ -19,6 +19,7 @@
                                 <div class="form-group">
                                     <label class="form-col-form-label" for="name">Ном :</label>
                                     <input class="form-control @error('name') is-invalid @enderror" id="name"
+                                           {{$role == 'moderator' ? 'disabled':''}}
                                            type="text" name="name" value="{{$book->name ?? old('name')}}">
                                     @error('name')
                                     <div class="invalid-feedback">Лутфан номи Китобро ворид намоед</div>
@@ -31,11 +32,14 @@
                                         <div class="form-group row d-flex align-items-baseline">
                                             <label class="col-md-3 col-form-label" for="image">Файли китоб : </label>
                                             <div class="col-md-9">
-                                                <input class="" type="file" name="pdf" id="pdf">
+                                                <input class="" type="file" name="pdf" id="pdf"
+                                                    {{$role == 'moderator' ? 'disabled':''}}
+                                                >
                                                 @if(isset($book->pdf_src))
                                                     <label for="oldPdf">
-                                                        <input value="1" type="checkbox" name="saveOldPdf"
-                                                               id="oldPdf">
+                                                        <input value="1" type="checkbox" checked name="saveOldPdf"
+                                                               id="oldPdf" {{$role == 'moderator' ? 'disabled':''}}
+                                                        >
                                                         Китоби кӯҳнаро нигоҳ дор
                                                     </label>
                                                 @endif
@@ -55,10 +59,13 @@
                                         <div class="form-group row d-flex align-items-baseline">
                                             <label class="col-md-3 col-form-label" for="image">Акс : </label>
                                             <div class="col-md-9">
-                                                <input class="" type="file" name="image" id="image">
+                                                <input class="" type="file" name="image"
+                                                       id="image" {{$role == 'moderator' ? 'disabled':''}}
+                                                >
                                                 @if(isset($book->img_src))
                                                     <label for="oldImage">
-                                                        <input value="1" type="checkbox" name="saveOldImage"
+                                                        <input value="1" type="checkbox" name="saveOldImage" checked
+                                                               {{$role == 'moderator' ? 'disabled':''}}
                                                                id="oldImage">
                                                         Акси Кӯҳнаро нигоҳ дор
                                                     </label>
@@ -71,22 +78,41 @@
                                     </div>
                                 </div>
 
-
-                                <div class="form-group row">
-                                    <label class="col-md-3 col-form-label">Ваъият</label>
-                                    <div class="col-md-9 col-form-label">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="active" type="radio" value="1"
-                                                   name="status" {{$book->status == 1 ? 'checked' :''}}>
-                                            <label class="form-check-label" for="active">Фаъол</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" id="inactive" type="radio" value="0"
-                                                   name="status"{{$book->status == 0 ? 'checked' :''}}>
-                                            <label class="form-check-label" for="inactive">Ғайрифаъол</label>
+                                @if(in_array($role,['admin','teacher']))
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Нашр шавад ? </label>
+                                        <div class="col-md-9 col-form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="publish" type="radio" value="1"
+                                                       name="is_show" {{$book->is_show == 1 ? 'checked' :''}}>
+                                                <label class="form-check-label" for="publish">Ҳа</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="unpablish" type="radio" value="0"
+                                                       name="is_show" {{$book->is_show == 0 ? 'checked' :''}}>
+                                                <label class="form-check-label" for="unpablish">Не</label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
+
+                                @if(in_array($role,['admin','moderator']))
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label">Ваъият</label>
+                                        <div class="col-md-9 col-form-label">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="active" type="radio" value="1"
+                                                       name="status" {{$book->status == 1 ? 'checked' :''}}>
+                                                <label class="form-check-label" for="active">Фаъол</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" id="inactive" type="radio" value="0"
+                                                       name="status"{{$book->status == 0 ? 'checked' :''}}>
+                                                <label class="form-check-label" for="inactive">Ғайрифаъол</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
                             <div class="card-footer">
                                 <button class="btn btn-sm btn-success" type="submit">

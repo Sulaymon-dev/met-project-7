@@ -35,16 +35,19 @@
                                         <td class="w-25"><img
                                                 style="max-width: 100%"
                                                 src="/storage/uploads/img/{{$book->img_src}}" alt=""></td>
-                                        <td><a class="text-black" href="/storage/uploads/pdf/{{$book->pdf_src}}">{{$book->name}}</a></td>
+                                        <td><a class="text-black"
+                                               href="/storage/uploads/pdf/{{$book->pdf_src}}">{{$book->name}}</a></td>
                                         <td>{!!  $book->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
                                         <td>
                                             <a class="btn btn-primary"
                                                href="{{route('books.edit',$book->id)}}"><i
                                                     class="fa fa-edit"></i></a>
-                                            <a class="btn btn-danger"
-                                               onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
-                                                    class="fa fa-trash-o"></i></a>
+                                            @if(in_array(auth()->user()->role,['admin','teacher']))
+                                                <a class="btn btn-danger"
+                                                   onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
+                                                        class="fa fa-trash-o"></i></a>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach

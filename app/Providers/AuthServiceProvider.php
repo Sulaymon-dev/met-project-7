@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Book;
+use App\Policies\BookPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Laravel\Passport\Passport;
 
@@ -14,7 +16,8 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
-    ];
+        Book::class => BookPolicy::class
+        ];
 
     /**
      * Register any authentication / authorization services.

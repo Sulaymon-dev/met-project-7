@@ -9,7 +9,7 @@ class Book extends Model
 {
     use Sluggable;
 
-    protected $fillable = ['name', 'img_src', 'pdf_src', 'slug','status'];
+    protected $fillable = ['name', 'user_id', 'img_src', 'pdf_src', 'slug', 'status', 'is_show'];
 
     public function plans()
     {

@@ -27,9 +27,9 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('books', 'Admin\BooksController');
 });
 
-Route::get('logout', function (){
+Route::get('/logout', function () {
     Auth::logout();
-    return view('auth.login');
+    return view('login');
 });
 
 Route::get('/', 'IndexController@index')->name('index');

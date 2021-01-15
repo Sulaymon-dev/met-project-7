@@ -16,6 +16,11 @@ class SubjectsController extends Controller
 {
 
 
+    public function __construct()
+    {
+        $this->middleware('isAdmin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -143,7 +148,7 @@ class SubjectsController extends Controller
     public function destroy(Subject $subject)
     {
         try {
-            Storage::delete('/public/uploads/img/'.$subject->image_src);
+            Storage::delete('/public/uploads/img/' . $subject->image_src);
             $subject->delete();
             return response()->json([
                 'status' => 'ok',
