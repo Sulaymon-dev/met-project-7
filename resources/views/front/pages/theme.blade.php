@@ -7,13 +7,13 @@
 
 @section('content')
 
-    {{--    @if($test!=null)--}}
-    {{--        <link rel="stylesheet" href="/front{{$test->style}}">--}}
+    @if($test!=null)
+        <link rel="stylesheet" href="/front{{$test['style']}}">
 
-    {{--        <script>--}}
-    {{--            --}}{{--window.crosswordData = {{@json($test->data)}};--}}
-    {{--        </script>--}}
-    {{--    @endif--}}
+        <script>
+            window.crosswordData = <?= json_encode($test['data'])?>
+        </script>
+    @endif
 
 
     <section id="page-banner" class="pt-10 pb-10 bg_cover" data-overlay="8"
@@ -118,13 +118,13 @@
                         <li>
                             <div>
                                 <span><a href="{{route('theme',['id'=> $theme->id,'content'=>'conspect'])}}"
-                                         class="theme-category">Конспект</a> </span>
+                                         class="theme-category slash">Конспект</a> </span>
                             </div>
                         </li>
                         <li>
                             <div>
                                 <span><a href="{{route('theme',['id'=> $theme->id,'content'=>'moreInfo'])}}"
-                                         class="theme-category">Маводи иловагӣ</a> </span>
+                                         class="theme-category slash">Маводи иловагӣ</a> </span>
                             </div>
                         </li>
                     </ul>
@@ -148,15 +148,17 @@
                     </div>
                 @elseif($content == 'moreInfo')
 
-                    @if(substr($theme->plan->book->pdf_src,-4)==='.pdf')
-                        <iframe
-                            src="{{asset('laraview/#../storage/uploads/pdf/'.$theme->plan->book->pdf_src)}}"
-                            width="100%"
-                            height="600px"></iframe>
-                    @else
-                        <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                            қарор дорад...</h4>
-                    @endif
+                    <div class="courses-tab mt-30">
+                        @if(substr($theme->plan->book->pdf_src,-4)==='.pdf')
+                            <iframe
+                                src="{{asset('laraview/#../storage/uploads/pdf/'.$theme->plan->book->pdf_src)}}"
+                                width="100%"
+                                height="600px"></iframe>
+                        @else
+                            <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
+                                қарор дорад...</h4>
+                        @endif
+                    </div>
                 @else
                     <div class="courses-tab mt-30">
                         <ul class="nav nav-justified" id="myTab" role="tablist">
@@ -206,65 +208,65 @@
                                     <div class="instructor-description ">
 
 
-                                        {{--                                    <!--crossword start-->--}}
+                                        <!--crossword start-->
 
-                                        {{--                                    @if(($test->type) == 'crossword')--}}
-                                        {{--                                        <div class="crossword clearfix m-5">--}}
-                                        {{--                                            <div id="puzzle-wrapper"><!-- crossword puzzle appended here --></div>--}}
-                                        {{--                                        </div>--}}
-                                        {{--                                    @endif--}}
-                                        {{--                                <!--crossword end-->--}}
-
-
-                                        {{--                                    <!--quiz4x1 start-->--}}
-                                        {{--                                    @if(($test->type) == 'quiz4x1')--}}
+                                        @if(($test['type']) == 'crossword')
+                                            <div class="crossword clearfix m-5">
+                                                <div id="puzzle-wrapper"><!-- crossword puzzle appended here --></div>
+                                            </div>
+                                        @endif
+                                    <!--crossword end-->
 
 
-                                        {{--                                        <div>--}}
-                                        {{--                                            <div class="quiz-container">--}}
-                                        {{--                                                <div id="quiz"><!-- quiz4x1 appended here --></div>--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                            <button id="previous">Саволи пешина</button>--}}
-                                        {{--                                            <button id="next">Саволи оянда</button>--}}
-                                        {{--                                            <button id="submit">Натиҷа</button>--}}
-                                        {{--                                            <div id="results"></div>--}}
-                                        {{--                                        </div>--}}
-                                        {{--                                    @endif--}}
-                                        {{--                                <!--quiz4x1 end-->--}}
+                                        <!--quiz4x1 start-->
+                                        @if(($test['type']) == 'quiz4x1')
+                                            <div id="test-container">
+                                                <div class="quiz-container">
+                                                    <div id="quiz"><!-- quiz4x1 appended here --></div>
+                                                </div>
+                                                <div class="quiz-buttons">
+                                                    <button id="previous">Саволи пешина</button>
+                                                    <button id="next">Саволи оянда</button>
+                                                    <button id="submit">Натиҷа</button>
+                                                </div>
+                                                <div id="results"></div>
+                                            </div>
+                                        @endif
+                                    <!--quiz4x1 end-->
 
 
-                                        {{--                                    <!--matching start-->--}}
+                                        <!--matching start-->
 
-                                        {{--                                    @if(($test->type) =='matching')--}}
+                                        @if(($test['type']) =='matching')
 
 
-                                        {{--                                        <section class="section1">--}}
-                                        {{--                                            <ul class="upper" id="terms">--}}
-                                        {{--                                            </ul>--}}
-                                        {{--                                            <ul class="upper" id="defs">--}}
-                                        {{--                                            </ul>--}}
+                                            <section class="section1">
+                                                <ul class="upper" id="terms">
+                                                </ul>
+                                                <ul class="upper" id="defs">
+                                                </ul>
 
-                                        {{--                                            <li id="results" style="--}}
-                                        {{--                                                display: inline-block;--}}
-                                        {{--                                                text-align: center;--}}
-                                        {{--                                                list-style-type: none;--}}
-                                        {{--                                                position: absolute;--}}
-                                        {{--                                                margin: 0;--}}
-                                        {{--                                                left: 208px;--}}
-                                        {{--                                                bottom: 0px;--}}
-                                        {{--                                                width: 220px;--}}
-                                        {{--                                                transition: background-color 0.3s ease-out;--}}
-                                        {{--                                                border-radius: 3px;--}}
-                                        {{--                                                color: white;--}}
-                                        {{--                                                border: none;--}}
-                                        {{--                                                background-color: #2aaf41;--}}
-                                        {{--                                                box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);"--}}
-                                        {{--                                            ></li>--}}
-                                        {{--                                            <button class="button" name="reset">Аз нав</button>--}}
+                                                <li id="results" style="
+                                                                                        display: inline-block;
+                                                                                        text-align: center;
+                                                                                        list-style-type: none;
+                                                                                        position: absolute;
+                                                                                        margin: 0;
+                                                                                        left: 208px;
+                                                                                        bottom: 0px;
+                                                                                        width: 220px;
+                                                                                        transition: background-color 0.3s ease-out;
+                                                                                        border-radius: 3px;
+                                                                                        color: white;
+                                                                                        border: none;
+                                                                                        background-color: #2aaf41;
+                                                                                        box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);"
+                                                ></li>
+                                                <button class="button" name="reset">Аз нав</button>
 
-                                        {{--                                        </section>--}}
-                                        {{--                                @endif--}}
-                                        {{--                                <!--matching end-->--}}
+                                            </section>
+                                    @endif
+                                    <!--matching end-->
 
 
                                     </div>
@@ -307,15 +309,15 @@
     </div>
     </div>
 
-    {{--    @if (!empty($test->scripts))--}}
-    {{--        @foreach ($test->scripts as $src)--}}
-    {{--            <script src="{{ $src }}"></script>--}}
-    {{--        @endforeach--}}
-    {{--    @endif--}}
+    @if ((isset($test['scripts'])) && (!empty($test['scripts'])))
+        @foreach ($test['scripts'] as $src)
+            <script src="/front{{ $src }}"></script>
+        @endforeach
+    @endif
 
-    {{--    @if (!empty($test->script)!=='')--}}
-    {{--        <script src="/front{{ $test->script }}"></script>--}}
-    {{--    @endif--}}
+    @if ((($test['script']))&&(!empty($test['script'])!==''))
+        <script src="/front{{ $test['script'] }}"></script>
+    @endif
 @endsection
 
 

@@ -26,3 +26,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
+
+.theme-category.slash::before{
+    color: #07294d;
+    content: "|";
+    margin-right: 50px;
+    font-size: 18px;
+}

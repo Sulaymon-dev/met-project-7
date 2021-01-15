@@ -55,9 +55,15 @@ class SubjectsController extends Controller
 
         $path = '';
 
-//        return $theme;
+        $test = null;
+        if (!empty($theme['test'])) {
+            $test = json_decode($theme['test'],  true);
+        }
 
-        return view('front.pages.theme', compact(['theme', 'path', 'content']));
+//        return ($test);
+
+
+        return view('front.pages.theme', compact(['theme', 'path', 'content','test']));
 
     }
 

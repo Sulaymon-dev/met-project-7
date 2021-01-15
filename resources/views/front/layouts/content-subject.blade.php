@@ -38,7 +38,7 @@
                      data-parent="#accordionExample">
                     <div class="card-body">
                         <p>{{Illuminate\Support\Str::limit($item->introduction , 70, ' ...')}}
-                            <a href="{{route('theme',['id'=> $item->id,'content'=>'123'])}}"
+                            <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
                                class="btn btn-met stretched-link"
                                style="float: right;">Дидан</a>
                         </p>

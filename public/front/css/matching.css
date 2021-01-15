@@ -169,12 +169,12 @@ ul.upper#defs {
 }
 
 ul.upper#terms li {
-  background: #808080;
-  color: #ffffff;
+  background: #ffc600;;
+  color: #07294d;
 }
 
 ul.upper#defs li {
-  color: #808080
+  color: #07294d;
 }
 
 li.up {
@@ -200,7 +200,7 @@ li.up:hover {
 li.up[data-selected] {
   transform: scale(1.05, 1.05);
   box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 0.75);
-  outline: 4px solid #00A0DF;
+  outline: 4px solid #07294d;
 }
 
 div#counter {
@@ -237,7 +237,7 @@ button {
   bottom: 0px;
   font-weight: bold;
   transition: background-color 0.3s ease-out;
-  background-color: #00A0DF;
+  background-color: #07294d;
   border-radius: 3px;
   border: none;
   color: #fff;
@@ -279,7 +279,7 @@ button:focus {
   background: none!important;
   box-shadow: none;
   color: #fff!important;
-  background: #00A0DF!important;
+  background: #41b552!important;
   border-radius: 15px;
 }
 
