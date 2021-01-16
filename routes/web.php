@@ -24,7 +24,9 @@ Route::prefix('/admin/')->group(function () {
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::resource('sinfs', 'Admin\SinfsController');
+    Route::get('books/list', 'Admin\BooksController@list');
     Route::resource('books', 'Admin\BooksController');
+    Route::resource('plans', 'Admin\PlansController');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 

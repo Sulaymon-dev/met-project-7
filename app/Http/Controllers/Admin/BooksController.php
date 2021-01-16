@@ -33,6 +33,13 @@ class BooksController extends Controller
         return view('admin.books.index', compact('books'));
     }
 
+    public function list(Request $request)
+    {
+        $search = $request->validate(['search' => 'nullable|string'])['search'] ?? '';
+//        return $search;
+        return $books = Book::where('name', 'like', '%' . $search . '%')->paginate(25);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

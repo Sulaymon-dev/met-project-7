@@ -10,6 +10,7 @@ $factory->define(Plan::class, function (Faker $faker) {
         'subject_id' => \App\Subject::pluck('id')[$faker->numberBetween(1, \App\Subject::count() - 1)],
         'sinf_id' => \App\Sinf::pluck('id')[$faker->numberBetween(1, \App\Sinf::count() - 1)],
         'book_id' => \App\Book::pluck('id')[$faker->numberBetween(1, \App\Book::count() - 1)],
+        'user_id' => \App\User::pluck('id')[$faker->numberBetween(1, \App\User::count() - 1)],
         'status' => $faker->numberBetween(0, 1),
     ];
 });
