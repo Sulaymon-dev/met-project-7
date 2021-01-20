@@ -7,12 +7,25 @@
 
 @section('content')
 
-    @if($test!=null)
-        <link rel="stylesheet" href="/front{{$test['style']}}">
 
-        <script>
-            window.crosswordData = <?= json_encode($test['data'])?>
-        </script>
+    @if($test!=null)
+        @if(isset($test['styles']))
+            @foreach($test['styles'] as $item)
+                <link rel="stylesheet" href="/front{{$item}}">
+            @endforeach
+            @foreach($test['tests'] as $exercise)
+                @php  $data[$exercise['type']] = json_encode($exercise['data'])@endphp
+            @endforeach
+        @endif
+
+{{--        {{dd(gettype($data))}}--}}
+
+{{--        <script>--}}
+{{--            window.crosswordData = []; --}}
+{{--            window.crosswordData[]=<?=$data?>;--}}
+{{--            console.log(window.crosswordData);--}}
+{{--        </script>--}}
+        {{--        @endforeach--}}
     @endif
 
 
@@ -207,66 +220,147 @@
                                 <div class="instructor-cont">
                                     <div class="instructor-description ">
 
+                                        @if($test!==null)
+                                            <div style="display: flex">
+                                                <div class="col-lg-10">
+                                                    <div class="teachers-right mt-50">
 
-                                        <!--crossword start-->
-
-                                        @if(($test['type']) == 'crossword')
-                                            <div class="crossword clearfix m-5">
-                                                <div id="puzzle-wrapper"><!-- crossword puzzle appended here --></div>
-                                            </div>
-                                        @endif
-                                    <!--crossword end-->
+                                                        <div class="tab-content" id="myTabContent">
+                                                            <!--crossword start-->
+                                                            @foreach($test['tests'] as $key=>$item)
 
 
-                                        <!--quiz4x1 start-->
-                                        @if(($test['type']) == 'quiz4x1')
-                                            <div id="test-container">
-                                                <div class="quiz-container">
-                                                    <div id="quiz"><!-- quiz4x1 appended here --></div>
+                                                                <div
+                                                                    class="tab-pane fade {{($key==0)?'show active':''}}"
+                                                                    id="dashboard{{$key}}"
+                                                                    role="tabpanel" aria-labelledby="dashboard-tab">
+                                                                    <div class="dashboard-cont">
+                                                                        @if($item['type']=='quiz4x1')
+                                                                            <div id="test-container">
+                                                                                <div class="quiz-container">
+                                                                                    <div id="quiz">
+                                                                                        <!-- quiz4x1 appended here -->
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="quiz-buttons">
+                                                                                    <button id="previous">Саволи пешина
+                                                                                    </button>
+                                                                                    <button id="next">Саволи оянда
+                                                                                    </button>
+                                                                                    <button id="submit">Натиҷа</button>
+                                                                                </div>
+                                                                                <div id="results"></div>
+                                                                            </div>
+                                                                        @elseif($item['type']=='matching')
+
+                                                                            <section class="section1">
+                                                                                <ul class="upper" id="terms"></ul>
+                                                                                <ul class="upper" id="defs"></ul>
+                                                                                <li id="results"
+                                                                                    class="matchingResult"></li>
+                                                                                <button class="button" name="reset">Аз
+                                                                                    нав
+                                                                                </button>
+                                                                            </section>
+
+                                                                        @endif
+
+                                                                    </div>
+                                                                    <!-- dashboard cont -->
+                                                                </div>
+
+                                                            @endforeach
+                                                        </div> <!-- tab content -->
+                                                    </div> <!-- teachers right -->
                                                 </div>
-                                                <div class="quiz-buttons">
-                                                    <button id="previous">Саволи пешина</button>
-                                                    <button id="next">Саволи оянда</button>
-                                                    <button id="submit">Натиҷа</button>
+                                                <div class="col-lg-2 tests-tab">
+                                                    <ul class="nav nav-justified" style="display: block" id="myTab"
+                                                        role="tablist">
+                                                        @foreach($test['tests'] as $key=>$item)
+                                                            <li class="nav-item">
+                                                                <a class="{{($key==0)?'active':''}}"
+                                                                   id="dashboard-tab{{$key}}"
+                                                                   data-toggle="tab"
+                                                                   href="#dashboard{{$key}}" role="tab"
+                                                                   aria-controls="dashboard{{$key}}"
+                                                                   aria-selected="true">
+                                                                    @if($item['type']=='quiz4x1')
+                                                                        Тести кушод
+                                                                    @elseif($item['type']=='matching')
+                                                                        Мувофиковарӣ
+                                                                    @endif
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul> <!-- nav -->
                                                 </div>
-                                                <div id="results"></div>
                                             </div>
+
+
+                                        @else
+                                            <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин вуҷуд
+                                                надорад...</h4>
                                         @endif
-                                    <!--quiz4x1 end-->
 
 
-                                        <!--matching start-->
 
-                                        @if(($test['type']) =='matching')
+                                        {{--                                        @if(($test!==null)&&(($test['type']) == 'crossword'))--}}
+                                        {{--                                            <div class="crossword clearfix m-5">--}}
+                                        {{--                                                <div id="puzzle-wrapper"><!-- crossword puzzle appended here --></div>--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        @endif--}}
+                                        {{--                                    <!--crossword end-->--}}
 
 
-                                            <section class="section1">
-                                                <ul class="upper" id="terms">
-                                                </ul>
-                                                <ul class="upper" id="defs">
-                                                </ul>
+                                        {{--                                        <!--quiz4x1 start-->--}}
+                                        {{--                                        @if((($test!==null)&&($test['type']) == 'quiz4x1'))--}}
+                                        {{--                                            <div id="test-container">--}}
+                                        {{--                                                <div class="quiz-container">--}}
+                                        {{--                                                    <div id="quiz"><!-- quiz4x1 appended here --></div>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                                <div class="quiz-buttons">--}}
+                                        {{--                                                    <button id="previous">Саволи пешина</button>--}}
+                                        {{--                                                    <button id="next">Саволи оянда</button>--}}
+                                        {{--                                                    <button id="submit">Натиҷа</button>--}}
+                                        {{--                                                </div>--}}
+                                        {{--                                                <div id="results"></div>--}}
+                                        {{--                                            </div>--}}
+                                        {{--                                        @endif--}}
+                                        {{--                                    <!--quiz4x1 end-->--}}
 
-                                                <li id="results" style="
-                                                                                        display: inline-block;
-                                                                                        text-align: center;
-                                                                                        list-style-type: none;
-                                                                                        position: absolute;
-                                                                                        margin: 0;
-                                                                                        left: 208px;
-                                                                                        bottom: 0px;
-                                                                                        width: 220px;
-                                                                                        transition: background-color 0.3s ease-out;
-                                                                                        border-radius: 3px;
-                                                                                        color: white;
-                                                                                        border: none;
-                                                                                        background-color: #2aaf41;
-                                                                                        box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);"
-                                                ></li>
-                                                <button class="button" name="reset">Аз нав</button>
 
-                                            </section>
-                                    @endif
-                                    <!--matching end-->
+                                        {{--                                        <!--matching start-->--}}
+
+                                        {{--                                        @if(($test!==null)&&(($test['type']) =='matching'))--}}
+
+
+                                        {{--                                            <section class="section1">--}}
+                                        {{--                                                <ul class="upper" id="terms">--}}
+                                        {{--                                                </ul>--}}
+                                        {{--                                                <ul class="upper" id="defs">--}}
+                                        {{--                                                </ul>--}}
+
+                                        {{--                                                <li id="results" style="--}}
+                                        {{--                                                                                        display: inline-block;--}}
+                                        {{--                                                                                        text-align: center;--}}
+                                        {{--                                                                                        list-style-type: none;--}}
+                                        {{--                                                                                        position: absolute;--}}
+                                        {{--                                                                                        margin: 0;--}}
+                                        {{--                                                                                        left: 208px;--}}
+                                        {{--                                                                                        bottom: 0px;--}}
+                                        {{--                                                                                        width: 220px;--}}
+                                        {{--                                                                                        transition: background-color 0.3s ease-out;--}}
+                                        {{--                                                                                        border-radius: 3px;--}}
+                                        {{--                                                                                        color: white;--}}
+                                        {{--                                                                                        border: none;--}}
+                                        {{--                                                                                        background-color: #2aaf41;--}}
+                                        {{--                                                                                        box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);"--}}
+                                        {{--                                                ></li>--}}
+                                        {{--                                                <button class="button" name="reset">Аз нав</button>--}}
+
+                                        {{--                                            </section>--}}
+                                        {{--                                    @endif--}}
+                                        {{--                                    <!--matching end-->--}}
 
 
                                     </div>
@@ -309,19 +403,16 @@
     </div>
     </div>
 
-    @if ((isset($test['scripts'])) && (!empty($test['scripts'])))
-        @foreach ($test['scripts'] as $src)
-            <script src="/front{{ $src }}"></script>
-        @endforeach
-    @endif
 
-    @if ((($test['script']))&&(!empty($test['script'])!==''))
-        <script src="/front{{ $test['script'] }}"></script>
-    @endif
 @endsection
 
 
 @section('script')
-
-
+    @if($test!=null)
+        @if(isset($test['scripts']))
+            @foreach ($test['scripts'] as $src)
+                <script src="/front/{{ $src }}"></script>
+            @endforeach
+        @endif
+    @endif
 @endsection

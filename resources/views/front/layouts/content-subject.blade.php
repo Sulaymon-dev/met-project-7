@@ -12,7 +12,7 @@
             </div>
         </div>
     @else
-        @foreach($theme->theme as $key=>$item)
+        @foreach($theme->themes as $key=>$item)
 
             <div class="card">
                 <div class="card-header" id="heading{{$key}}">
@@ -37,7 +37,7 @@
                      aria-labelledby="heading{{$key}}"
                      data-parent="#accordionExample">
                     <div class="card-body">
-                        <p>{{Illuminate\Support\Str::limit($item->introduction , 70, ' ...')}}
+                        <p>{{Illuminate\Support\Str::limit($item->introduction , 65, ' ...')}}
                             <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
                                class="btn btn-met stretched-link"
                                style="float: right;">Дидан</a>

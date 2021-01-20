@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="items-cont">
                                     <h5>{{$item->book->name}}</h5>
-                                    <span>{{$item->theme_count}} мавзӯъҳо</span>
+                                    <span>{{$item->themes_count}} мавзӯъҳо</span>
                                 </div>
                             </a>
                         </div>

@@ -19,14 +19,13 @@ class SubjectsController extends Controller
 
     public function show($slug, Request $request)
     {
-        $subject = Subject::where('slug', $slug)->with(['plans.book', 'plans.sinf', 'plans.theme'])->first();
+        $subject = Subject::where('slug', $slug)->with(['plans.book', 'plans.sinf', 'plans.themes'])->first();
 
 
         ($request->query('sinf')) ? $sinf = $request->query('sinf') : $sinf = 1;
 
-        $theme = Plan::where('sinf_id', $sinf)->where('subject_id', $subject->id)->with(['theme', 'book'])->first();
+        $theme = Plan::where('sinf_id', $sinf)->where('subject_id', $subject->id)->with(['themes', 'book'])->first();
 
-//        return $theme;
 
         return view('front.pages.subject', compact(['subject', 'sinf', 'theme']));
     }
@@ -39,9 +38,7 @@ class SubjectsController extends Controller
 
         $class = Sinf::where('status', 1)->get()->sortBy("class");
 
-        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('theme')->get();
-
-//        return $theme;
+        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('themes')->get();
 
         return view('front.pages.subject-class', compact(['theme', 'class', 'sinf']));
     }
@@ -54,16 +51,14 @@ class SubjectsController extends Controller
         ($request->query('content')) ? $content = $request->query('content') : $content = 'dars';
 
         $path = '';
+        $data = [];
 
         $test = null;
         if (!empty($theme['test'])) {
             $test = json_decode($theme['test'],  true);
         }
 
-//        return ($test);
-
-
-        return view('front.pages.theme', compact(['theme', 'path', 'content','test']));
+        return view('front.pages.theme', compact(['theme', 'path', 'content','test','data']));
 
     }
 

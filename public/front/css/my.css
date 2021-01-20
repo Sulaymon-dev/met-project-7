@@ -5,31 +5,62 @@
 }
 
 .btn-met:hover {
-     color: #07294d;
-     background-color: #ffc600;
-     border-color: #07294d;
+    color: #07294d;
+    background-color: #ffc600;
+    border-color: #07294d;
 }
 
 .overview-description {
     padding: 25px 30px 25px;
 }
-.theme-category   {
+
+.theme-category {
     color: #ffc600;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
 
-.theme-category:hover{
+.theme-category:hover {
     color: #07294d;
     font-size: 15px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
 
-.theme-category.slash::before{
+.theme-category.slash::before {
     color: #07294d;
     content: "|";
     margin-right: 50px;
     font-size: 18px;
+}
+
+.tests-tab .nav .nav-item a {
+    padding: 20px 0;
+    background-color: #315377;
+    color: #fff;
+    display: block;
+    font-weight: 600;
+}
+
+.tests-tab .nav .nav-item a.active {
+    background-color: #edf0f2;
+    color:#315377;
+}
+
+.matchingResult{
+    display: inline-block;
+    text-align: center;
+    list-style-type: none;
+    position: absolute;
+    margin: 0;
+    left: 208px;
+    bottom: 0px;
+    width: 220px;
+    transition: background-color 0.3s ease-out;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    background-color: #2aaf41;
+    box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);
 }

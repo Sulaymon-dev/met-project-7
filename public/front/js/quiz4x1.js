@@ -148,6 +148,7 @@
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
+    console.warn(window.crosswordData);
     const myQuestions = window.crosswordData;
 
     // Kick things off

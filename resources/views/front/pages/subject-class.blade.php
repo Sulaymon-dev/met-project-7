@@ -91,24 +91,25 @@
 
 
                         @foreach($class as $key=>$item)
-{{--                            {{dd($item->class==$sinf)}}--}}
+                            {{--                            {{dd($item->class==$sinf)}}--}}
 
                             <a class="nav-link mb-3 p-3 shadow  {{($item->class==$sinf)? $active = 'active' : $active = ''}}"
-{{--                               style="    width: 25%;"--}}
-                               id="v-pills-home-tab" href="{{route('class',['id'=>$item->id])}}" role="tab"
+                               {{--                               style="    width: 25%;"--}}
+                               id="v-pills-home-tab" href="{{route('class',['id'=>$item->class])}}" role="tab"
                                aria-controls="v-pills-home"
                             >
                                 <i class="fa fa-user-circle-o mr-2"></i>
                                 <span class="font-weight-bold small text-uppercase">Синфи {{$item->class}} </span></a>
                         @endforeach
 
+{{--                        {{dd($theme)}}--}}
 
                     </div>
                 </div>
 
                 <div class="col-md-9 shadow">
 
-                    @include('front\layouts\content-subject-class')
+                    @include('front\layouts\content-subject-class',$theme)
 
                 </div>
             </div>
