@@ -3,30 +3,19 @@
 
 @section('style')
 
-@endsection
-
-@section('content')
-
-
     @if($test!=null)
         @if(isset($test['styles']))
             @foreach($test['styles'] as $item)
                 <link rel="stylesheet" href="/front{{$item}}">
             @endforeach
-            @foreach($test['tests'] as $exercise)
-                @php  $data[$exercise['type']] = json_encode($exercise['data'])@endphp
-            @endforeach
         @endif
 
-{{--        {{dd(gettype($data))}}--}}
-
-{{--        <script>--}}
-{{--            window.crosswordData = []; --}}
-{{--            window.crosswordData[]=<?=$data?>;--}}
-{{--            console.log(window.crosswordData);--}}
-{{--        </script>--}}
-        {{--        @endforeach--}}
     @endif
+@endsection
+
+@section('content')
+
+
 
 
     <section id="page-banner" class="pt-10 pb-10 bg_cover" data-overlay="8"
@@ -223,7 +212,7 @@
                                         @if($test!==null)
                                             <div style="display: flex">
                                                 <div class="col-lg-10">
-                                                    <div class="teachers-right mt-50">
+                                                    <div class="teachers-right ">
 
                                                         <div class="tab-content" id="myTabContent">
                                                             <!--crossword start-->
@@ -236,32 +225,42 @@
                                                                     role="tabpanel" aria-labelledby="dashboard-tab">
                                                                     <div class="dashboard-cont">
                                                                         @if($item['type']=='quiz4x1')
-                                                                            <div id="test-container">
-                                                                                <div class="quiz-container">
-                                                                                    <div id="quiz">
-                                                                                        <!-- quiz4x1 appended here -->
+                                                                            <div id="quiz4x1">
+                                                                                <div id="test-container">
+                                                                                    <div class="quiz-container">
+                                                                                        <div id="quiz">
+                                                                                            <!-- quiz4x1 appended here -->
+                                                                                        </div>
                                                                                     </div>
+
+                                                                                    <div class="clearfix"></div>
+
+                                                                                    <div class="quiz-buttons">
+                                                                                        <button id="previous">Саволи
+                                                                                            пешина
+                                                                                        </button>
+                                                                                        <button id="next">Саволи оянда
+                                                                                        </button>
+                                                                                        <button id="submit">Натиҷа
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div id="results"></div>
                                                                                 </div>
-                                                                                <div class="quiz-buttons">
-                                                                                    <button id="previous">Саволи пешина
-                                                                                    </button>
-                                                                                    <button id="next">Саволи оянда
-                                                                                    </button>
-                                                                                    <button id="submit">Натиҷа</button>
-                                                                                </div>
-                                                                                <div id="results"></div>
                                                                             </div>
                                                                         @elseif($item['type']=='matching')
 
-                                                                            <section class="section1">
-                                                                                <ul class="upper" id="terms"></ul>
-                                                                                <ul class="upper" id="defs"></ul>
-                                                                                <li id="results"
-                                                                                    class="matchingResult"></li>
-                                                                                <button class="button" name="reset">Аз
-                                                                                    нав
-                                                                                </button>
-                                                                            </section>
+                                                                            <div id="matching">
+                                                                                <section class="section1">
+                                                                                    <ul class="upper" id="terms"></ul>
+                                                                                    <ul class="upper" id="defs"></ul>
+                                                                                    <li id="results"
+                                                                                        class="matchingResult"></li>
+                                                                                    <button class="button" name="reset">
+                                                                                        Аз
+                                                                                        нав
+                                                                                    </button>
+                                                                                </section>
+                                                                            </div>
 
                                                                         @endif
 
@@ -302,67 +301,6 @@
                                                 надорад...</h4>
                                         @endif
 
-
-
-                                        {{--                                        @if(($test!==null)&&(($test['type']) == 'crossword'))--}}
-                                        {{--                                            <div class="crossword clearfix m-5">--}}
-                                        {{--                                                <div id="puzzle-wrapper"><!-- crossword puzzle appended here --></div>--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        @endif--}}
-                                        {{--                                    <!--crossword end-->--}}
-
-
-                                        {{--                                        <!--quiz4x1 start-->--}}
-                                        {{--                                        @if((($test!==null)&&($test['type']) == 'quiz4x1'))--}}
-                                        {{--                                            <div id="test-container">--}}
-                                        {{--                                                <div class="quiz-container">--}}
-                                        {{--                                                    <div id="quiz"><!-- quiz4x1 appended here --></div>--}}
-                                        {{--                                                </div>--}}
-                                        {{--                                                <div class="quiz-buttons">--}}
-                                        {{--                                                    <button id="previous">Саволи пешина</button>--}}
-                                        {{--                                                    <button id="next">Саволи оянда</button>--}}
-                                        {{--                                                    <button id="submit">Натиҷа</button>--}}
-                                        {{--                                                </div>--}}
-                                        {{--                                                <div id="results"></div>--}}
-                                        {{--                                            </div>--}}
-                                        {{--                                        @endif--}}
-                                        {{--                                    <!--quiz4x1 end-->--}}
-
-
-                                        {{--                                        <!--matching start-->--}}
-
-                                        {{--                                        @if(($test!==null)&&(($test['type']) =='matching'))--}}
-
-
-                                        {{--                                            <section class="section1">--}}
-                                        {{--                                                <ul class="upper" id="terms">--}}
-                                        {{--                                                </ul>--}}
-                                        {{--                                                <ul class="upper" id="defs">--}}
-                                        {{--                                                </ul>--}}
-
-                                        {{--                                                <li id="results" style="--}}
-                                        {{--                                                                                        display: inline-block;--}}
-                                        {{--                                                                                        text-align: center;--}}
-                                        {{--                                                                                        list-style-type: none;--}}
-                                        {{--                                                                                        position: absolute;--}}
-                                        {{--                                                                                        margin: 0;--}}
-                                        {{--                                                                                        left: 208px;--}}
-                                        {{--                                                                                        bottom: 0px;--}}
-                                        {{--                                                                                        width: 220px;--}}
-                                        {{--                                                                                        transition: background-color 0.3s ease-out;--}}
-                                        {{--                                                                                        border-radius: 3px;--}}
-                                        {{--                                                                                        color: white;--}}
-                                        {{--                                                                                        border: none;--}}
-                                        {{--                                                                                        background-color: #2aaf41;--}}
-                                        {{--                                                                                        box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);"--}}
-                                        {{--                                                ></li>--}}
-                                        {{--                                                <button class="button" name="reset">Аз нав</button>--}}
-
-                                        {{--                                            </section>--}}
-                                        {{--                                    @endif--}}
-                                        {{--                                    <!--matching end-->--}}
-
-
                                     </div>
                                 </div>
                                 <!-- instructor cont -->
@@ -394,10 +332,6 @@
             <!-- tab content -->
             </div>
         </div>
-        <!-- courses single left -->
-
-
-        <!-- courses single left -->
 
 
     </div>
@@ -407,12 +341,27 @@
 @endsection
 
 
-@section('script')
-    @if($test!=null)
-        @if(isset($test['scripts']))
-            @foreach ($test['scripts'] as $src)
-                <script src="/front/{{ $src }}"></script>
-            @endforeach
-        @endif
+@section('scripts')
+    <script>
+            <?php $testData = json_encode($test['tests']);?>
+
+        var testData = JSON.parse(`<?= $testData ?>`);
+        testData.forEach((el) => {
+            if (el.type === 'quiz4x1') {
+                <?php $type = 'quiz4x1' ?>
+                    window.quiz = el.data;
+                console.log(window.quiz);
+            } else if (el.type === 'matching') {
+                <?php $type = 'matching' ?>
+                    window.crosswordData = el.data;
+                console.log(window.crosswordData);
+            }
+        });
+    </script>
+    @if(isset($test['scripts']))
+        @foreach ($test['scripts'] as $src)
+            <script src="/front{{ $src }}"></script>
+            {{--                {{dd(2)}}--}}
+        @endforeach
     @endif
 @endsection

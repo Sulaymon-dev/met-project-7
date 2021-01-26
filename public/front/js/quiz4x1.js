@@ -7,6 +7,8 @@
         const output = [];
 
         // for each question...
+        console.warn(window.quiz);
+        console.log(myQuestions);
         myQuestions.forEach(
             (currentQuestion, questionNumber) => {
 
@@ -148,8 +150,8 @@
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
-    console.warn(window.crosswordData);
-    const myQuestions = window.crosswordData;
+
+    const myQuestions = window.quiz;
 
     // Kick things off
     buildQuiz();

@@ -29,7 +29,7 @@
     margin-bottom: 10px;
 }
 
-button {
+#quiz4x1 #test-container button {
     font-family: 'Work Sans', sans-serif;
     font-size: 22px;
     background-color: #07294d;;
@@ -41,13 +41,13 @@ button {
     margin: 20px;
 }
 
-button:hover {
+#quiz4x1 button:hover {
     background-color: #003771;
     color: #ffc600;
 }
 
 .quiz-buttons {
-    margin-top: 100px;
+    margin-top: 130px;
 }
 
 .slide {

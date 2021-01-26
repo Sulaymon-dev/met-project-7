@@ -55,10 +55,16 @@ class SubjectsController extends Controller
 
         $test = null;
         if (!empty($theme['test'])) {
-            $test = json_decode($theme['test'],  true);
+            $test = json_decode($theme['test'], true);
         }
+        $type='';
+        foreach ($test['tests'] as $exercise) {
+            $data[] = json_encode($exercise['data']);
 
-        return view('front.pages.theme', compact(['theme', 'path', 'content','test','data']));
+        }
+//        return $data;
+
+        return view('front.pages.theme', compact(['theme', 'path', 'content', 'test', 'type']));
 
     }
 

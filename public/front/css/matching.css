@@ -135,7 +135,7 @@ table {
 }
 style
 
-body {
+ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
   ackground: #1D1F20;
@@ -143,10 +143,10 @@ body {
 }
 
 .section1 {
-  position: relative;
+  /*position: relative;*/
   /*top: 100px;*/
-  margin: 0 auto;
-  width: 960px;
+  /*margin: 0 auto;*/
+  /*width: 960px;*/
   height: 420px;
 }
 
@@ -227,7 +227,7 @@ span:hover {
   transform: none;
 }
 
-button {
+#matching button {
   position: absolute;
   padding: 0;
   margin: 0;
@@ -245,18 +245,18 @@ button {
   box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 1);
 }
 
-button:hover {
+#matching button:hover {
   background-color: #30BCF3;
   cursor: pointer;
 }
 
-button:active {
+#matching button:active {
   box-shadow: none;
   outline: none;
   transform: scale(0.95, 0.95);
 }
 
-button:focus {
+#matching button:focus {
   outline: none;
 }
 
