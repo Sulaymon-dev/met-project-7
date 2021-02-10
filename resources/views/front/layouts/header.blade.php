@@ -25,7 +25,7 @@
                                     <a href="{{route('class')}}">СИНФҲО</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('info')}}">БА ТАЛАБАҲО</a>
+                                    <a href="{{route('olympics')}}">ОЛИМПИАДА</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('info')}}">БА МУАЛЛИМОН</a>

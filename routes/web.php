@@ -43,6 +43,9 @@ Route::get('/class', 'SubjectsController@sinf')->name('class');
 
 Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
 
+Route::get('/olympics', 'OlympicsController@index')->name('olympics');
+Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');
+
 
 Route::get('/for-pupil', function () {
     return view('front.pages.info');
