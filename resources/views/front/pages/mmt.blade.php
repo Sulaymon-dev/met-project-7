@@ -79,34 +79,40 @@
 
     </style>
 
+
     <section class="py-5 header">
         <div class="container py-4">
+
             <div class="row">
                 <div class="col-md-3">
+                    <!-- Tabs nav -->
                     <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical" style="color: #234565">
-                        @foreach($class as $key=>$item)
-                            @if(count($item->olympics)!==0)
-                                <a class="nav-link mb-3 p-3 shadow
+
+
+                        @foreach($clusters as $key=>$item)
+                            <a class="nav-link mb-3 p-3 shadow
                                 @php
-                                    if(($sinf == 0 && $key == 0) || ($sinf!=0 && $sinf == $item->class)){
-                                     echo 'active' ;
-                                     $sinf=$item->class;}
-                                    else{
-                                     $active = '';
-                                     }
-                                @endphp"
-                                   id="v-pills-home-tab" href="{{route('olympics',['sinf'=>$item->class])}}" role="tab"
-                                   aria-controls="v-pills-home">
-                                    <i class="fa fa-user-circle-o mr-2"></i>
-                                    <span
-                                        class="font-weight-bold small text-uppercase">Синфи {{$item->class}} </span></a>
-                            @endif
+                                if(($item->index==$cluster)){
+                                 echo 'active' ;
+                                 $data=$item;}
+                                else{
+                                 $active = '';
+                                 }
+                            @endphp"
+                            id="v-pills-home-tab" href="{{route('mmt',['cluster'=>$item->index])}}" role="tab"
+                            aria-controls="v-pills-home">
+                            <i class="fa fa-book mr-2"></i>
+                            <span class="font-weight-bold small text-uppercase">Класстери {{$item->index}} </span>
+                            </a>
                         @endforeach
                     </div>
                 </div>
+
                 <div class="col-md-9 shadow">
-                    @include('front\layouts\content-olympics',['olympics'=>$olympics, 'sinf'=>$sinf])
+
+                    @include('front\layouts\content-mmts-fan', $data)
+
                 </div>
             </div>
         </div>

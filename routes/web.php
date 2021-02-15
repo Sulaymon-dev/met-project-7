@@ -46,6 +46,9 @@ Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
 Route::get('/olympics', 'OlympicsController@index')->name('olympics');
 Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');
 
+Route::get('/mmt', 'MmtsController@index')->name('mmt');
+//Route::get('/mmt/{cluster}', 'MmtsController@cluster')->name('mmt');
+Route::get('/mmt/{id}', 'MmtsController@show')->name('mmt-info');
 
 Route::get('/for-pupil', function () {
     return view('front.pages.info');

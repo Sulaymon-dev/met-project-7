@@ -21,7 +21,7 @@ class MMT extends Model
 
     public function mmt_fan()
     {
-        return $this->hasOne(MmtFan::class);
+        return $this->hasOne(MmtFan::class,'id');
     }
 
 }

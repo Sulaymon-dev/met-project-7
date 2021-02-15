@@ -28,7 +28,7 @@
                                     <a href="{{route('olympics')}}">ОЛИМПИАДА</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('info')}}">БА МУАЛЛИМОН</a>
+                                    <a href="{{route('mmt')}}">ММТ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="{{route('info')}}">БА ВОЛИДАЙН</a>
