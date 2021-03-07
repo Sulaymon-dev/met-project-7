@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
 class BooksController extends Controller
 {
 
-
     public function __construct()
     {
         $this->authorizeResource(Book::class, 'book');
@@ -36,7 +35,6 @@ class BooksController extends Controller
     public function list(Request $request)
     {
         $search = $request->validate(['search' => 'nullable|string'])['search'] ?? '';
-//        return $search;
         return $books = Book::where('name', 'like', '%' . $search . '%')->paginate(25);
     }
 

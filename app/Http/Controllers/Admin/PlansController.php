@@ -32,6 +32,35 @@ class PlansController extends Controller
         return view('admin.plans.index', compact('plans'));
     }
 
+    public function list(Request $request)
+    {
+        $search = $request->validate(['search' => 'nullable|string'])['search'] ?? '';
+        $query = Plan::select();
+        if (strpos($search, '|')) {
+            $searchArray = explode('|', $search);
+            $subject = trim($searchArray[0]);
+            $sinf = trim($searchArray[1]);
+            $query->with('subject', 'sinf');
+            $query->whereHas(
+                'subject', function ($q) use ($subject) {
+                $q->where('name', 'like', "%$subject%");
+            })->whereHas('sinf', function ($q) use ($sinf) {
+                $q->where('class', 'like', "%$sinf%");
+            });
+
+        } else {
+            $search = trim($search);
+            $query->with('subject', 'sinf')->whereHas(
+                'subject', function ($q) use ($search) {
+                $q->where('name', 'like', "%$search%");
+            })->orWhereHas('sinf', function ($q) use ($search) {
+                $q->where('class', 'like', "%$search%");
+            });
+        }
+        return $plans = $query->paginate(25);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

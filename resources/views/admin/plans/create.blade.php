@@ -39,7 +39,7 @@
                                     </div>
                                     <div class="col-sm-12">
                                         <label for="book">
-                                            Китоб
+                                            Китоб :
                                         </label>
                                         <select class="form-control" name="book_id" id="book">
 

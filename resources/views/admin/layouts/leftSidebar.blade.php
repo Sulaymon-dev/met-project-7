@@ -14,67 +14,82 @@
                     </a>
                 </li>
             @endif
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Синфҳо</a>
-                    <ul class="nav-dropdown-items">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Синфҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('sinfs.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати синфҳо</a>
+                    </li>
+                    @if(in_array(auth()->user()->role,['admin','superadmin'] ))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('sinfs.index')}}">
-                                <i class="nav-icon icon-puzzle"></i> Рӯйхати синфҳо</a>
+                            <a class="nav-link" href="{{route('sinfs.create')}}">
+                                <i class="nav-icon icon-puzzle"></i> Синфи нав</a>
                         </li>
-                        @if(in_array(auth()->user()->role,['admin','superadmin'] ))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('sinfs.create')}}">
-                                    <i class="nav-icon icon-puzzle"></i> Синфи нав</a>
-                            </li>
-                        @endif
-                    </ul>
-                </li>
+                    @endif
+                </ul>
+            </li>
 
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Фанҳо</a>
-                    <ul class="nav-dropdown-items">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Фанҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('subjects.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати фанҳо</a>
+                    </li>
+                    @if(in_array(auth()->user()->role,['admin','superadmin'] ))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('subjects.index')}}">
-                                <i class="nav-icon icon-puzzle"></i> Рӯйхати фанҳо</a>
+                            <a class="nav-link" href="{{route('subjects.create')}}">
+                                <i class="nav-icon icon-puzzle"></i> Фанни нав</a>
                         </li>
-                        @if(in_array(auth()->user()->role,['admin','superadmin'] ))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('subjects.create')}}">
-                                    <i class="nav-icon icon-puzzle"></i> Фанни нав</a>
-                            </li>
-                        @endif
+                    @endif
 
-                    </ul>
-                </li>
-                <li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Китобҳо</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('books.index')}}">
-                                <i class="nav-icon icon-puzzle"></i> Рӯйхати китобҳо</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('books.create')}}">
-                                <i class="nav-icon icon-puzzle"></i> Китоби нав</a>
-                        </li>
-                    </ul>
-                </li><li class="nav-item nav-dropdown">
-                    <a class="nav-link nav-dropdown-toggle" href="#">
-                        <i class="nav-icon icon-puzzle"></i> Планҳо</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('plans.index')}}">
-                                <i class="nav-icon icon-puzzle"></i> Рӯйхати планҳо</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('plans.create')}}">
-                                <i class="nav-icon icon-puzzle"></i> Плани нав</a>
-                        </li>
-                    </ul>
-                </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Китобҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('books.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати китобҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('books.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Китоби нав</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Планҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('plans.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати планҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('plans.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Плани нав</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Мавзӯъҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('themes.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати мавзӯъҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('themes.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Мавзӯи нав</a>
+                    </li>
+                </ul>
+            </li>
 
         </ul>
     </nav>

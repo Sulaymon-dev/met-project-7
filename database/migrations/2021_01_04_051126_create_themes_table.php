@@ -24,6 +24,8 @@ class CreateThemesTable extends Migration
             $table->string('pdf_src')->nullable();
             $table->longText('test')->nullable();
             $table->text('pdf_exercise')->nullable();
+            $table->boolean('status')->default(0);
+            $table->boolean('is_show')->default(0);
             $table->integer('view_count')->default(0);
             $table->timestamps();
 

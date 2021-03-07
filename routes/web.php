@@ -26,8 +26,12 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('sinfs', 'Admin\SinfsController');
     Route::get('books/list', 'Admin\BooksController@list');
     Route::resource('books', 'Admin\BooksController');
+    Route::get('plans/list', 'Admin\PlansController@list');
     Route::resource('plans', 'Admin\PlansController');
+    Route::resource('themes', 'Admin\ThemesController');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
+    Route::get('/json', 'Admin\JsonController@index')->name('json');
+    Route::post('/json/quiz4x1', 'Admin\JsonController@submit')->name('json-quiz4x1');
 });
 
 Route::get('/logout', function () {
@@ -43,12 +47,6 @@ Route::get('/class', 'SubjectsController@sinf')->name('class');
 
 Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
 
-Route::get('/olympics', 'OlympicsController@index')->name('olympics');
-Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');
-
-Route::get('/mmt', 'MmtsController@index')->name('mmt');
-//Route::get('/mmt/{cluster}', 'MmtsController@cluster')->name('mmt');
-Route::get('/mmt/{id}', 'MmtsController@show')->name('mmt-info');
 
 Route::get('/for-pupil', function () {
     return view('front.pages.info');

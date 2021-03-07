@@ -1,0 +1,154 @@
+{
+    "scripts": [
+        "\/js\/",
+        "\/css\/"
+    ],
+    "styles": [
+        "\/css\/",
+        "\/js\/"
+    ],
+    "tests": [
+        {
+            "data": [
+                {
+                    "answers": [
+                        {
+                            "id": 1,
+                            "text": "fvgb"
+                        },
+                        {
+                            "id": 2,
+                            "text": "tyh"
+                        },
+                        {
+                            "id": 3,
+                            "text": "gh"
+                        },
+                        {
+                            "id": 4,
+                            "text": "h"
+                        }
+                    ],
+                    "question": "qwertwe",
+                    "correctAnswer": 1
+                },
+                {
+                    "answers": [
+                        {
+                            "id": 1,
+                            "text": "hnj"
+                        },
+                        {
+                            "id": 2,
+                            "text": "yghj"
+                        },
+                        {
+                            "id": 3,
+                            "text": null
+                        },
+                        {
+                            "id": 4,
+                            "text": null
+                        }
+                    ],
+                    "question": "j",
+                    "correctAnswer": 1
+                },
+                {
+                    "answers": [
+                        {
+                            "id": 1,
+                            "text": null
+                        },
+                        {
+                            "id": 2,
+                            "text": null
+                        },
+                        {
+                            "id": 3,
+                            "text": null
+                        },
+                        {
+                            "id": 4,
+                            "text": null
+                        }
+                    ],
+                    "question": null,
+                    "correctAnswer": 1
+                }
+            ],
+            "type": "quiz4x1"
+        },
+        {
+            "data": [
+                {
+                    "terms": [
+                        {
+                            "id": 0,
+                            "text": null
+                        },
+                        {
+                            "id": 1,
+                            "text": null
+                        },
+                        {
+                            "id": 2,
+                            "text": null
+                        },
+                        {
+                            "id": 3,
+                            "text": null
+                        },
+                        {
+                            "id": 4,
+                            "text": null
+                        },
+                        {
+                            "id": 5,
+                            "text": null
+                        }
+                    ]
+                },
+                {
+                    "definitions": [
+                        {
+                            "id": 0,
+                            "text": null
+                        },
+                        {
+                            "id": 1,
+                            "text": null
+                        },
+                        {
+                            "id": 2,
+                            "text": null
+                        },
+                        {
+                            "id": 3,
+                            "text": null
+                        },
+                        {
+                            "id": 4,
+                            "text": null
+                        },
+                        {
+                            "id": 5,
+                            "text": null
+                        }
+                    ]
+                },
+                {
+                    "pairs": {
+                        "0": 0,
+                        "1": 1,
+                        "2": 2,
+                        "3": 3,
+                        "4": 4,
+                        "5": 5
+                    }
+                }
+            ],
+            "type": "matching"
+        }
+    ]
+}
