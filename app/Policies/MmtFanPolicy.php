@@ -2,18 +2,18 @@
 
 namespace App\Policies;
 
-use App\Theme;
+use App\MmtFan;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ThemePolicy
+class MmtFanPolicy
 {
     use HandlesAuthorization;
 
     /**
      * Determine whether the user can view any models.
      *
-     * @param  \App\User  $user
+     * @param \App\User $user
      * @return mixed
      */
     public function viewAny(User $user)
@@ -24,19 +24,19 @@ class ThemePolicy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Theme  $theme
+     * @param \App\User $user
+     * @param \App\Book $book
      * @return mixed
      */
-    public function view(User $user, Theme $theme)
+    public function view(User $user, MmtFan $book)
     {
-        return true;
+        //
     }
 
     /**
      * Determine whether the user can create models.
      *
-     * @param  \App\User  $user
+     * @param \App\User $user
      * @return mixed
      */
     public function create(User $user)
@@ -47,14 +47,14 @@ class ThemePolicy
     /**
      * Determine whether the user can update the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Theme  $theme
+     * @param \App\User $user
+     * @param \App\Book $book
      * @return mixed
      */
-    public function update(User $user, Theme $theme)
+    public function update(User $user, MmtFan $book)
     {
         if ($user->role == 'teacher') {
-            return $user->id == $theme->user_id;
+            return $user->id == $book->user_id;
         }
         return in_array($user->role, ['admin', 'superadmin', 'moderator']);
     }
@@ -62,26 +62,28 @@ class ThemePolicy
     /**
      * Determine whether the user can delete the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Theme  $theme
+     * @param \App\User $user
+     * @param \App\Book $book
      * @return mixed
      */
-    public function delete(User $user, Theme $theme)
+
+    public function delete(User $user, MmtFan $book)
     {
         if ($user->role == 'teacher') {
-            return $user->id = $theme->user_id;
+            return $user->id = $book->user_id;
         }
         return in_array($user->role, ['admin', 'superadmin']);
+
     }
 
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Theme  $theme
+     * @param \App\User $user
+     * @param \App\Book $book
      * @return mixed
      */
-    public function restore(User $user, Theme $theme)
+    public function restore(User $user, MmtFan $book)
     {
         //
     }
@@ -89,11 +91,11 @@ class ThemePolicy
     /**
      * Determine whether the user can permanently delete the model.
      *
-     * @param  \App\User  $user
-     * @param  \App\Theme  $theme
+     * @param \App\User $user
+     * @param \App\Book $book
      * @return mixed
      */
-    public function forceDelete(User $user, Theme $theme)
+    public function forceDelete(User $user, MmtFan $book)
     {
         //
     }

@@ -57,6 +57,9 @@ class PlansController extends Controller
                 $q->where('class', 'like', "%$search%");
             });
         }
+        if ($request->input('withThemes') == 'true'){
+            $query->with('themes:id,plan_id,name,theme_num');
+        }
         return $plans = $query->paginate(25);
     }
 

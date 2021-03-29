@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMmtFansTable extends Migration
+class CreateHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateMmtFansTable extends Migration
      */
     public function up()
     {
-        Schema::create('mmt_fans', function (Blueprint $table) {
+        Schema::create('histories', function (Blueprint $table) {
             $table->id();
+            $table->morphs('historiable');
             $table->unsignedBigInteger('user_id');
-            $table->string('title');
-            $table->longText('test')->nullable();
-            $table->string('pdf_src')->nullable();
-            $table->boolean('status')->default(0);
-            $table->boolean('is_show')->default(0);
+            $table->string('column');
+            $table->longText('old_value');
+            $table->longText('new_value');
+            $table->string('ip');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateMmtFansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mmt_fans');
+        Schema::dropIfExists('histories');
     }
 }

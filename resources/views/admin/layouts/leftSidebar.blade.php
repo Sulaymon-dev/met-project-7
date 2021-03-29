@@ -82,11 +82,19 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('themes.index')}}">
-                            <i class="nav-icon icon-puzzle"></i> Рӯйхати мавзӯъҳо</a>
+                            <i class="nav-icon icon-puzzle"></i>Рӯйхати мавзӯъҳо</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('themes.create')}}">
-                            <i class="nav-icon icon-puzzle"></i> Мавзӯи нав</a>
+                            <i class="nav-icon icon-puzzle"></i>Мавзӯи нав</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('themes.quiz4in1')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тест </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('themes.matching')}}">
+                            <i class="nav-icon icon-puzzle"></i>Мувофиқоварӣ</a>
                     </li>
                 </ul>
             </li>

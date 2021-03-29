@@ -28,10 +28,15 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('books', 'Admin\BooksController');
     Route::get('plans/list', 'Admin\PlansController@list');
     Route::resource('plans', 'Admin\PlansController');
+    Route::resource('mmt_fans', 'Admin\MMTFansController');
+    Route::resource('clusters', 'Admin\ClustersController');
+    Route::get('themes/quiz4x1','Admin\ThemesController@showQuiz4in1' )->name('themes.quiz4in1');
+    Route::get('themes/matching', 'Admin\ThemesController@showMatching')->name('themes.matching');
+    Route::get('themes/json', 'Admin\ThemesController@showJson')->name('themes.test_json');
     Route::resource('themes', 'Admin\ThemesController');
+
+
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
-    Route::get('/json', 'Admin\JsonController@index')->name('json');
-    Route::post('/json/quiz4x1', 'Admin\JsonController@submit')->name('json-quiz4x1');
 });
 
 Route::get('/logout', function () {

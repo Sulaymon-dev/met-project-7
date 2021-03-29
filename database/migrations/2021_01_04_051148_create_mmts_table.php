@@ -20,7 +20,6 @@ class CreateMMTSTable extends Migration
             $table->unsignedBigInteger('cluster_id');
             $table->enum('component', ['A', 'B', 'C']);
             $table->timestamps();
-
             $table->foreign('mmt_fan_id')->references('id')->on('mmt_fans')->cascadeOnDelete();
             $table->foreign('cluster_id')->references('id')->on('clusters')->cascadeOnDelete();
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();

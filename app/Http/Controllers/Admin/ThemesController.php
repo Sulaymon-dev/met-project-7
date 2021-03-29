@@ -98,7 +98,7 @@ class ThemesController extends Controller
      */
     public function show(Theme $theme)
     {
-        //
+        return $theme;
     }
 
     /**
@@ -123,6 +123,11 @@ class ThemesController extends Controller
      */
     public function update(Request $request, Theme $theme)
     {
+        if ($request->input('isOnlyTestUpdate') && auth()->user()->role != 'moderator') {
+            $theme->test = $request->input('data');
+            $theme->save();
+            return response(['status' => 'ok'], 200);
+        }
         $isUpdatedSuccessfully = false;
         if (auth()->user()->role == 'moderator') {
             $status = $request->validate([
@@ -181,6 +186,20 @@ class ThemesController extends Controller
             return redirect(route('themes.index'));
         }
         return abort(403);
+    }
+
+    public function showQuiz4in1()
+    {
+        $role = auth()->user()->role;
+        return view('admin.themes.test_4in1',compact('role'));
+    }
+    public function showMatching(){
+        $role = auth()->user()->role;
+        return view('admin.themes.test_match',compact('role'));
+    }
+    public function showJson(){
+        $role = auth()->user()->role;
+        return view('admin.themes.test_json',compact('role'));
     }
 
     /**
