@@ -1,7 +1,11 @@
 @extends('admin.layouts.main')
 
 @section('style')
-
+    <style>
+        .table th, .table td, .table tr {
+            vertical-align: inherit !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -12,10 +16,10 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
                             <div>
-                                <i class="fa fa-align-justify"></i> Рӯйхати Тестҳо
+                                <i class="fa fa-align-justify"></i> Рӯйхати плани дарсӣ
                             </div>
                             <div>
-                                <a class="btn btn-success" href="{{route('mmts.index')}}"> Ҳамҷоякунии тестҳо ва мавзӯъҳо </a>
+                                <a class="btn btn-info" href="{{route('mmts.create')}}">Ҳамҷоякунии нав</a>
                                 <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
                             </div>
                         </div>
@@ -23,34 +27,44 @@
                             <table class="table table-hover table-responsive-sm">
                                 <thead>
                                 <tr>
-                                    <th>Ном</th>
+                                    <th>ID</th>
+                                    <th>Номи тест</th>
+                                    <th>Фан</th>
+                                    <th>Кластер</th>
+                                    <th>Компонент</th>
                                     <th>Статус</th>
-                                    <th>Амал</th>
+                                    @if(in_array(auth()->user()->role,['admin','superadmin','teacher'] ))
+                                        <th>Амал</th>
+                                    @endif
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                @foreach($books as $book)
-                                    <tr id="sub-{{$book->id}}">
-                                        <td><a class="text-black"
-                                               href="/storage/uploads/pdf/{{$book->pdf_src}}">{{$book->title}}</a></td>
-                                        <td>{!!  $book->status == 1 ? '<span class="badge badge-success">Active</span>' :
+                                @foreach($mmts as $mmt)
+                                    <tr id="sub-{{$mmt->id}}">
+                                        <td>{{$mmt->id}}</td>
+                                        <td>{{$mmt->mmt_fan->title}}</td>
+                                        <td>{{$mmt->subject->name}}</td>
+                                        <td>{{$mmt->cluster->name}}</td>
+                                        <td>{{$mmt->component}}</td>
+                                        <td>{!!  $mmt->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="{{route('mmt_fans.edit',$book->id)}}"><i
+                                               href="{{route('mmts.edit',$mmt->id)}}"><i
                                                     class="fa fa-edit"></i></a>
                                             @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
                                                 <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
+                                                   onclick="deleteSubjectHandler(event,{{$mmt->id}})"> <i
                                                         class="fa fa-trash-o"></i></a>
                                             @endif
+
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{$books->links()}}
+                            {{$mmts->links()}}
                         </div>
                     </div>
                 </div>
@@ -66,7 +80,7 @@
         function deleteSubject(id) {
             $.ajax(
                 {
-                    url: "/admin/mmt_fans/" + id,
+                    url: "/admin/mmts/" + id,
                     type: 'DELETE',
                     dataType: "JSON",
                     data: {
@@ -77,8 +91,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Китоб нобуд шуд!",
-                                text: "Китоби интихобшуда бо муваффақият нобуд шуд",
+                                title: "Синф нобуд шуд!",
+                                text: "Синфии интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -106,7 +120,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин китобро нобуд кунед?",
+                title: "Мехоҳед ин синфро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,

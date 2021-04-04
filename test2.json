@@ -138,6 +138,33 @@
                 }
             ],
             "type": "matching"
+        },
+        {
+            "data": [
+                {
+                    "answers": [
+                        {
+                            "id": "1",
+                            "text": "j1"
+                        },
+                        {
+                            "id": "2",
+                            "text": "j2"
+                        },
+                        {
+                            "id": "3",
+                            "text": "j3"
+                        },
+                        {
+                            "id": "4",
+                            "text": "j4"
+                        }
+                    ],
+                    "question": "savol1",
+                    "correctAnswer": "1"
+                }
+            ],
+            "type": "quiz4x1"
         }
     ]
 }

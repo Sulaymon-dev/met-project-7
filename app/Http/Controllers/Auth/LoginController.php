@@ -17,6 +17,8 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
+    protected $maxAttempts = 5;
+    protected $decayMinutes = 180;
 
     use AuthenticatesUsers;
 

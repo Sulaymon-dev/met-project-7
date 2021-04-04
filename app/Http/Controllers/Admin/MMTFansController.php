@@ -14,6 +14,7 @@ class MMTFansController extends Controller
     {
         $this->authorizeResource(MmtFan::class, 'mmt_fan');
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -43,7 +44,7 @@ class MMTFansController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -74,18 +75,18 @@ class MMTFansController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\MmtFan  $mmtFan
+     * @param \App\MmtFan $mmtFan
      * @return \Illuminate\Http\Response
      */
     public function show(MmtFan $mmtFan)
     {
-        //
+        return $mmtFan;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\MmtFan  $mmtFan
+     * @param \App\MmtFan $mmtFan
      * @return \Illuminate\Http\Response
      */
     public function edit(MmtFan $mmtFan)
@@ -97,12 +98,17 @@ class MMTFansController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\MmtFan  $mmtFan
+     * @param \Illuminate\Http\Request $request
+     * @param \App\MmtFan $mmtFan
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, MmtFan $mmtFan)
     {
+        if ($request->input('isOnlyTestUpdate') && auth()->user()->role != 'moderator') {
+            $mmtFan->test = $request->input('data');
+            $mmtFan->save();
+            return response(['status' => 'ok'], 200);
+        }
         $isUpdatedSuccessfully = false;
         if (auth()->user()->role == 'moderator') {
             if ($mmtFan->update([
@@ -145,10 +151,41 @@ class MMTFansController extends Controller
 
     }
 
+    public function showQuiz4in1()
+    {
+        $role = auth()->user()->role;
+        $mmt_fans = MmtFan::select('id', 'user_id', 'title');
+        if ($role == 'teacher')
+            $mmt_fans->where('user_id', '=', auth()->user()->id);
+        $mmt_resource = $mmt_fans->get();
+
+        return view('admin.mmt_fans.test_4in1', compact('role', 'mmt_resource'));
+    }
+
+    public function showMatching()
+    {
+        $role = auth()->user()->role;
+        $mmt_fans = MmtFan::select('id', 'user_id', 'title');
+        if ($role == 'teacher')
+            $mmt_fans->where('user_id', '=', auth()->user()->id);
+        $mmt_resource = $mmt_fans->get();
+        return view('admin.mmt_fans.test_match', compact('role', 'mmt_resource'));
+    }
+
+    public function showJson()
+    {
+        $role = auth()->user()->role;
+        $mmt_fans = MmtFan::select('id', 'user_id', 'title');
+        if ($role == 'teacher')
+            $mmt_fans->where('user_id', '=', auth()->user()->id);
+        $mmt_resource = $mmt_fans->get();
+        return view('admin.mmt_fans.test_json', compact('role','mmt_resource'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\MmtFan  $mmtFan
+     * @param \App\MmtFan $mmtFan
      * @return \Illuminate\Http\Response
      */
     public function destroy(MmtFan $mmtFan)

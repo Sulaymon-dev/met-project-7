@@ -90,7 +90,7 @@
         function deleteSubject(id) {
             $.ajax(
                 {
-                    url: "/admin/sinfs/" + id,
+                    url: "/admin/plans/" + id,
                     type: 'DELETE',
                     dataType: "JSON",
                     data: {

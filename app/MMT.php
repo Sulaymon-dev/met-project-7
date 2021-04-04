@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class MMT extends Model
 {
-    protected $fillable = ['mmt_fan_id', 'cluster_id', 'component'];
+    protected $fillable = ['mmt_fan_id', 'cluster_id', 'component','status','subject_id'];
     protected $table = 'mmts';
 
     public function cluster()
@@ -21,7 +21,7 @@ class MMT extends Model
 
     public function mmt_fan()
     {
-        return $this->hasOne(MmtFan::class);
+        return $this->belongsTo(MmtFan::class);
     }
 
 }

@@ -99,6 +99,37 @@
                 </ul>
             </li>
 
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Тестҳои ММТ</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('mmt_fans.index')}}">
+                            <i class="nav-icon icon-puzzle"></i>Рӯйхати тестҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('mmt_fans.create')}}">
+                            <i class="nav-icon icon-puzzle"></i>тести нав</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('clusters.index')}}">
+                            <i class="nav-icon icon-puzzle"></i>Кластерҳо </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('clusters.create')}}">
+                            <i class="nav-icon icon-puzzle"></i>Кластери нав</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('mmt_fans.quiz4in1')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тести оддӣ </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('mmt_fans.matching')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тести мувофиқоварӣ</a>
+                    </li>
+                </ul>
+            </li>
+
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>

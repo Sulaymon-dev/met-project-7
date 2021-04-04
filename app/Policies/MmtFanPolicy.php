@@ -30,7 +30,7 @@ class MmtFanPolicy
      */
     public function view(User $user, MmtFan $book)
     {
-        //
+        return true;
     }
 
     /**
