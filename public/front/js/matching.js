@@ -1,26 +1,31 @@
 //Execute a JavaScript immediately after a page has been loaded
 window.onload = function () {
 
+    var iterator = 0;
     //Data for terms and definitions. This can be stored in a separate .js file, in a JSON file or here in the main file
     var data = window.crosswordData;
+    const countData = data.length;
 
     var selectedTerm = null, //to make sure none is selected onload
         selectedDef = null,
         termsContainer = document.querySelector("#terms"), //list of terms
         defsContainer = document.querySelector("#defs"); //list of definitions
 
-    const resultsContainer = document.getElementById('results');
+    const resultsContainer = document.getElementById('results_matching');
+    const nextContainer = document.getElementById('next_matching');
+    const resetContainer = document.getElementById('reset_matching');
+    const questionContainer = document.querySelector("#question_matching");
+
 
     //This function takes two arguments, that is one term and one def to compare if they match. It returns True or False after compairing values of the "pairs" object property.
     var score = 0;
 
     function isMatch(termIndex, defIndex) {
-        return data[2].pairs[termIndex] == defIndex;
+        return data[iterator].pairs[termIndex] == defIndex;
     }
 
     //This function adds HTML elements and content to the specified container (UL).
     function createListHTML(list, container) {
-
         container.innerHTML = ""; //first, clean up any existing LI elements
         for (var i = 0; i < 6; i++) {
 
@@ -31,8 +36,9 @@ window.onload = function () {
         }
     }
 
-    createListHTML(data[0].terms, termsContainer);
-    createListHTML(data[1].definitions, defsContainer);
+    questionContainer.innerHTML = data[iterator].question
+    createListHTML(data[iterator].terms, termsContainer);
+    createListHTML(data[iterator].definitions, defsContainer);
 
     //listen for a "click" event on a list of Terms and store the clicked object in the target object
     termsContainer.addEventListener("click", function (e) {
@@ -62,7 +68,6 @@ window.onload = function () {
             if (isMatch(selectedTerm, selectedDef)) {
 
                 score++;
-                console.log(score);
 
                 resultsContainer.innerHTML = `Ҷавоби дуруст ${score} аз 6`;
 
@@ -134,6 +139,7 @@ window.onload = function () {
     function reset() {
         var resetTerms = termsContainer.querySelectorAll("li");
         var resetDefs = defsContainer.querySelectorAll("li");
+        console.log(resetTerms)
         for (var i = 0; i < resetTerms.length; i++) {
             // resetTerms[i].removeAttribute("class", "up score");
             resetTerms[i].className = 'up'
@@ -161,10 +167,10 @@ window.onload = function () {
 
 
     function shuffle() {
-        randomSort(data[0].terms)
-        randomSort(data[1].definitions)
-        createListHTML(data[0].terms, termsContainer)
-        createListHTML(data[1].definitions, defsContainer)
+        randomSort(data[iterator].terms)
+        randomSort(data[iterator].definitions)
+        createListHTML(data[iterator].terms, termsContainer)
+        createListHTML(data[iterator].definitions, defsContainer)
     }
 
     function randomSort(array) {
@@ -188,21 +194,32 @@ window.onload = function () {
     }
 
     shuffle();
-    document.querySelector('.section1 .button').addEventListener('click', function () {
-        // alert('omad');
+    nextContainer.addEventListener('click', function () {
+        if (iterator < countData - 1) {
+            iterator++;
+            questionContainer.innerHTML = data[iterator].question;
+            createListHTML(data[iterator].terms, termsContainer);
+            createListHTML(data[iterator].definitions, defsContainer);
+        } else {
+            resetContainer.style.display = 'block';
+            nextContainer.style.display = 'none';
+        }
 
-        score=0;
+    });
+    resetContainer.addEventListener('click', function () {
+
+        score = 0;
         resultsContainer.innerHTML = `Ҷавоби дуруст ${score} аз 6`;
         reset();
         // termsContainer.className += " fadeOut";
         // defsContainer.className += " fadeOut";
-        setTimeout(function () {
-            shuffle();
-            // termsContainer.removeAttribute("class", "fadeOut");
-            // defsContainer.removeAttribute("class", "fadeOut");
-            // termsContainer.setAttribute("class", "upper");
-            // defsContainer.setAttribute("class", "upper");
-        }, 40)
+        // setTimeout(function () {
+        shuffle();
+        // termsContainer.removeAttribute("class", "fadeOut");
+        // defsContainer.removeAttribute("class", "fadeOut");
+        // termsContainer.setAttribute("class", "upper");
+        // defsContainer.setAttribute("class", "upper");
+        // }, 40)
         // shuffle();
 
     });

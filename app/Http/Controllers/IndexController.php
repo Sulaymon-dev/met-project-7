@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Theme;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -13,10 +14,18 @@ class IndexController extends Controller
      */
     public function index()
     {
-        //
         return view('front.pages.index');
     }
 
+    public function search(Request $request)
+    {
+        $text = $request->get('text');
+
+        $result = Theme::where('name', 'like', '%' . $text . '%')->with('plan.subject')->get(['id', 'theme_num', 'name', 'plan_id']);
+        $resultCount = count($result);
+
+        return view('front.pages.search', compact(['result', 'resultCount', 'text']));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +39,7 @@ class IndexController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +50,7 @@ class IndexController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +61,7 @@ class IndexController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +72,8 @@ class IndexController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,7 +84,7 @@ class IndexController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

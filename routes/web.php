@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
 Route::prefix('/admin/')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
@@ -44,6 +40,18 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 
+Route::get('/front/register',  function () {
+    return view('front.pages.register');
+})->name('front-register');
+
+Route::post('/front/login',  'UserController@login')->name('check-login');
+
+Route::get('/front/login',  function () {
+    return view('front.pages.login');
+})->name('front-login');
+
+Route::get('/profile', 'UserController@profile')->name('profile');
+
 Route::get('/logout', function () {
     Auth::logout();
     return view('login');
@@ -57,10 +65,15 @@ Route::get('/class', 'SubjectsController@sinf')->name('class');
 
 Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
 
+Route::get('/olympics', 'OlympicsController@index')->name('olympics');
+Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');
 
-Route::get('/for-pupil', function () {
-    return view('front.pages.info');
-})->name('info');
+Route::get('/mmt', 'MmtsController@index')->name('mmt');
+Route::get('/mmt/{id}', 'MmtsController@show')->name('mmt-info');
+Route::get('/info/{slug}', 'InfoController@show')->name('info');
+Route::get('/about', 'InfoController@about')->name('about');
+
+Route::get('/search', 'IndexController@search')->name('search');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

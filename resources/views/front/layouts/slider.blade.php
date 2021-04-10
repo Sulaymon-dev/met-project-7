@@ -1,18 +1,12 @@
-
 <div class="position-relative">
-
-
     <section id="slider-part" class="slider-active">
-
-        <div class="single-slider slider-4 bg_cover pt-150 position-relative" style="background-image: url(/front/images/slider/slide-5.jpg)">
-
+        <div class="single-slider slider-4 bg_cover pt-150 position-relative" style="background-image: url({{asset('/front/images/slider/slide-5.jpg')}})">
             <div class="position-absolute" style="top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: black;
     opacity: 0.4;"></div>
-
             <div class="container">
                 <div class="row justify-content-left">
                     <div class="col-xl-6 col-lg-6">
@@ -23,20 +17,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- row -->
             </div>
-            <!-- container -->
         </div>
-        <!-- single slider -->
-
-        <div class="single-slider slider-4 bg_cover pt-150 position-relative" style="background-image: url(/front/images/slider/s-4.jpg)">
+        <div class="single-slider slider-4 bg_cover pt-150 position-relative" style="background-image: url({{asset('/front/images/slider/s-4.jpg')}})">
             <div class="position-absolute" style="top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: black;
     opacity: 0.4;"></div>
-
             <div class="container">
                 <div class="row justify-content-left">
                     <div class="col-xl-6 col-lg-6">
@@ -47,10 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- row -->
             </div>
-            <!-- container -->
         </div>
-        <!-- single slider -->
     </section>
 </div>

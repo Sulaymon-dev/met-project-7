@@ -1,17 +1,11 @@
 @extends('front.layout')
 
-
 @section('style')
-
 @endsection
 
 @section('content')
 
-    <!--====== SLIDER PART START ======-->
     @include('front.layouts.slider')
-    <!--====== SLIDER PART ENDS ======-->
-
-    <!--====== CATEGORY PART START ======-->
 
     <section id="category-part">
         <div class="container">
@@ -19,7 +13,6 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="category-text category-text-tow pl-30 pr-30">
-
                             <span class="single-category text-center color-4">
                                 <span>
                                     “Мактаби электронии Тоҷикистон” чист?
@@ -35,8 +28,7 @@
     line-height: 40px;
     color: #ffffff;
     }
-    " href="/about.php">Муфассалтар</a>
-
+    " href="{{route('about')}}">Муфассалтар</a>
                             </span>
                         </div>
                     </div>
@@ -46,104 +38,88 @@
                                 <a href="#">
                                     <span class="single-category text-center color-1">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/tv-programm.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/tv-programm.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Видео дарсҳо </span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                             <div class="col-lg-4">
                                 <a href="#">
                                     <span class="single-category text-center color-2">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/ctg-3.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/ctg-3.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Китобҳои бадеӣ</span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                             <div class="col-lg-4">
                                 <a href="#">
                                     <span class="single-category text-center color-3">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/prize.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/prize.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Олимпиадаҳо</span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                             <div class="col-lg-4">
                                 <a href="#">
                                     <span class="single-category text-center color-1">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/web.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/web.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Интернет захираҳо</span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                             <div class="col-lg-4">
                                 <a href="#">
                                     <span class="single-category text-center color-2">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/birdy.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/birdy.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Дарси сулҳ</span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                             <div class="col-lg-4">
                                 <a href="#">
                                     <span class="single-category text-center color-3">
                                         <span class="icon">
-                                            <img src="/front/images/all-icon/ctg-3.png" alt="Icon">
+                                            <img src="{{asset('/front/images/all-icon/ctg-3.png')}}" alt="Icon">
                                         </span>
                                     <span class="cont">
                                             <span>Машқҳо</span>
                                     </span>
                                     </span>
-                                    <!-- single category -->
                                 </a>
                             </div>
                         </div>
-                        <!-- category slide -->
                     </div>
                 </div>
-                <!-- row -->
             </div>
-            <!-- category -->
         </div>
-        <!-- container -->
     </section>
-
-    <!--====== CATEGORY PART ENDS ======-->
-
-
-    <!--====== ADMISSION PART START ======-->
 
     <section class="admission-row pb-120">
         <div class="container">
             <div class="row justify-content-center">
-
                 <div class="col-lg-4 col-md-8">
                     <div class="admission-card mt-30" style="height: 550px;">
                         <div class="card-image">
-                            <a href="#"><img src="/front/images/admission/admission1.jpg" alt="Admission"></a>
+                            <a href="#"><img src="{{asset('/front/images/admission/admission1.jpg')}}" alt="Admission"></a>
                         </div>
                         <div class="card-content">
                             <a href="#">
@@ -153,13 +129,12 @@
                             </a>
                         </div>
                     </div>
-                    <!-- admission card -->
                 </div>
 
                 <div class="col-lg-4 col-md-8">
                     <div class="admission-card mt-30" style="height: 550px;">
                         <div class="card-image">
-                            <a href="#"><img src="/front/images/admission/admission-1.jpg" alt="Admission"></a>
+                            <a href="#"><img src="{{asset('/front/images/admission/admission-1.jpg')}}" alt="Admission"></a>
                         </div>
                         <div class="card-content">
                             <a href="#">
@@ -169,13 +144,12 @@
                             </a>
                         </div>
                     </div>
-                    <!-- admission card -->
                 </div>
 
                 <div class="col-lg-4 col-md-8">
                     <div class="admission-card mt-30" style="height: 550px;">
                         <div class="card-image">
-                            <a href="#"><img src="/front/images/admission/admission.jpg" alt="Admission"></a>
+                            <a href="#"><img src="{{asset('/front/images/admission/admission.jpg')}}" alt="Admission"></a>
                         </div>
                         <div class="card-content">
                             <a href="#">
@@ -185,19 +159,11 @@
                             </a>
                         </div>
                     </div>
-                    <!-- admission card -->
                 </div>
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </section>
-
-    <!--====== ADMISSION PART ENDS ======-->
-
 @endsection
 
-
 @section('script')
-
 @endsection

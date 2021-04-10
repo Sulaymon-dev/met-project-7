@@ -36,7 +36,7 @@
 }
 
 .tests-tab .nav .nav-item a {
-    padding: 20px 0;
+    padding: 20px 10px;
     background-color: #315377;
     color: #fff;
     display: block;
@@ -45,10 +45,10 @@
 
 .tests-tab .nav .nav-item a.active {
     background-color: #edf0f2;
-    color:#315377;
+    color: #315377;
 }
 
-.matchingResult{
+.matchingResult {
     display: inline-block;
     text-align: center;
     list-style-type: none;
@@ -61,6 +61,49 @@
     border-radius: 3px;
     color: white;
     border: none;
-    background-color: #2aaf41;
-    box-shadow: 0 1px 5px 0 rgba(1, 1,1, 1);
+    background-color: #ffc600;;
+    color: #07294d;
+    box-shadow: 0 1px 5px 0 rgba(1, 1, 1, 1);
+}
+
+
+.nav-pills-custom .nav-link {
+    color: #07294d;
+    background: #fff;
+    position: relative;
+}
+
+.nav-pills-custom .nav-link.active {
+    color: white;
+    background: #07294d;
+    pointer-events: none;
+}
+
+@media (min-width: 992px) {
+    .nav-pills-custom .nav-link::before {
+        content: '';
+        display: block;
+        border-top: 8px solid transparent;
+        border-left: 10px solid #07294d;
+        border-bottom: 8px solid transparent;
+        position: absolute;
+        top: 50%;
+        right: -10px;
+        transform: translateY(-50%);
+        opacity: 0;
+    }
+}
+
+.nav-pills-custom .nav-link.active::before {
+    opacity: 1;
+}
+
+.question_matching{
+    font-size: 16px;
+    color: #24486e;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px 0;
+    display: block;
+    text-align: center;
 }
