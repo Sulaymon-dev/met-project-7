@@ -39,7 +39,22 @@
                                     </ul>
                                 </li>
                                 <li><a href="javascript:void(0)" id="search"><i class="fa fa-search"></i></a></li>
-                                <li><a href="{{route('front-login')}}"><i class="fa fa-user"></i> </a></li>
+                                @if(auth()->user())
+                                    <li><a href="{{route('login')}}"><i class="fa fa-user"></i> </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{route('login')}}"><i class="fa fa-user"></i> ПРОФИЛ</a></li>
+                                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i>
+                                                    БАРОМАДАН</a></li>
+                                        </ul>
+                                    </li>
+                                @else
+                                    <li><a href="{{route('login')}}"><i class="fa fa-sign-in"></i> </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="{{route('login')}}"><i class="fa fa-user"></i> Воридшавӣ</a></li>
+                                            <li><a href="{{route('register')}}"><i class="fa fa-user-plus"></i>
+                                                    Регистратсия</a></li>
+                                        </ul></li>
+                                @endif
                             </ul>
                         </div>
                     </nav>

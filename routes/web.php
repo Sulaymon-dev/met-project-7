@@ -40,22 +40,12 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 
-Route::get('/front/register',  function () {
-    return view('front.pages.register');
-})->name('front-register');
-
-Route::post('/front/login',  'UserController@login')->name('check-login');
-
-Route::get('/front/login',  function () {
-    return view('front.pages.login');
-})->name('front-login');
-
-Route::get('/profile', 'UserController@profile')->name('profile');
+Route::get('/profile', 'UserController@profile')->name('profile')->middleware('auth');
 
 Route::get('/logout', function () {
     Auth::logout();
-    return view('login');
-});
+    return view('auth.login');
+})->name('logout')->middleware('auth');
 
 Route::get('/', 'IndexController@index')->name('index');
 Route::get('/subjects', 'SubjectsController@index')->name('subjects');
@@ -76,5 +66,5 @@ Route::get('/about', 'InfoController@about')->name('about');
 Route::get('/search', 'IndexController@search')->name('search');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 

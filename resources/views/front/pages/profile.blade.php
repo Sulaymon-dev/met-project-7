@@ -14,7 +14,7 @@
                             <img src="{{asset('front/images/teachers/t-1.jpg')}}" alt="Teachers">
                         </div>
                         <div class="name">
-                            <h6>Қаҳоров Фирдавс</h6>
+                            <h6>{{$user->name}}</h6>
                             <span>Синфи {{$sinf}}</span>
                         </div>
                         <div class="social">
@@ -26,9 +26,7 @@
                             </ul>
                         </div>
                         <div class="description">
-                            <p>Gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum
-                                auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh vulputate..
-                            </p>
+                            <p>{{$user->phone}}</p>
                         </div>
                     </div>
                 </div>
@@ -86,14 +84,29 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-single">
-                                                        <input type="text" name="name" placeholder="Ному насаб">
+                                                        <input type="text"
+                                                               name="name"
+                                                               placeholder="Ному насаб"
+                                                               value="{{$user->name}}">
                                                     </div>
                                                     <div class="form-single">
-                                                        <input type="text" name="phone" placeholder="Рақами телефон">
+                                                        <input type="text"
+                                                               name="phone"
+                                                               placeholder="Рақами телефон"
+                                                               value="{{$user->phone}}">
                                                     </div>
                                                     <div class="form-single">
-                                                        <input type="text" disabled value="test@test" name="email"
-                                                               placeholder="Email">
+                                                        <input max="11"
+                                                               maxlength="2"
+                                                               name="sinf"
+                                                               placeholder="Синфро ворид кунед">
+                                                    </div>
+                                                    <div class="form-single">
+                                                        <input type="text"
+                                                               disabled
+                                                               name="email"
+                                                               placeholder="Email"
+                                                               value="{{$user->email}}">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 d-flex flex-column align-items-center">
@@ -101,13 +114,30 @@
                                                         <input type="file">
                                                     </div>
                                                     <div class="pt-10">
-                                                        <img src="{{asset('front/images/teachers/t-1.jpg')}}" style="width: 100px"
+                                                        <img src="{{asset('front/images/teachers/t-1.jpg')}}"
+                                                             style="width: 100px"
                                                              alt="Teachers">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-single">
+                                                        <input type="password"
+                                                               name="password"
+                                                               placeholder="Пароли навро ворид кунед">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-6">
+                                                    <div class="form-single">
+                                                        <input type="password"
+                                                               name="password_confirmation"
+                                                               placeholder="Пароли навро такрор кунед">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-single">
-                                                        <textarea name="about" placeholder="Дар бораи худ"></textarea>
+                                                        <textarea name="about"
+                                                                  placeholder="Дар бораи худ">{{$user->about}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">

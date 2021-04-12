@@ -699,9 +699,9 @@ p {
 .navigation .navbar .navbar-nav li .sub-menu {
     position: absolute;
     top: 110%;
-    left: 0;
+    right: -20px;
     background-color: #07294d;
-    width: 180px;
+    width: max-content;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.4s linear;
