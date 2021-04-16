@@ -1,0 +1,27 @@
+#openQuiz {
+    display: -webkit-box;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    padding-top: 40px;
+}
+
+#openQuiz button {
+    font-size: 18px;
+}
+
+#openQuiz #ot {
+    color: blue;
+}
+
+#openQuiz .answerCell, .rightAnswerCell {
+    width: 25%;
+}
+
+#openQuiz .numberCell {
+    width: 5%;
+}
+
+#openQuiz .questionCell {
+    width: 45%;
+}

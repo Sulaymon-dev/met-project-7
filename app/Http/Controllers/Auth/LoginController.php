@@ -34,7 +34,7 @@ class LoginController extends Controller
         if (auth()->user()->role == 'admin') {
             return '/admin';
         }
-        return '/';
+        return '/profile';
     }
 
     /**

@@ -7,8 +7,6 @@
         const output = [];
 
         // for each question...
-        console.warn(window.quiz);
-        console.log(myQuestions);
         myQuestions.forEach(
             (currentQuestion, questionNumber) => {
 
@@ -38,8 +36,6 @@
 
                 let shufleAnswers;
                 shufleAnswers = shuffle(shufleAnswer);
-
-                // and for each available answer...
 
                 let variants = ['А', 'Б', 'В', 'Г'];
 
