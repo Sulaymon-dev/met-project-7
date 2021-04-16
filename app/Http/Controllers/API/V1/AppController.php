@@ -29,7 +29,7 @@ class AppController extends Controller
         $sinfs = Sinf::select('sinfs.id as id', 'sinfs.class', 'plans.subject_id as subject_id')->leftJoin('plans', 'plans.sinf_id', '=', 'sinfs.id')->where('plans.subject_id', '=', $subject_id)->get()
             ->unique(function ($item) {
                 return $item->class;
-            });
+            })->values();
         return response()->json(['data' => $sinfs, 'status' => '200'], '200');
     }
 
@@ -40,7 +40,9 @@ class AppController extends Controller
             ->leftJoin('plans', 'plans.subject_id', '=', 'subjects.id')->where('plans.sinf_id', '=', $sinf_id)->get()
             ->unique(function ($item) {
                 return $item->name;
-            });
+            })->values();
+
+
         return response()->json(['data' => $subjects, 'status' => '200'], '200');
     }
 
@@ -62,4 +64,5 @@ class AppController extends Controller
         $theme = Theme::where([['id', '=', $theme_id], ['status', '=', '1'], ['is_show', '=', '1']])->first();
         return response()->json(['data' => $theme, 'status' => '200'], '200');
     }
+
 }

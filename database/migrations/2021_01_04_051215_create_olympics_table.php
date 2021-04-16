@@ -17,14 +17,19 @@ class CreateOlympicsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('subject_id');
             $table->unsignedBigInteger('sinf_id');
-            $table->string('type');
-            $table->longText('test');
-            $table->string('pdf_src');
+            $table->unsignedBigInteger('user_id');
+            $table->string('type')->nullable();
+            $table->string('title')->nullable();
+            $table->text('introduction')->nullable();
+            $table->longText('test')->nullable();
+            $table->string('pdf_src')->nullable();
+            $table->string('img_src')->nullable();
+            $table->boolean('is_show');
+            $table->boolean('status');
             $table->timestamps();
-
             $table->foreign('subject_id')->references('id')->on('subjects')->cascadeOnDelete();
             $table->foreign('sinf_id')->references('id')->on('sinfs')->cascadeOnDelete();
-
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

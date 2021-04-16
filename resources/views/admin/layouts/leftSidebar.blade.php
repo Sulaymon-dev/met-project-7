@@ -130,6 +130,30 @@
                 </ul>
             </li>
 
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
+                    <i class="nav-icon icon-puzzle"></i> Олимпиада</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('olympics.index')}}">
+                            <i class="nav-icon icon-puzzle"></i>Рӯйхати маводҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('olympics.create')}}">
+                            <i class="nav-icon icon-puzzle"></i>Иловаи мавод</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('olympics.quiz4in1')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тест </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('olympics.matching')}}">
+                            <i class="nav-icon icon-puzzle"></i>Мувофиқоварӣ</a>
+                    </li>
+                </ul>
+            </li>
+
+
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>

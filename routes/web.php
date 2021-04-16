@@ -36,11 +36,12 @@ Route::prefix('/admin/')->group(function () {
     Route::get('mmt_fans/quiz4x1', 'Admin\MMTFansController@showQuiz4in1')->name('mmt_fans.quiz4in1');
     Route::get('mmt_fans/matching', 'Admin\MMTFansController@showMatching')->name('mmt_fans.matching');
     Route::get('mmt_fans/json', 'Admin\MMTFansController@showJson')->name('mmt_fans.test_json');
+    Route::get('olympics/quiz4x1','Admin\OlympicsController@showQuiz4in1' )->name('olympics.quiz4in1');
+    Route::get('olympics/matching', 'Admin\OlympicsController@showMatching')->name('olympics.matching');
+    Route::get('olympics/json', 'Admin\OlympicsController@showJson')->name('olympics.test_json');
     Route::resource('themes', 'Admin\ThemesController');
+    Route::resource('olympics', 'Admin\OlympicsController');
     Route::resource('mmt_fans', 'Admin\MMTFansController');
-
-
-
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 
