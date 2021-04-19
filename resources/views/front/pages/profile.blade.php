@@ -7,24 +7,48 @@
 
     <section id="teachers-single" class="pb-50 gray-bg">
         <div class="container">
+
+
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-6 col-sm-4">
+                    @if($errors->any())
+                        <div class="alert alert-danger alert-block mt-5">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            @foreach($errors->all() as $error)
+                                <strong>{{$error}}</strong>
+                                <br>
+                            @endforeach
+                        </div>
+                    @endif
+                    @if ($message = \Illuminate\Support\Facades\Session::get('success'))
+                        <div class="alert alert-success alert-block mt-5">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+                </div>
+            </div>
+
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-8">
                     <div class="teachers-left mt-50">
                         <div class="hero">
-                            <img src="{{asset('front/images/teachers/t-1.jpg')}}" alt="Teachers">
+                            <img src="{{asset('/storage/uploads/img/' . $avatar)}}" alt="Teachers">
                         </div>
                         <div class="name">
                             <h6>{{$user->name}}</h6>
                             <span>Синфи {{$sinf}}</span>
                         </div>
-                        <div class="social">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
-                            </ul>
-                        </div>
+                        @if($networks)
+                            <div class="social">
+                                <ul>
+                                    @foreach($networks as $key=>$network)
+                                        <li><a href="{{$network}}"><i class="fab fa-{{$key}}"></i></a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="description">
                             <p>{{$user->phone}}</p>
                         </div>
@@ -38,11 +62,13 @@
                                    aria-controls="dashboard" aria-selected="true">Маълумоти умумӣ</a>
                             </li>
                             <li class="nav-item">
-                                <a id="courses-tab" data-toggle="tab" href="#courses" role="tab" aria-controls="courses"
+                                <a id="courses-tab" data-toggle="tab" href="#courses" role="tab"
+                                   aria-controls="courses"
                                    aria-selected="false">Маводҳо</a>
                             </li>
                             <li class="nav-item">
-                                <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
+                                   aria-controls="reviews"
                                    aria-selected="false">Танзимот</a>
                             </li>
                         </ul>
@@ -51,21 +77,18 @@
                                  aria-labelledby="dashboard-tab">
                                 <div class="dashboard-cont">
                                     <div class="single-dashboard pt-40">
-                                        <h5>About</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum
-                                            auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                            vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
-                                            tellus .</p>
-                                        <h5>Acchivments</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum
-                                            auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                            vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
-                                            tellus .</p>
-                                        <h5>My Objective</h5>
-                                        <p>Lorem ipsum gravida nibh vel velit auctor aliquetn sollicitudirem quibibendum
-                                            auci elit cons equat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                            vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec
-                                            tellus .</p>
+                                        @if($profile && $profile->about)
+                                            <h5>Маълумоти умумӣ</h5>
+                                            <p>{{ $profile->about }}</p>
+                                        @else
+                                            <div class="reviews-cont">
+                                                <div class="instructor-description">
+                                                    <h4 style="color:darkred; text-align: center">
+                                                        Шумо профили худро пурра накардаед. Лутфан ба сахифаи ТАНЗИМОТ
+                                                        гузаред...</h4>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +103,9 @@
                                         <h6>Танзимоти хонанда</h6>
                                     </div>
                                     <div class="reviews-form">
-                                        <form action="#">
+                                        <form method="POST" action="{{route('update-profile')}}"
+                                              enctype="multipart/form-data">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-single">
@@ -93,13 +118,26 @@
                                                         <input type="text"
                                                                name="phone"
                                                                placeholder="Рақами телефон"
-                                                               value="{{$user->phone}}">
+                                                               value="{{($profile) ? $profile->phone : null}}">
                                                     </div>
                                                     <div class="form-single">
                                                         <input max="11"
                                                                maxlength="2"
                                                                name="sinf"
-                                                               placeholder="Синфро ворид кунед">
+                                                               placeholder="Синфро ворид кунед"
+                                                               value="{{($profile) ? $profile->sinf : null}}">
+                                                    </div>
+                                                    <div class="form-single">
+                                                        <select name="gender">
+                                                            <option value="M"
+                                                                {{(($profile) && $profile->gender==='M')?'selected':''}}>
+                                                                Мард
+                                                            </option>
+                                                            <option value="F"
+                                                                {{(($profile) && $profile->gender==='F')?'selected':''}}>
+                                                                Зан
+                                                            </option>
+                                                        </select>
                                                     </div>
                                                     <div class="form-single">
                                                         <input type="text"
@@ -108,41 +146,67 @@
                                                                placeholder="Email"
                                                                value="{{$user->email}}">
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6 d-flex flex-column align-items-center">
-                                                    <div class="form-single">
-                                                        <input type="file">
-                                                    </div>
-                                                    <div class="pt-10">
-                                                        <img src="{{asset('front/images/teachers/t-1.jpg')}}"
-                                                             style="width: 100px"
-                                                             alt="Teachers">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
                                                     <div class="form-single">
                                                         <input type="password"
                                                                name="password"
                                                                placeholder="Пароли навро ворид кунед">
                                                     </div>
-                                                </div>
-
-                                                <div class="col-md-6">
                                                     <div class="form-single">
                                                         <input type="password"
                                                                name="password_confirmation"
                                                                placeholder="Пароли навро такрор кунед">
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6 ">
+                                                    <div class="form-single">
+                                                        <input type="file" name="avatar">
+                                                    </div>
+                                                    <div class="pt-10 d-flex flex-column align-items-center">
+                                                        <img src="{{asset('/storage/uploads/img/'.$avatar)}}"
+                                                             style="width: 100px">
+                                                    </div>
+                                                    <div class="form-single d-flex align-items-center">
+                                                        <i class="fab fa-instagram  mr-1"
+                                                           style="font-size: 25px"></i>
+                                                        <input type="text"
+                                                               name="instagram"
+                                                               value="{{$instagram}}"
+                                                               placeholder="Ҳаволаи аккаунти instagram">
+                                                    </div>
+                                                    <div class="form-single d-flex align-items-center">
+                                                        <i class="fab fa-facebook-square mr-1"
+                                                           style="font-size: 25px"></i>
+                                                        <input type="text"
+                                                               name="facebook"
+                                                               value="{{$facebook}}"
+                                                               placeholder="Ҳаволаи аккаунти facebook">
+                                                    </div>
+                                                    <div class="form-single d-flex align-items-center">
+                                                        <i class="fab fa-telegram  mr-1"
+                                                           style="font-size: 25px"></i>
+                                                        <input type="text"
+                                                               name="telegram"
+                                                               value="{{$telegram}}"
+                                                               placeholder="Ҳаволаи аккаунти telegram">
+                                                    </div>
+                                                    <div class="form-single d-flex align-items-center">
+                                                        <i class="fab fa-viber  mr-1" style="font-size: 25px"></i>
+                                                        <input type="text"
+                                                               name="linkedIn"
+                                                               value="{{$linkedIn}}"
+                                                               placeholder="Ҳаволаи аккаунти linkedIn">
+                                                    </div>
+
+                                                </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-single">
-                                                        <textarea name="about"
-                                                                  placeholder="Дар бораи худ">{{$user->about}}</textarea>
+                                                            <textarea name="about"
+                                                                      placeholder="Дар бораи худ">{{($profile) ? $profile->about : null}}</textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-single">
-                                                        <button type="button" class="main-btn">Сабт кадан</button>
+                                                        <button type="submit" class="main-btn">Сабт кадан</button>
                                                     </div>
                                                 </div>
                                             </div>

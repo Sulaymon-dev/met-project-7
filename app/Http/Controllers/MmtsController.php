@@ -15,10 +15,11 @@ class MmtsController extends Controller
         $clusters = Cluster::where('status', 1)->with('mmts.subject')->get()->sortBy("index");
 
         $first = false;
+        $data=[];
 //        return ($clusters);
 
 
-        return view('front.pages.mmt', compact(['clusters', 'cluster','first']));
+        return view('front.pages.mmt', compact(['clusters', 'cluster','first', 'data']));
     }
 
     public function show($id, Request $request)

@@ -1,5 +1,5 @@
 <div class="courses-single-left " style="padding: 30px 50px;">
-    @if(sizeof($data->mmts)<=0)
+    @if(!$data||(sizeof($data->mmts)<=0))
         <div class="reviews-cont">
             <div class="instructor-description">
                 <p>

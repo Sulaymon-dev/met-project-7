@@ -16,11 +16,14 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('phone');
-            $table->string('avatar');
-            $table->integer('experience');
-            $table->string('address');
-            $table->enum('gender', ['M', 'F']);
+            $table->string('phone')->nullable();
+            $table->string('avatar')->nullable()->default('no-avatar.jpg');
+            $table->integer('experience')->default(0);
+            $table->integer('sinf')->default(1);
+            $table->text('about')->nullable();
+            $table->text('networks')->nullable();
+            $table->string('address')->nullable();
+            $table->enum('gender', ['M', 'F'])->default('M');
 
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();

@@ -7,18 +7,23 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+####Установка
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Для корректной установки на вашем сервере должны быть установлены PHP 5.4, расширение mcrypt для PHP и Composer. Для установки сделайте следующее:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
+- Склонировать проект на локальную машину, войти в папку проекта<br />
+`git clone git@github.com:believer-ufa/prettyforms-laravel-app.git
+cd prettyforms-laravel-app/`<br />
+- Установить все зависимости приложения через Composer<br />
+`composer install`<br />
+- Настроить подключение к MySQL базе данных в файле app/config/database.php<br />
+- Создать базу данных приложения, выполнив SQL-запрос в MySQL<br />
+`CREATE DATABASE met-project COLLATE 'utf8_general_ci'`<br />
+- Запустить скрипт генерации таблиц БД<br />
+`php artisan migrate`<br />
+- Запустить веб-сервер<br />
+`php artisan serve`<br />
+- Открыть страницу в браузере: http://localhost:8000/<br />
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel

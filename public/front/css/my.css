@@ -107,3 +107,12 @@
     display: block;
     text-align: center;
 }
+
+.nice-select{
+    width: 100% !important;
+    margin-bottom: 25px;
+}
+
+.nice-select.open .list{
+    width: 100% !important;
+}
