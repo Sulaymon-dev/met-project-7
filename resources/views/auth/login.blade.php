@@ -45,7 +45,7 @@
                         </div>
                     </form>
                     <p class="loginhere">
-                        Шумо ҳоло аккаунт надоред? <a href="{{route('front-register')}}" class="loginhere-link">Сохтани аккаунт</a>
+                        Шумо ҳоло аккаунт надоред? <a href="{{route('register')}}" class="loginhere-link">Сохтани аккаунт</a>
                     </p>
                 </div>
             </div>
