@@ -11,19 +11,19 @@
 
 Для корректной установки на вашем сервере должны быть установлены PHP 5.4, расширение mcrypt для PHP и Composer. Для установки сделайте следующее:
 
-- Склонировать проект на локальную машину, войти в папку проекта
+- Склонировать проект на локальную машину, войти в папку проекта<br />
 `git clone git@github.com:believer-ufa/prettyforms-laravel-app.git
-cd prettyforms-laravel-app/`
-- Установить все зависимости приложения через Composer
-`composer install`
-- Настроить подключение к MySQL базе данных в файле app/config/database.php
-- Создать базу данных приложения, выполнив SQL-запрос в MySQL
-`CREATE DATABASE `prettyforms-testapp` COLLATE 'utf8_general_ci'`
-- Запустить скрипт генерации таблиц БД
-`php artisan migrate`
-- Запустить веб-сервер
-`php artisan serve`
-- Открыть страницу в браузере: http://localhost:8000/
+cd prettyforms-laravel-app/`<br />
+- Установить все зависимости приложения через Composer<br />
+`composer install`<br />
+- Настроить подключение к MySQL базе данных в файле app/config/database.php<br />
+- Создать базу данных приложения, выполнив SQL-запрос в MySQL<br />
+`CREATE DATABASE met-project COLLATE 'utf8_general_ci'`<br />
+- Запустить скрипт генерации таблиц БД<br />
+`php artisan migrate`<br />
+- Запустить веб-сервер<br />
+`php artisan serve`<br />
+- Открыть страницу в браузере: http://localhost:8000/<br />
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
