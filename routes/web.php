@@ -38,6 +38,7 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('themes', 'Admin\ThemesController');
     Route::resource('olympics', 'Admin\OlympicsController');
     Route::resource('mmt_fans', 'Admin\MMTFansController');
+    Route::resource('news', 'Admin\ArticlesController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 
