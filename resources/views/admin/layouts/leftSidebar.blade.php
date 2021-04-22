@@ -153,7 +153,20 @@
                 </ul>
             </li>
 
-
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('news.index')}}">
+                    <i class="nav-icon icon-puzzle"></i>Навгониҳо</a>
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('news.index')}}">
+                            <i class="nav-icon icon-puzzle"></i> Рӯйхати навгониҳо</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('news.create')}}">
+                            <i class="nav-icon icon-puzzle"></i> Иловаи навгонӣ</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>

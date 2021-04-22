@@ -1,11 +1,11 @@
 @extends('admin.layouts.main')
 
 @section('style')
-<style>
-   .table td{
-        vertical-align: middle;
-    }
-</style>
+    <style>
+        .table td{
+            vertical-align: middle;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
                             <div>
-                                <i class="fa fa-align-justify"></i> Рӯйхати китобҳо
+                                <i class="fa fa-align-justify"></i> Рӯйхати навгониҳо
                             </div>
                             <div>
                                 <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
@@ -27,37 +27,39 @@
                                 <thead>
                                 <tr>
                                     <th>Акс</th>
-                                    <th>Ном</th>
+                                    <th>Сархат</th>
+                                    <th>Муаллиф</th>
                                     <th>Статус</th>
                                     <th>Амал</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                @foreach($books as $book)
-                                    <tr id="sub-{{$book->id}}">
-                                        <td class="w-25"><img
+                                @foreach($articles as $article)
+                                    <tr id="sub-{{$article->id}}">
+                                        <td class="w-25 h-25"><img
                                                 style="max-width: 100%"
-                                                src="/storage/uploads/img/{{$book->img_src}}" alt=""></td>
+                                                src="/storage/uploads/img/{{$article->img_src}}" alt=""></td>
                                         <td><a class="text-black"
-                                               href="/storage/uploads/pdf/{{$book->pdf_src}}">{{$book->name}}</a></td>
-                                        <td>{!!  $book->status == 1 ? '<span class="badge badge-success">Active</span>' :
+                                               href="#">{{$article->title}}</a></td>
+                                        <td>
+                                            {{$article->user->name}}
+                                        </td>
+                                        <td>{!!  $article->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="{{route('books.edit',$book->id)}}"><i
+                                               href="{{route('news.edit',$article->id)}}"><i
                                                     class="fa fa-edit"></i></a>
-                                            @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
                                                 <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
+                                                   onclick="deleteSubjectHandler(event,{{$article->id}})"> <i
                                                         class="fa fa-trash-o"></i></a>
-                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{$books->links()}}
+                            {{$articles->links()}}
                         </div>
                     </div>
                 </div>
@@ -73,7 +75,7 @@
         function deleteSubject(id) {
             $.ajax(
                 {
-                    url: "/admin/books/" + id,
+                    url: "/admin/articles/" + id,
                     type: 'DELETE',
                     dataType: "JSON",
                     data: {
