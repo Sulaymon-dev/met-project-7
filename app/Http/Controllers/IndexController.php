@@ -20,10 +20,8 @@ class IndexController extends Controller
     public function search(Request $request)
     {
         $text = $request->get('text');
-
         $result = Theme::where('name', 'like', '%' . $text . '%')->with('plan.subject')->get(['id', 'theme_num', 'name', 'plan_id']);
         $resultCount = count($result);
-
         return view('front.pages.search', compact(['result', 'resultCount', 'text']));
     }
     /**

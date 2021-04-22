@@ -39,12 +39,10 @@ class SubjectsController extends Controller
         $path = '';
         $data = [];
         $test = null;
-
         if (!empty($theme['test'])) {
             $test = json_decode($theme['test'], true);
         }
         $type='';
-
         foreach ($test['tests'] as $exercise) {
             $data[] = json_encode($exercise['data']);
         }

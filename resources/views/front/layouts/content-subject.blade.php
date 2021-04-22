@@ -19,7 +19,7 @@
                         aria-controls="collapse{{$key}}">
                         <ul>
                             <li><i class="fa fa-file-o"></i></li>
-                            <li><span class="lecture">МАВЗӮИ 1</span></li>
+                            <li><span class="lecture">МАВЗӮИ {{$item->theme_num}}</span></li>
                             <li><span class="head">{{$item->name}}</span></li>
                             <li><span class="time d-none d-md-block"></span></li>
                         </ul>
@@ -29,12 +29,12 @@
                      class="{{($key==0) ? 'collapse show' : 'collapse'}} "
                      aria-labelledby="heading{{$key}}"
                      data-parent="#accordionExample">
-                    <div class="card-body">
-                        <p>{{Illuminate\Support\Str::limit($item->introduction , 65, ' ...')}}
-                            <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
-                               class="btn btn-met stretched-link"
-                               style="float: right;">Дидан</a>
-                        </p>
+                    <div class="card-body">{!! Illuminate\Support\Str::limit($item->introduction , 65, ' ...') !!}
+
+                        <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
+                                class="btn btn-met stretched-link"
+                                style="float: right;  position: relative; top: -30px; ">
+                            Дидан</a>
                     </div>
                 </div>
             </div>

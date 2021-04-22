@@ -23,6 +23,7 @@
             </div>
         </div>
     </section>
+
     <section class="py-5 header">
         <div class="container py-4">
             <div class="row">
@@ -41,9 +42,10 @@
                                                 ])}}">
 
                                                     <div class="items-image">
-                                                        <img src="{{asset('/storage/uploads/img/'.$subject->image_src)}}"
-                                                             width="372px"
-                                                             height="145px" alt="{{$subject->name}}">
+                                                        <img
+                                                            src="{{asset('/storage/uploads/img/'.$subject->image_src)}}"
+                                                            width="372px"
+                                                            height="145px" alt="{{$subject->name}}">
                                                     </div>
                                                     <div class="items-cont">
                                                         <h5>{{$subject->name}}</h5>
@@ -60,7 +62,6 @@
             </div>
         </div>
     </section>
-
 @endsection
 
 @section('script')

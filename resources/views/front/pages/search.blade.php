@@ -32,26 +32,36 @@
                              role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <div class="category-2-items">
                                 <div class="row">
-                                    @foreach($result as $item)
-                                        <div class="col-md-4">
-                                            <div class="single-items text-center  mt-30">
-                                                <a href="{{route('theme', ['id'=>$item->id])}}">
-                                                    <div class="items-image">
-                                                        <img
-                                                            src="{{asset('/storage/uploads/img/'.$item->plan->subject->image_src)}}"
-                                                            width="372px"
-                                                            height="145px" alt="{{$item->name}}">
-                                                    </div>
-                                                    <div class="items-cont">
-                                                        <p style="color: #fff;">
-                                                            <b>{{$item->plan->subject->name}}</b></p>
-                                                        <p style="color: #fff;">Мaвзӯи {{$item->theme_num}}</p>
-                                                        <h5>{{$item->name}}</h5>
-                                                    </div>
-                                                </a>
+                                    @if(!sizeof($result)>0)
+                                        <div class="reviews-cont">
+                                            <div class="instructor-description pt-25">
+                                                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">
+                                                    Ба дархости Шумо
+                                                    мавод ёфт нашуд...</h4>
                                             </div>
                                         </div>
-                                    @endforeach
+                                    @else
+                                        @foreach($result as $item)
+                                            <div class="col-md-4">
+                                                <div class="single-items text-center  mt-30">
+                                                    <a href="{{route('theme', ['id'=>$item->id])}}">
+                                                        <div class="items-image">
+                                                            <img
+                                                                src="{{asset('/storage/uploads/img/'.$item->plan->subject->image_src)}}"
+                                                                width="372px"
+                                                                height="145px" alt="{{$item->name}}">
+                                                        </div>
+                                                        <div class="items-cont">
+                                                            <p style="color: #fff;">
+                                                                <b>{{$item->plan->subject->name}}</b></p>
+                                                            <p style="color: #fff;">Мaвзӯи {{$item->theme_num}}</p>
+                                                            <h5>{{$item->name}}</h5>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

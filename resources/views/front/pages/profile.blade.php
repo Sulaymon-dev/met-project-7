@@ -43,8 +43,9 @@
                             <div class="social">
                                 <ul>
                                     @foreach($networks as $key=>$network)
-                                        <li><a href="{{$network}}"><i class="fab fa-{{$key}}"></i></a>
-                                        </li>
+                                        @if($network)
+                                        <li><a href="{{$network}}"><i class="fa fa-{{$key}}"></i></a></li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </div>

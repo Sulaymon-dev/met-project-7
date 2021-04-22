@@ -44,7 +44,7 @@
             <div class="courses-single-left shadow">
                 <div class="title">
                     <h1 class="pt-10 pb-10 ">
-                        <B>{{$theme->plan->book->name}} . СИНФИ {{$theme->plan->sinf->class}}</B>
+                        <B>{{$theme->plan->book->name}}</B>
                     </h1>
                     <h3 class="pt-10 pb-10 ">Дарси 1. {{$theme->name}}</h3>
                 </div>
@@ -86,7 +86,6 @@
                         @endif
                     </div>
                 @elseif($content == 'moreInfo')
-
                     <div class="courses-tab mt-30">
                         @if(substr($theme->plan->book->pdf_src,-4)==='.pdf')
                             <iframe
@@ -124,10 +123,9 @@
                             <div class="tab-pane fade show active" id="overview" role="tabpanel"
                                  aria-labelledby="overview-tab">
                                 <div class="overview-description">
-                                    {{$theme->introduction}}
+                                    {!! $theme->introduction !!}
                                 </div>
                             </div>
-
                             <div class="tab-pane fade" id="curriculum" role="tabpanel" aria-labelledby="curriculum-tab">
                                 <div class="title">
                                     <h5 class="pt-20 pb-10 text-center">{{$theme->name}} </h5>
@@ -139,7 +137,6 @@
                                     Your browser does not support the video tag.
                                 </video>
                             </div>
-
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
                                 @include('front.layouts.test', $test)
                             </div>
@@ -151,7 +148,7 @@
                                             width="100%"
                                             height="600px"></iframe>
                                     @elseif(strlen($theme->pdf_exercise)>0)
-                                        <p>{{$theme->pdf_exercise}}</p>
+                                        <p>{!! $theme->pdf_exercise !!}</p>
                                     @else
                                         <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
                                             қарор дорад...</h4>

@@ -20,22 +20,17 @@ class UserController extends Controller
         $user = $request->user();
         $sinf = 1;
         $profile = Profile::where('user_id', $user->id)->first();
-
-
         $networks = '';
         $instagram = '';
         $facebook = '';
         $telegram = '';
         $linkedIn = '';
         $avatar = 'no-avatar.jpg';
-
         if ($profile) {
             $sinf = $profile->sinf;
-
             if ($profile->avatar) {
                 $avatar = $profile->avatar;
             }
-
             $networks = json_decode($profile->networks);
             if ($networks) {
                 foreach ($networks as $key => $network) {
@@ -72,14 +67,12 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-
         $messages = [
             'required' => 'Майдони :attribute бояд хатми маълумот дошта бошад.',
             'string' => 'Майдони :attribute бояд маълумоти матни дошта бошад',
             'integer' => 'Майдони :attribute бояд маълумоти раками дошта бошад',
             'image' => ':attribute бояд формати расми дошта бошад',
         ];
-
         $validator = Validator::make($request->all(), [
             "name" => "required",
             "phone" => "required",
@@ -92,22 +85,16 @@ class UserController extends Controller
             "about" => "nullable|string",
             "avatar" => "image"
         ], $messages);
-
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         }
-
         $networks = $this->getNetworks($request->all());
-
         $userId = $request->user()->id;
         $user = User::find($userId);
         $profile = Profile::where('user_id', $userId)->first();
-
         $user->update([
             'name' => $request->get('name')
         ]);
-
-
         if ($profile) {
             $profile['user_id'] = $userId;
             $profile['phone'] = $request->get('phone');
@@ -127,7 +114,6 @@ class UserController extends Controller
             ])->save();
             $profile->uploadAvatar($request->file('avatar'));
         }
-
         return redirect()->back()->with('success', 'Маълумот бо муваффакият сабт карда шуд!');
     }
 
@@ -137,7 +123,6 @@ class UserController extends Controller
         $networks['facebook'] = $data['facebook'];
         $networks['telegram'] = $data['telegram'];
         $networks['linkedin'] = $data['linkedIn'];
-
         return $networks;
     }
 

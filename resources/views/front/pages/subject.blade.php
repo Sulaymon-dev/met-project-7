@@ -33,7 +33,6 @@
                 </p>
             </div>
         </div>
-
     @else
 
         <section class="py-5 header">
@@ -79,7 +78,6 @@
                 </div>
             </div>
         </section>
-
     @endif
 @endsection
 

@@ -29,7 +29,7 @@
                         </div>
                         <ul>
                             <li><a href="{{route('index')}}"><i class="fa fa-angle-right"></i>Асосӣ</a></li>
-                            <li><a href="{{route('about')}}"><i class="fa fa-angle-right"></i>Дарбораи мо</a></li>
+                            <li><a href="{{route('about')}}"><i class="fa fa-angle-right"></i>Дар бораи мо</a></li>
                             <li><a href="{{route('subjects')}}"><i class="fa fa-angle-right"></i>Фанҳо</a></li>
                             <li><a href="{{route('class')}}"><i class="fa fa-angle-right"></i>Синфҳо</a></li>
                             <li><a href="{{route('olympics')}}"><i class="fa fa-angle-right"></i>Олимпиада</a></li>
@@ -76,7 +76,7 @@
                             </li>
                             <li>
                                 <div class="icon">
-                                    <i class="fa fa-envelope-o"></i>
+                                    <i class="fa fa-envelope"></i>
                                 </div>
                                 <div class="cont">
                                     <a style="color: white" href="mailto:info@met.com">info@met.com</a>
