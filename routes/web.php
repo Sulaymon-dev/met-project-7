@@ -13,10 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('/admin/')->group(function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+Route::prefix('/admin/')->middleware('admin_access')->group(function () {
+    Route::get('/', 'Admin\AdminController@index')->name('admin.main');
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::resource('sinfs', 'Admin\SinfsController');
@@ -39,6 +37,8 @@ Route::prefix('/admin/')->group(function () {
     Route::resource('olympics', 'Admin\OlympicsController');
     Route::resource('mmt_fans', 'Admin\MMTFansController');
     Route::resource('news', 'Admin\ArticlesController')->middleware('isAdmin');
+    Route::get('settings/{key}', 'Admin\SettingsController@get_key_data')->middleware('isAdmin');
+    Route::resource('settings', 'Admin\SettingsController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
 

@@ -10,7 +10,7 @@
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>CoreUI Free Bootstrap Admin Template</title>
+    <title>Системаи Идоракунии Барномаи мактаби электронии Тоҷикистон</title>
     <!-- Icons-->
     <link rel="icon" type="image/ico" href="./img/favicon.ico" sizes="any" />
     <link href="/libs/@coreui/icons/css/coreui-icons.min.css" rel="stylesheet">
