@@ -1,143 +1,39 @@
 {
-    "scripts": [
-        "\/js\/",
-        "\/css\/"
-    ],
-    "styles": [
-        "\/css\/",
-        "\/js\/"
-    ],
-    "tests": [
+    "description":"Desc text",
+    "btn_text": "btn rrr",
+    "btn_url": "urllll",
+    "slides": [
         {
-            "data": [
-                {
-                    "terms": [
-                        {
-                            "id": "1",
-                            "text": "qwe"
-                        },
-                        {
-                            "id": "2",
-                            "text": "qwe"
-                        },
-                        {
-                            "id": "3",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "4",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "5",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "6",
-                            "text": "qwe"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "id": "1",
-                            "text": "qweqwer"
-                        },
-                        {
-                            "id": "2",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "3",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "4",
-                            "text": "qwert"
-                        },
-                        {
-                            "id": "5",
-                            "text": "qwert"
-                        },
-                        {
-                            "id": "6",
-                            "text": "qwerty"
-                        }
-                    ],
-                    "question": "qwer",
-                    "pairs": [
-                        "0",
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                },
-                {
-                    "terms": [
-                        {
-                            "id": "1",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "2",
-                            "text": "qwer"
-                        },
-                        {
-                            "id": "3",
-                            "text": "wer"
-                        },
-                        {
-                            "id": "4",
-                            "text": "wer"
-                        },
-                        {
-                            "id": "5",
-                            "text": "we"
-                        },
-                        {
-                            "id": "6",
-                            "text": "rt"
-                        }
-                    ],
-                    "definitions": [
-                        {
-                            "id": "1",
-                            "text": "eyrt"
-                        },
-                        {
-                            "id": "2",
-                            "text": "eyrtfy"
-                        },
-                        {
-                            "id": "3",
-                            "text": "yret"
-                        },
-                        {
-                            "id": "4",
-                            "text": "uydy"
-                        },
-                        {
-                            "id": "5",
-                            "text": "fgh"
-                        },
-                        {
-                            "id": "6",
-                            "text": "dfgh"
-                        }
-                    ],
-                    "question": "qwe",
-                    "pairs": [
-                        "0",
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5"
-                    ]
-                }
-            ],
-            "type": "matching"
+            "index": 1,
+            "url": "",
+            "img_src": "",
+            "title": "",
+            "bg_color": "",
+            "is_show": true
+        },
+        {
+            "index": 2,
+            "url": "",
+            "img_src": "",
+            "title": "",
+            "bg_color": "",
+            "is_show": true
+        },
+        {
+            "index": 3,
+            "url": "",
+            "img_src": "",
+            "title": "",
+            "bg_color": "",
+            "is_show": true
+        },
+        {
+            "index": 4,
+            "url": "",
+            "img_src": "",
+            "title": "",
+            "bg_color": "",
+            "is_show": true
         }
     ]
 }

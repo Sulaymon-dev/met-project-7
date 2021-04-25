@@ -76,6 +76,19 @@ class ThemesController extends Controller
         $theme->status = $data['status'] ?? 0;
         $theme->is_show = $data['is_show'] ?? 0;
         $theme->introduction = $data['introduction'] ?? null;
+        $theme->test = '{
+  "scripts": [
+    "/js/",
+    "/css/"
+  ],
+  "styles": [
+    "/css/",
+    "/js/"
+  ],
+  "tests": [
+
+  ]
+}';
         if ($data['exercise_type'] == 'matni') $theme->pdf_exercise = $data['matni_data']; else
             $theme->pdf_exercise = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('f_pdf_file')));
         if (isset($data['video']))
@@ -191,15 +204,19 @@ class ThemesController extends Controller
     public function showQuiz4in1()
     {
         $role = auth()->user()->role;
-        return view('admin.themes.test_4in1',compact('role'));
+        return view('admin.themes.test_4in1', compact('role'));
     }
-    public function showMatching(){
+
+    public function showMatching()
+    {
         $role = auth()->user()->role;
-        return view('admin.themes.test_match',compact('role'));
+        return view('admin.themes.test_match', compact('role'));
     }
-    public function showJson(){
+
+    public function showJson()
+    {
         $role = auth()->user()->role;
-        return view('admin.themes.test_json',compact('role'));
+        return view('admin.themes.test_json', compact('role'));
     }
 
     /**
