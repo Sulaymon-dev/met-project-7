@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="col-md-9 shadow">
-                    @include('front\layouts\content-olympics',['olympics'=>$olympics, 'sinf'=>$sinf])
+                    @include('front.layouts.content-olympics',['olympics'=>$olympics, 'sinf'=>$sinf])
                 </div>
             </div>
         </div>

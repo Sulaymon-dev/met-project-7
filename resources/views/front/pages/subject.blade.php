@@ -65,7 +65,7 @@
                                     <div class="title">
                                         <h6>СИНФИ {{$sinf}}</h6>
                                     </div>
-                                    @include('front\layouts\content-subject', ['theme'=>$theme])
+                                    @include('front.layouts.content-subject', ['theme'=>$theme])
                                 </div>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade active show" id="curriculum" role="tabpanel"
