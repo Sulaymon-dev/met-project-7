@@ -19,6 +19,10 @@ Route::get('/v1/classesBySubject','API\V1\AppController@getClassesBySubject');
 Route::get('/v1/subjectsByClass','API\V1\AppController@getSubjectsByClasses');
 Route::get('/v1/themes','API\V1\AppController@getThemes');
 Route::get('/v1/theme/','API\V1\AppController@getThemeById');
+Route::get('/v1/olympics/','API\V1\AppController@getOlympics');
+Route::get('/v1/olympic/','API\V1\AppController@getOlympicById');
+Route::get('/v1/news/','API\V1\AppController@getNews');
+Route::get('/v1/new/','API\V1\AppController@getNewById');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

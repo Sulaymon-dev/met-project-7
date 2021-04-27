@@ -38,7 +38,7 @@ class AppController extends Controller
     public function getSubjectsByClasses(Request $request)
     {
         $sinf_id = $request->input('sinf_id');
-        $subjects = Subject::select('subjects.id as id', 'subjects.slug', 'subjects.name', 'plans.sinf_id as sinf_id')
+        $subjects = Subject::select('subjects.id as id', 'subjects.slug', 'subjects.name','image_src', 'plans.sinf_id as sinf_id')
             ->leftJoin('plans', 'plans.subject_id', '=', 'subjects.id')->where('plans.sinf_id', '=', $sinf_id)->get()
             ->unique(function ($item) {
                 return $item->name;
@@ -48,7 +48,25 @@ class AppController extends Controller
         return response()->json(['data' => $subjects, 'status' => '200'], '200');
     }
 
+
     public function getThemes(Request $request)
+    {
+        $sinf_id = $request->input('sinf_id');
+        $subject_id = $request->input('subject_id');
+        $query = Plan::where([ ['status', '=', '1'], ['is_show', '=', '1']]);
+        if (isset($sinf_id)) {
+            $query->where('sinf_id', '=', $sinf_id);
+        }
+        if (isset($subject_id)) {
+            $query->where('subject_id', '=', $subject_id);
+        }
+        $plan = $query
+            ->with(['book', 'sinf', 'subject', 'themes:id,plan_id,theme_num,name,introduction,status,is_show'])
+            ->first();
+        return response()->json(['data' => $plan, 'status' => '200'], '200');
+    }
+
+    public function getThemes1(Request $request)
     {
         $sinf_id = $request->input('sinf_id');
         $subject_id = $request->input('subject_id');
