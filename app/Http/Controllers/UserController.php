@@ -106,7 +106,7 @@ class UserController extends Controller
             $profile['about'] = $request->get('about');
             $profile['gender'] = $request->get('gender');
             $profile['networks'] = json_encode($networks);
-            if ($request->has('avatar')) {
+            if ($request->file('avatar')) {
                 $profile->uploadAvatar($request->file('avatar'));
             }
         } else {
@@ -118,7 +118,7 @@ class UserController extends Controller
                 'about' => $request->get('about'),
                 'networks' => json_encode($networks)
             ])->save();
-            if ($request->has('avatar')) {
+            if ($request->file('avatar')) {
                 $profile->uploadAvatar($request->file('avatar'));
             }
         }

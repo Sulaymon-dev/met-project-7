@@ -40,7 +40,7 @@
                             @if($user->role === 'student')
                                 <span>Синфи {{$sinf}}</span>
                             @else
-                                <button type="submit" class="main-btn mt-3">Саҳифаи админ</button>
+                                <a href="{{route('admin.main')}}" class="main-btn mt-3">Саҳифаи админ</a>
                             @endif
                         </div>
                         @if($networks)
