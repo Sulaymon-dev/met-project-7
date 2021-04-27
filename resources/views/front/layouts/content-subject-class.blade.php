@@ -15,7 +15,7 @@
                         <div class="single-items text-center mt-30 ">
                             <a href="{{route('subject',[
                                                     'slug'=>$item->subject->slug,
-                                                    'sinf'=>$sinf
+                                                    'sinf'=>$item->sinf_id
                                                 ])}}">
                                 <div class="items-image">
                                     <img src="{{asset('/storage/uploads/img/'.$item->book->img_src)}}"
@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="items-cont">
                                     <h5>{{$item->book->name}}</h5>
-                                    <span>{{$item->themes_count}} мавзӯъҳо</span>
+                                    <span>{{$item->themes_count}} мавзӯъ</span>
                                 </div>
                             </a>
                         </div>

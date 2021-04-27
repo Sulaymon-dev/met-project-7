@@ -37,14 +37,18 @@
                         </div>
                         <div class="name">
                             <h6>{{$user->name}}</h6>
-                            <span>Синфи {{$sinf}}</span>
+                            @if($user->role === 'student')
+                                <span>Синфи {{$sinf}}</span>
+                            @else
+                                <button type="submit" class="main-btn mt-3">Саҳифаи админ</button>
+                            @endif
                         </div>
                         @if($networks)
                             <div class="social">
                                 <ul>
                                     @foreach($networks as $key=>$network)
                                         @if($network)
-                                        <li><a href="{{$network}}"><i class="fa fa-{{$key}}"></i></a></li>
+                                            <li><a href="{{$network}}"><i class="fa fa-{{$key}}"></i></a></li>
                                         @endif
                                     @endforeach
                                 </ul>
@@ -65,7 +69,13 @@
                             <li class="nav-item">
                                 <a id="courses-tab" data-toggle="tab" href="#courses" role="tab"
                                    aria-controls="courses"
-                                   aria-selected="false">Маводҳо</a>
+                                   aria-selected="false">
+                                    @if($user->role === 'student')
+                                        Маводҳо
+                                    @else
+                                        Маводҳои ман
+                                    @endif
+                                </a>
                             </li>
                             <li class="nav-item">
                                 <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
@@ -93,6 +103,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
                                 <div class="courses-cont pt-20" style="margin: -30px -50px">
                                     @include('front.layouts.content-subject-class')
@@ -121,13 +132,16 @@
                                                                placeholder="Рақами телефон"
                                                                value="{{($profile) ? $profile->phone : null}}">
                                                     </div>
-                                                    <div class="form-single">
-                                                        <input max="11"
-                                                               maxlength="2"
-                                                               name="sinf"
-                                                               placeholder="Синфро ворид кунед"
-                                                               value="{{($profile) ? $profile->sinf : null}}">
-                                                    </div>
+
+                                                    @if($user->role === 'student')
+                                                        <div class="form-single">
+                                                            <input max="11"
+                                                                   maxlength="2"
+                                                                   name="sinf"
+                                                                   placeholder="Синфро ворид кунед"
+                                                                   value="{{($profile) ? $profile->sinf : null}}">
+                                                        </div>
+                                                    @endif
                                                     <div class="form-single">
                                                         <select name="gender">
                                                             <option value="M"
@@ -167,7 +181,7 @@
                                                              style="width: 100px">
                                                     </div>
                                                     <div class="form-single d-flex align-items-center">
-                                                        <i class="fab fa-instagram  mr-1"
+                                                        <i class="fa fa-instagram  mr-1"
                                                            style="font-size: 25px"></i>
                                                         <input type="text"
                                                                name="instagram"
@@ -175,7 +189,7 @@
                                                                placeholder="Ҳаволаи аккаунти instagram">
                                                     </div>
                                                     <div class="form-single d-flex align-items-center">
-                                                        <i class="fab fa-facebook-square mr-1"
+                                                        <i class="fa fa-facebook-square mr-1"
                                                            style="font-size: 25px"></i>
                                                         <input type="text"
                                                                name="facebook"
@@ -183,7 +197,7 @@
                                                                placeholder="Ҳаволаи аккаунти facebook">
                                                     </div>
                                                     <div class="form-single d-flex align-items-center">
-                                                        <i class="fab fa-telegram  mr-1"
+                                                        <i class="fa fa-telegram  mr-1"
                                                            style="font-size: 25px"></i>
                                                         <input type="text"
                                                                name="telegram"
@@ -191,7 +205,7 @@
                                                                placeholder="Ҳаволаи аккаунти telegram">
                                                     </div>
                                                     <div class="form-single d-flex align-items-center">
-                                                        <i class="fab fa-viber  mr-1" style="font-size: 25px"></i>
+                                                        <i class="fa fa-linkedin  mr-1" style="font-size: 25px"></i>
                                                         <input type="text"
                                                                name="linkedIn"
                                                                value="{{$linkedIn}}"
@@ -207,7 +221,7 @@
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="form-single">
-                                                        <button type="submit" class="main-btn">Сабт кадан</button>
+                                                        <button type="submit" class="main-btn">Сабт кардан</button>
                                                     </div>
                                                 </div>
                                             </div>
