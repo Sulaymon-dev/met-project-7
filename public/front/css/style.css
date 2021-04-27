@@ -3376,19 +3376,20 @@ p {
 .teachers-left .social ul li a {
     font-size: 30px;
     margin-right: 7px;
+    color: #07294c;
 }
-.teachers-left .social ul li:nth-of-type(1) a {
-    color: #212798;
-}
-.teachers-left .social ul li:nth-of-type(2) a {
-    color: #3c9bff;
-}
-.teachers-left .social ul li:nth-of-type(3) a {
-    color: #fe1f59;
-}
-.teachers-left .social ul li:nth-of-type(4) a {
-    color: #474b8c;
-}
+/*.teachers-left .social ul li:nth-of-type(1) a {*/
+/*    color: #212798;*/
+/*}*/
+/*.teachers-left .social ul li:nth-of-type(2) a {*/
+/*    color: #3c9bff;*/
+/*}*/
+/*.teachers-left .social ul li:nth-of-type(3) a {*/
+/*    color: #fe1f59;*/
+/*}*/
+/*.teachers-left .social ul li:nth-of-type(4) a {*/
+/*    color: #474b8c;*/
+/*}*/
 .teachers-left .description {
     padding-top: 20px;
 }

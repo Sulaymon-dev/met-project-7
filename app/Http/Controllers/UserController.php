@@ -51,7 +51,11 @@ class UserController extends Controller
                 }
             }
         }
-        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('themes')->get();
+        if ($user->role === 'student') {
+            $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('themes')->get();
+        } else {
+            $theme = Plan::where('user_id', $user->id)->with('book', 'sinf', 'subject')->withCount('themes')->get();
+        }
         return view('front.pages.profile', compact(
             'profile',
             'user',
@@ -74,16 +78,16 @@ class UserController extends Controller
             'image' => ':attribute бояд формати расми дошта бошад',
         ];
         $validator = Validator::make($request->all(), [
-            "name" => "required",
-            "phone" => "required",
+            "name" => "nullable|required",
+            "phone" => "nullable|required",
             "sinf" => "nullable|integer",
-            "gender" => "required",
+            "gender" => "nullable|required",
             "instagram" => "nullable|string",
             "facebook" => "nullable|string",
             "telegram" => "nullable|string",
             "viber" => "nullable|string",
             "about" => "nullable|string",
-            "avatar" => "image"
+            "avatar" => "nullable|image"
         ], $messages);
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
@@ -102,7 +106,9 @@ class UserController extends Controller
             $profile['about'] = $request->get('about');
             $profile['gender'] = $request->get('gender');
             $profile['networks'] = json_encode($networks);
-            $profile->uploadAvatar($request->file('avatar'));
+            if ($request->has('avatar')) {
+                $profile->uploadAvatar($request->file('avatar'));
+            }
         } else {
             $profile = Profile::create([
                 'user_id' => $userId,
@@ -112,7 +118,9 @@ class UserController extends Controller
                 'about' => $request->get('about'),
                 'networks' => json_encode($networks)
             ])->save();
-            $profile->uploadAvatar($request->file('avatar'));
+            if ($request->has('avatar')) {
+                $profile->uploadAvatar($request->file('avatar'));
+            }
         }
         return redirect()->back()->with('success', 'Маълумот бо муваффакият сабт карда шуд!');
     }
