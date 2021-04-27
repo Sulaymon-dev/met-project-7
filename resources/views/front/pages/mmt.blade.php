@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <div class="col-md-9 shadow">
-                    @include('front\layouts\content-mmts-fan', $data)
+                    @include('front.layouts.content-mmts-fan', $data)
                 </div>
             </div>
         </div>

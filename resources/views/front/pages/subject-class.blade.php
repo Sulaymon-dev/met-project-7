@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="col-md-9 shadow">
-                    @include('front\layouts\content-subject-class',$theme)
+                    @include('front.layouts.content-subject-class', $theme)
                 </div>
             </div>
         </div>
