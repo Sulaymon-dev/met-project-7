@@ -14,7 +14,8 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('front.pages.index');
+        $news = (new NewsController)->getNews();
+        return view('front.pages.index', compact('news'));
     }
 
     public function search(Request $request)

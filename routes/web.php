@@ -58,6 +58,8 @@ Route::get('/subject/{slug}', 'SubjectsController@show')->name('subject');
 Route::get('/class', 'SubjectsController@sinf')->name('class');
 
 Route::get('/theme/{id}', 'SubjectsController@theme')->name('theme');
+Route::get('/news/{id}', 'NewsController@getNewById')->name('newsById');
+Route::get('/news', 'NewsController@getAllNews')->name('news');
 
 Route::get('/olympics', 'OlympicsController@index')->name('olympics');
 Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');

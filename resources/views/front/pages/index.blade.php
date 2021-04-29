@@ -113,53 +113,31 @@
         </div>
     </section>
 
-    <section class="admission-row pb-120">
+    <section class="admission-row pb-20">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-8">
-                    <div class="admission-card mt-30" style="height: 550px;">
-                        <div class="card-image">
-                            <a href="#"><img src="{{asset('/front/images/admission/admission1.jpg')}}" alt="Admission"></a>
-                        </div>
-                        <div class="card-content">
-                            <a href="#">
-                                <h4 class="card-titles">Мактаббачаҳои фаьол</h4>
-                                <p>Мактаббачаҳои синфҳои поёни метавонанд тавассути барномаҳои синфҳои болоӣ аз
-                                    имкониятҳои омӯзиши пешрафта истифода баранд.</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                @foreach($news as $new)
+                    <div class="col-lg-4 col-md-8 d-flex">
+                        <div class="admission-card mt-30" style="height: auto;">
+                            <a href="{{route('newsById', $new['id'])}}">
+                                <div class="card-image">
+                                    <img src="{{asset('/storage/uploads/img/'. $new['img_src'])}}"
+                                         alt="{{$new['title']}}">
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="card-titles">{{$new['title']}}</h4>
+                                    <p>{!! Illuminate\Support\Str::limit($new['description'] , 200, ' ...') !!}</p>
 
-                <div class="col-lg-4 col-md-8">
-                    <div class="admission-card mt-30" style="height: 550px;">
-                        <div class="card-image">
-                            <a href="#"><img src="{{asset('/front/images/admission/admission-1.jpg')}}" alt="Admission"></a>
-                        </div>
-                        <div class="card-content">
-                            <a href="#">
-                                <h4 class="card-titles">Усулҳои инноватсионии таълим</h4>
-                                <p>Усули инфиродии мо бо мактаббачагон дар ҷое, ки онҳо ҳастанд, вомехӯрад - мувофиқат
-                                    кардани услубҳои гуногуни омӯзиш ва хурсандии таълимро бармеангезад.</p>
+                                </div>
                             </a>
                         </div>
                     </div>
-                </div>
+                @endforeach
+                <a data-animation="fadeInUp"
+                   data-delay="2s"
+                   class="main-btn mt-4"
+                   href="{{route('news')}}">Муфассалтар</a>
 
-                <div class="col-lg-4 col-md-8">
-                    <div class="admission-card mt-30" style="height: 550px;">
-                        <div class="card-image">
-                            <a href="#"><img src="{{asset('/front/images/admission/admission.jpg')}}" alt="Admission"></a>
-                        </div>
-                        <div class="card-content">
-                            <a href="#">
-                                <h4 class="card-titles">Тайёрӣ ба имтиҳонҳои ММТ</h4>
-                                <p>Талабаҳои мактабҳои миёна метавонанд бо таҳсили касбӣ ва омодагӣ ба коллеҷ ва
-                                    донишгоҳи такмили ихтисос ба оянда ибтидо гузоранд.</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
