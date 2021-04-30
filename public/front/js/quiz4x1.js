@@ -88,7 +88,6 @@
 
         // for each question...
         myQuestions.forEach((currentQuestion, questionNumber) => {
-
             // find selected answer
             const answerContainer = answerContainers[questionNumber];
             const selector = `input[name=question${questionNumber}]:checked`;
@@ -148,6 +147,7 @@
     const submitButton = document.getElementById('submit');
 
     const myQuestions = window.quiz;
+    console.log(myQuestions)
 
     // Kick things off
     buildQuiz();

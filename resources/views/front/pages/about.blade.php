@@ -14,7 +14,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('index')}}">Асосӣ</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Синфҳо</li>
+                                <li class="breadcrumb-item active" aria-current="page">Дар бораи мо</li>
                             </ol>
                         </nav>
                     </div>

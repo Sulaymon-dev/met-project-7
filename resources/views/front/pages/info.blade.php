@@ -10,9 +10,9 @@
                 <div class="col-md-12">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade shadow rounded bg-white  show active  p-5">
-                            @if($info)
-                                <h1 class="content-title" style="padding-top: 20px;">{{$info['title']}}</h1>
-                                <p class="p my-3">{!! $info['text'] !!}</p>
+                            @if($data)
+                                <h1 class="content-title" style="padding-top: 20px;">{{$data['title']}}</h1>
+                                <p class="p my-3">{!! $data['body'] !!}</p>
                             @else
                                 <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">
                                     Дар зергурӯҳи зерин мавод вуҷуд надорад...
