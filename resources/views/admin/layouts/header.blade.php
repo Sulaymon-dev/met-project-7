@@ -12,13 +12,13 @@
     @if(auth()->user()->role == 'admin' || auth()->user()->role == 'superadmin' )
         <ul class="nav navbar-nav d-md-down-none">
             <li class="nav-item px-3">
-                <a class="{{route('admin.main')}}" href="#">Статистика</a>
-            </li>
-            <li class="nav-item px-3">
                 <a class="nav-link" href="{{route('users.index')}}">Истифодабарандагон</a>
             </li>
             <li class="nav-item px-3">
                 <a class="nav-link" href="{{route('settings.index')}}">Танзимот</a>
+            </li>
+            <li class="nav-item px-3">
+                <a class="nav-link" href="{{route('pages.index')}}">Саҳифаҳо</a>
             </li>
         </ul>
     @endif

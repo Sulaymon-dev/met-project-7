@@ -18,11 +18,15 @@ class SettingsController extends Controller
     public function index(Request $request)
     {
         $setting_field = $request->input('key');
+        if (!isset($setting_field)){
+            return view('admin.settings.index');
+        }
         switch ($setting_field){
             case 'main_slider':
                 return view('admin.settings.main_slider');
             case 'second_slider':
                 return view('admin.settings.second_slider');
+
         }
         return view('admin.settings.index');
     }
@@ -52,6 +56,7 @@ class SettingsController extends Controller
     {
         return Setting::where('key', '=', 'second_slider')->first();
     }
+
 
     public function create()
     {

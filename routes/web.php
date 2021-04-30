@@ -39,9 +39,10 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('news', 'Admin\ArticlesController')->middleware('isAdmin');
     Route::get('settings/{key}', 'Admin\SettingsController@get_key_data')->middleware('isAdmin');
     Route::resource('settings', 'Admin\SettingsController')->middleware('isAdmin');
+    Route::resource('pages', 'Admin\PagesController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
-
+Route::get('/page/{page:slug}','Admin\PagesController@show');
 Route::get('/profile', 'UserController@profile')->name('profile')->middleware('auth');
 Route::post('/profile', 'UserController@update')
     ->name('update-profile')->middleware('auth');

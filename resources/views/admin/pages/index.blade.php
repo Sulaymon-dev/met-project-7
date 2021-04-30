@@ -35,31 +35,31 @@
                                 </thead>
                                 <tbody>
 
-                                @foreach($articles as $article)
-                                    <tr id="sub-{{$article->id}}">
+                                @foreach($pages as $page)
+                                    <tr id="sub-{{$page->id}}">
                                         <td class="w-25 h-25"><img
                                                 style="max-width: 100%"
-                                                src="/storage/uploads/img/{{$article->img_src}}" alt=""></td>
+                                                src="/storage/uploads/img/{{$page->img_src}}" alt=""></td>
                                         <td><a class="text-black"
-                                               href="#">{{$article->title}}</a></td>
+                                               href="/page/{{$page->slug}}">{{$page->title}}</a></td>
                                         <td>
-                                            {{$article->user->name}}
+                                            {{$page->user->name}}
                                         </td>
-                                        <td>{!!  $article->status == 1 ? '<span class="badge badge-success">Active</span>' :
+                                        <td>{!!  $page->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
                                         <td>
                                             <a class="btn btn-primary"
-                                               href="{{route('news.edit',$article->id)}}"><i
+                                               href="{{route('pages.edit',$page->id)}}"><i
                                                     class="fa fa-edit"></i></a>
                                                 <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$article->id}})"> <i
+                                                   onclick="deleteSubjectHandler(event,{{$page->id}})"> <i
                                                         class="fa fa-trash-o"></i></a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{$articles->links()}}
+                            {{$pages->links()}}
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
         function deleteSubject(id) {
             $.ajax(
                 {
-                    url: "/admin/news/" + id,
+                    url: "/admin/pages/" + id,
                     type: 'DELETE',
                     dataType: "JSON",
                     data: {

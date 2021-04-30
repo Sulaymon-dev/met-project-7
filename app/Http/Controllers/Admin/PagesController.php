@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
 use App\Http\Controllers\Controller;
+use App\Page;
+use FontLib\Table\Type\post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class ArticlesController extends Controller
+class PagesController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,14 +19,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $query = Article::select();
-        $role = auth()->user()->role;
-        if ($role == 'admin') {
-            $query->whereUserId(auth()->id());
-        }
+        $pages = Page::with('user')->latest()->paginate('25');
+        return view('admin.pages.index', compact('pages'));
 
-        $articles = $query->with('user')->latest()->paginate('25');
-        return view('admin.news.index', compact('articles'));
     }
 
     /**
@@ -33,37 +31,37 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        return view('admin.news.create');
+        return view('admin.pages.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
         $data = $request->validate([
             'title' => 'required|string',
-            'description' => 'string',
+            'short_title' => 'required|string',
             'body' => 'nullable',
             'image' => 'nullable|file',
             'status' => 'required|boolean'
         ]);
 
-        $article = Article::create([
+        $page = Page::create([
             'user_id' => auth()->id(),
             'title' => $data['title'],
-            'description' => $data['description'] ?? '',
+            'short_title' => $data['short_title'] ?? '',
             'body' => $data['body'] ?? '',
             'status' => $data['status'],
             'img_src' => str_replace('public/uploads/img/', '', Storage::putFile('public/uploads/img', $request->file('image'))),
         ]);
 
-        if ($article) {
-            alert()->success('Хабар бо муваффақият илова шуд', 'Илова шуд');
-            return redirect(route('news.index'));
+        if ($page) {
+            alert()->success('Хабар бо муваффақият илова шуд. ', 'Илова шуд');
+            return redirect(route('pages.index'));
         }
 
         return abort('403');
@@ -72,44 +70,37 @@ class ArticlesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Article $article
+     * @param  \App\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(Page $page)
     {
-        return $article;
+        return $page;
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Article $article
+     * @param  \App\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function edit($article_id)
+    public function edit(Page $page)
     {
-        $article = Article::where('id', '=', $article_id)->first();
-        if (auth()->user()->role == 'superadmin' || auth()->id() == $article->user()) {
-            return view('admin.news.edit', compact('article'));
-        }
-        return abort(404);
+        return view('admin.pages.edit',compact('page'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \App\Article $article
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,  $article_id)
+    public function update(Request $request, Page $page)
     {
-
-        $article = Article::where('id', '=', $article_id)->first();
-
         $data = $request->validate([
             'title' => 'required|string',
-            'description' => 'string',
+            'short_title' => 'required|string',
             'body' => 'nullable',
             'image' => 'nullable|file',
             'status' => 'required|boolean',
@@ -119,35 +110,34 @@ class ArticlesController extends Controller
         $img = $request->file('image');
 
         if (isset($data['saveOldImage']) && $data['saveOldImage'] == '1') {
-            $data['img_src'] = $article->img_src;
+            $data['img_src'] = $page->img_src;
         } elseif (!isset($img)) {
             $data['img_src'] = null;
         } else {
             $data['img_src'] = str_replace('public/uploads/img/', '', Storage::putFile('public/uploads/img', $img));
-            Storage::delete('/public/uploads/img/' . $article->img_src);
+            Storage::delete('/public/uploads/img/' . $page->img_src);
         }
 
-        if ($article->update($data)){
+        if ($page->update($data)){
             alert()->success('Навгонӣ бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
-            return redirect(route('news.index'));
+            return redirect(route('pages.index'));
         }
 
         return abort(419);
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Article $article
+     * @param  \App\Page  $page
      * @return \Illuminate\Http\Response
      */
-    public function destroy($article_id)
+    public function destroy(Page $page)
     {
-        $article = Article::where('id', '=', $article_id)->first();
-
         try {
-            Storage::delete('/public/uploads/img/' . $article->img_src);
-            $article->delete();
+            Storage::delete('/public/uploads/img/' . $page->img_src);
+            $page->delete();
             return response()->json([
                 'status' => 'ok',
                 'message' => 'book deleted successfully'
