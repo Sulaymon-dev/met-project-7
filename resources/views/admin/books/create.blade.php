@@ -21,7 +21,7 @@
                                     <input class="form-control @error('name') is-invalid @enderror" id="name"
                                            type="text" name="name" value="{{old('name')}}">
                                     @error('name')
-                                    <div class="invalid-feedback">Лутфан номи синфро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан номи китобро ворид намоед</div>
                                     @enderror
                                 </div>
 
@@ -32,6 +32,9 @@
                                             <label class="col-md-3 col-form-label" for="image">Файли китоб : </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="pdf" id="pdf">
+                                                @error('pdf')
+                                                <div style="display: inline-block" class="invalid-feedback">Лутфан файли дурустро (PDF) ворид намоед</div>
+                                                @enderror
                                             </div>
                                         </div>
                                         @error('pdf')
@@ -44,11 +47,12 @@
                                             <label class="col-md-3 col-form-label" for="image">Акс : </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="image" id="image">
+                                                @error('image')
+                                                <div style="display: inline-block" class="invalid-feedback">Лутфан аксро ворид намоед</div>
+                                                @enderror
                                             </div>
                                         </div>
-                                        @error('image')
-                                        <div class="invalid-feedback">Лутфан аксро ворид намоед</div>
-                                        @enderror
+
                                     </div>
                                 </div>
 
