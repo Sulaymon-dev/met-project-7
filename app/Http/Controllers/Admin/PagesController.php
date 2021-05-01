@@ -56,7 +56,7 @@ class PagesController extends Controller
             'short_title' => $data['short_title'] ?? '',
             'body' => $data['body'] ?? '',
             'status' => $data['status'],
-            'img_src' => str_replace('public/uploads/img/', '', Storage::putFile('public/uploads/img', $request->file('image'))),
+            'img_src' => $request->has('image') ? str_replace('public/uploads/img/', '', Storage::putFile('public/uploads/img', $request->file('image'))) : null,
         ]);
 
         if ($page) {

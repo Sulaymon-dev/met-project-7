@@ -23,14 +23,13 @@ class NewsController extends Controller
         $news = Article::select('id', 'title', 'description', 'img_src', 'status', 'created_at', 'updated_at')
             ->where('status', '=', '1')
             ->latest()
-            ->get();
-        return $news;
+            ->paginate(10);
+        return view('front.pages.news', compact('news'));
     }
 
     public function getNewById(Request $request, $id)
     {
-
-//        $new_id = $request->query('id');
         $data = Article::where([['id', '=', $id], ['status', '=', '1']])->first();
-        return view('front.pages.info', compact('data'));    }
+        return view('front.pages.info', compact('data'));
+    }
 }

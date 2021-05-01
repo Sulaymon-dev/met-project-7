@@ -42,7 +42,7 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('pages', 'Admin\PagesController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
 });
-Route::get('/page/{page:slug}','Admin\PagesController@show');
+
 Route::get('/profile', 'UserController@profile')->name('profile')->middleware('auth');
 Route::post('/profile', 'UserController@update')
     ->name('update-profile')->middleware('auth');
@@ -67,7 +67,7 @@ Route::get('/olympic/{id}', 'OlympicsController@show')->name('olympic');
 
 Route::get('/mmt', 'MmtsController@index')->name('mmt');
 Route::get('/mmt/{id}', 'MmtsController@show')->name('mmt-info');
-Route::get('/info/{slug}', 'InfoController@show')->name('info');
+Route::get('/page/{page:slug}','InfoController@page');
 Route::get('/about', 'InfoController@about')->name('about');
 
 Route::get('/search', 'IndexController@search')->name('search');

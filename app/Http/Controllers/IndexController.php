@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Setting;
 use App\Theme;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,13 @@ class IndexController extends Controller
     public function index()
     {
         $news = (new NewsController)->getNews();
-        return view('front.pages.index', compact('news'));
+        $mainSliderQuery = Setting::where('key', '=', 'main_slider')->first();
+        $mainSliderSlides = collect(json_decode($mainSliderQuery->value))['slides'];
+
+        $secondSliderQuery = Setting::where('key', '=', 'second_slider')->first();
+        $secondSliderSlides = collect(json_decode($secondSliderQuery->value))['slides'];
+
+        return view('front.pages.index', compact('news', 'mainSliderSlides', 'secondSliderSlides'));
     }
 
     public function search(Request $request)

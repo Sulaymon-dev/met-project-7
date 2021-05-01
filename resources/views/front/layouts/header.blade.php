@@ -32,10 +32,10 @@
                                 <li class="nav-item">
                                     <a class="">МАЪЛУМОТ</a>
                                     <ul class="sub-menu">
-                                        <li><a class="" href="{{route('info', 'for-pupil')}}">БА ХОНАНДА</a></li>
-                                        <li><a class="" href="{{route('info', 'for-school')}}">БА МАКТАБ</a></li>
-                                        <li><a class="" href="{{route('info', 'for-teacher')}}">БА МУАЛЛИМ</a></li>
-                                        <li><a class="" href="{{route('info', 'for-parent')}}">БА ВОЛИДАЙН</a></li>
+                                        <li><a class="" href="/page/ba-talaba">БА ХОНАНДА</a></li>
+                                        <li><a class="" href="/page/ba-maktab">БА МАКТАБ</a></li>
+                                        <li><a class="" href="/page/ba-muallimon">БА МУАЛЛИМ</a></li>
+                                        <li><a class="" href="/page/ba-volidayn">БА ВОЛИДАЙН</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="javascript:void(0)" id="search"><i class="fa fa-search"></i></a></li>
@@ -52,7 +52,7 @@
                                         <ul class="sub-menu">
                                             <li><a href="{{route('login')}}"><i class="fa fa-user"></i> Воридшавӣ</a></li>
                                             <li><a href="{{route('register')}}"><i class="fa fa-user-plus"></i>
-                                                    Регистратсия</a></li>
+                                                    Бақайдгирӣ</a></li>
                                         </ul></li>
                                 @endif
                             </ul>
