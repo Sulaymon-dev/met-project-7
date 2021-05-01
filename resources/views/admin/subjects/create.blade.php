@@ -21,7 +21,7 @@
                                     <label class="form-col-form-label" for="name">Номи Фан :</label>
                                     <input class="form-control @error('name') is-invalid @enderror" id="name"
                                            type="text" name="name" value="{{old('name')}}">
-                                    @error('label')
+                                    @error('name')
                                     <div class="invalid-feedback">Лутфан номи фанро ворид намоед</div>
                                     @enderror
                                 </div>
@@ -32,9 +32,13 @@
                                             <label class="col-md-3 col-form-label" for="image">Акс : </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="image_src" id="image">
+                                                @error('image_src')
+                                                <div class="invalid-feedback" style="display: inline-block">Лутфан аксро дуруст ворид намоед. (jpeg,jpg,png,gif) Ҳаҷми максималии файл 2мб бояд бошад.</div>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <hr>

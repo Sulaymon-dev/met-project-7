@@ -36,9 +36,12 @@
                                             <label class="col-md-4 col-form-label" for="image">Ивази акс : </label>
                                             <div class="col-md-8">
                                                 <input class="" type="file" name="image_src" id="image">
+                                                @error('image_src')
+                                                <div class="invalid-feedback" style="display: inline-block">Лутфан аксро дуруст ворид намоед. (jpeg,jpg,png,gif) Ҳаҷми максималии файл 2мб бояд бошад.</div>
+                                                @enderror
                                                 @if(isset($subject->image_src))
                                                     <label for="oldImage">
-                                                        <input value="1" type="checkbox" name="saveOldImage"
+                                                        <input value="1" checked type="checkbox" name="saveOldImage"
                                                                id="oldImage">
                                                         Акси Кӯҳнаро нигоҳ дор
                                                     </label>
