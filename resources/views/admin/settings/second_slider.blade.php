@@ -228,8 +228,7 @@
         function addQuiz() {
             var domObject = '';
             var i = $('.slideList').length;
-
-            domObject = `
+            domObject += `
                     <div class="border border-info p-3 mt-3 slideList" id="quiz${i}">
                       <div class="d-flex justify-content-between mb-1 align-items-baseline">
                           <label for="q${i}">Маълумоти слайдерро ворид созед :</label>
@@ -238,54 +237,47 @@
                       <div class="form-group row">
                         <label for="index${i}" class="col-4 col-form-label">Индекс :</label>
                         <div class="col-8">
-                          <input id="index${i}" name="index" placeholder="Индекси слайдро ворид намоед" type="text" class="form-control">
+                          <input id="index${i}" name="index" value="" placeholder="Индекси слайдро ворид намоед" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="title${i}" class="col-4 col-form-label">Сарлавҳа :</label>
                         <div class="col-8">
-                          <input id="title${i}" name="title" placeholder="Сарлавҳаро ворид намоед" type="text" class="form-control">
+                          <input id="title${i}" name="title" value="" placeholder="Сарлавҳаро ворид намоед" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="description${i}" class="col-4 col-form-label">Матн :</label>
+                        <label for="url${i}" class="col-4 col-form-label">URL-и слайдер :</label>
                         <div class="col-8">
-                          <textarea id="description${i}" name="description" cols="40" rows="5" class="form-control"></textarea>
+                          <input id="url${i}"  name="url" value="" type="text" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="btn_text${i}" class="col-4 col-form-label">Манти тугмача :</label>
+                        <label for="bg_color${i}" class="col-4 col-form-label">Ранги фон :</label>
                         <div class="col-8">
-                          <input id="btn_text${i}" name="btn_text" type="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="url${i}" class="col-4 col-form-label">URL-и тугмача :</label>
-                        <div class="col-8">
-                          <input id="url${i}"  name="url" type="text" class="form-control">
+                          <input id="bg_color${i}"  name="bg_color" value="" type="color" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="exampleFormControlFile${i}" class="col-4 col-form-label">Акс :</label>
                         <div class="col-8">
                             <div class="w-50 mb-2">
-                                <img class="w-75 images" src="">
-                            </div>
-                            <input type="file" onchange="changeImage(event,${i})" class="form-control-file" id="exampleFormControlFile${i}">
+                        <img class="w-75 images" src="" >
+                    </div>
+                            <input type="file"  onchange="changeImage(event,${i})" class="form-control-file" id="exampleFormControlFile${i}">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="is_show${i}" class="col-4 col-form-label">Вазъият :</label>
                         <div class="col-8">
                           <select id="is_show${i}" name="is_show" class="custom-select">
-                            <option value="1">Нишон дода шавад</option>
-                            <option value="0">Нишон дода нашавад</option>
+                            <option  value="1">Нишон дода шавад</option>
+                            <option  value="0">Нишон дода нашавад</option>
                           </select>
                         </div>
                       </div>
                     </div>
-            `;
-
+                `
             $('#quizContainer').append(domObject);
 
             images = $('.images');

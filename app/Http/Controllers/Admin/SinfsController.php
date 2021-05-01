@@ -43,7 +43,7 @@ class SinfsController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'label' => 'required',
+            'label' => 'required|string',
             'status' => 'required|boolean'
         ]);
 
@@ -91,7 +91,7 @@ class SinfsController extends Controller
     {
 
         $data = $request->validate([
-            'label' => 'required',
+            'label' => 'required|string',
             'status' => 'required|boolean'
         ]);
 
@@ -100,7 +100,7 @@ class SinfsController extends Controller
             'status' => $data['status']
         ]);
 
-        alert()->success('Синф бо муваффақият илова шуд', 'Илова шуд');
+        alert()->success('Синф бо муваффақият ислоҳ шуд', 'Илова шуд');
 
         return redirect(route('sinfs.index'));
     }
