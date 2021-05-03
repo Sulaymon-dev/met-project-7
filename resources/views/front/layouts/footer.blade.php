@@ -45,10 +45,10 @@
                         <ul>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Сиёсат</a></li>
                             <li><a href="#"><i class="fa fa-angle-right"></i>Махфият</a></li>
-                            <li><a href="{{route('info', 'for-pupil')}}"><i class="fa fa-angle-right"></i>Ба хонанда</a></li>
-                            <li><a href="{{route('info', 'for-school')}}"><i class="fa fa-angle-right"></i>Ба мактаб</a></li>
-                            <li><a href="{{route('info', 'for-teacher')}}"><i class="fa fa-angle-right"></i>Ба муаллим</a></li>
-                            <li><a href="{{route('info', 'for-parent')}}"><i class="fa fa-angle-right"></i>Ба волидайн</a></li>
+                            <li><a href="/page/ba-talaba-o"><i class="fa fa-angle-right"></i>Ба хонанда</a></li>
+                            <li><a href="/page/ba-maktab-o"><i class="fa fa-angle-right"></i>Ба мактаб</a></li>
+                            <li><a href="/page/ba-muallimon"><i class="fa fa-angle-right"></i>Ба муаллим</a></li>
+                            <li><a href="/page/ba-volidayn"><i class="fa fa-angle-right"></i>Ба волидайн</a></li>
                         </ul>
                     </div>
                 </div>
