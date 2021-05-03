@@ -87,6 +87,7 @@ class AppController extends Controller
     {
         $theme_id = $request->input('theme_id');
         $theme = Theme::where([['id', '=', $theme_id], ['status', '=', '1'], ['is_show', '=', '1']])->first();
+        $theme->test = json_decode($theme->test);
         return response()->json(['data' => $theme, 'status' => '200'], '200');
     }
 
@@ -114,7 +115,7 @@ class AppController extends Controller
 
     public function getNews()
     {
-        $news = Article::select('id', 'title', 'description', 'img_src', 'status', 'created_at', 'updated_at')->where('status', '=', '1')->latest()->get();
+        $news = Article::select('id', 'title', 'description', 'img_src', 'status', 'created_at', 'updated_at')->where('status', '=', '1')->latest()->limit(10)->get();
         return response()->json(['data' => $news, 'status' => '200'], 200);
     }
 
@@ -124,4 +125,5 @@ class AppController extends Controller
         $new= Article::where([['id', '=', $new_id], ['status', '=', '1']])->get();
         return response()->json(['data' => $new, 'status' => '200'], '200');
     }
+
 }
