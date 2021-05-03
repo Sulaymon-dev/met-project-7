@@ -28,7 +28,7 @@ class SubjectsController extends Controller
     {
         ($request->query('id')) ? $sinf = $request->query('id') : $sinf = 1;
         $class = Sinf::where('status', 1)->get()->sortBy("class");
-        $theme = Plan::where('sinf_id', $sinf)->with('book', 'sinf', 'subject')->withCount('themes')->get();
+        $theme = Plan::where([['sinf_id', $sinf], ['is_show', 1]])->with('book', 'sinf', 'subject')->withCount('themes')->get();
         return view('front.pages.subject-class', compact(['theme', 'class', 'sinf']));
     }
 

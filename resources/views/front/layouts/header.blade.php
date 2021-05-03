@@ -32,8 +32,8 @@
                                 <li class="nav-item">
                                     <a class="">МАЪЛУМОТ</a>
                                     <ul class="sub-menu">
-                                        <li><a class="" href="/page/ba-talaba">БА ХОНАНДА</a></li>
-                                        <li><a class="" href="/page/ba-maktab">БА МАКТАБ</a></li>
+                                        <li><a class="" href="/page/ba-talaba-o">БА ХОНАНДА</a></li>
+                                        <li><a class="" href="/page/ba-maktab-o">БА МАКТАБ</a></li>
                                         <li><a class="" href="/page/ba-muallimon">БА МУАЛЛИМ</a></li>
                                         <li><a class="" href="/page/ba-volidayn">БА ВОЛИДАЙН</a></li>
                                     </ul>

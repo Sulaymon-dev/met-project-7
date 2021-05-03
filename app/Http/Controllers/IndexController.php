@@ -17,11 +17,17 @@ class IndexController extends Controller
     {
         $news = (new NewsController)->getNews();
         $mainSliderQuery = Setting::where('key', '=', 'main_slider')->first();
-        $mainSliderSlides = collect(json_decode($mainSliderQuery->value))['slides'];
-
+        if ($mainSliderQuery) {
+            $mainSliderSlides = collect(json_decode($mainSliderQuery->value))['slides'];
+        } else {
+            $mainSliderSlides = [];
+        }
         $secondSliderQuery = Setting::where('key', '=', 'second_slider')->first();
-        $secondSliderSlides = collect(json_decode($secondSliderQuery->value))['slides'];
-
+        if ($secondSliderQuery) {
+            $secondSliderSlides = collect(json_decode($secondSliderQuery->value))['slides'];
+        } else {
+            $secondSliderSlides = [];
+        }
         return view('front.pages.index', compact('news', 'mainSliderSlides', 'secondSliderSlides'));
     }
 
@@ -32,6 +38,7 @@ class IndexController extends Controller
         $resultCount = count($result);
         return view('front.pages.search', compact(['result', 'resultCount', 'text']));
     }
+
     /**
      * Show the form for creating a new resource.
      *

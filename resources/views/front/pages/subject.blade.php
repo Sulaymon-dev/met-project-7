@@ -42,7 +42,7 @@
                         <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
                              aria-orientation="vertical" style="color: #234565">
                             @foreach($subject->plans as $key=>$item)
-                                <a class="nav-link mb-3 p-3 shadow  {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
+                                <a class="nav-link mb-3 p-3 shadow {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
                                    id="v-pills-home-tab" href="{{route('subject',[
                                                     'slug'=>$subject->slug,
                                                     'sinf'=>$item->sinf_id
@@ -66,11 +66,6 @@
                                         <h6>СИНФИ {{$sinf}}</h6>
                                     </div>
                                     @include('front.layouts.content-subject', ['theme'=>$theme])
-                                </div>
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade active show" id="curriculum" role="tabpanel"
-                                         aria-labelledby="curriculum-tab">
-                                    </div>
                                 </div>
                             </div>
                         </div>

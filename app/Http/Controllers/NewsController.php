@@ -29,7 +29,7 @@ class NewsController extends Controller
 
     public function getNewById(Request $request, $id)
     {
-        $data = Article::where([['id', '=', $id], ['status', '=', '1']])->first();
-        return view('front.pages.info', compact('data'));
+        $page = Article::where([['id', '=', $id], ['status', '=', '1']])->first();
+        return view('front.pages.info', compact('page'));
     }
 }
