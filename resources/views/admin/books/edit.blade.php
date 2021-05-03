@@ -22,7 +22,7 @@
                                            {{$role == 'moderator' ? 'disabled':''}}
                                            type="text" name="name" value="{{$book->name ?? old('name')}}">
                                     @error('name')
-                                    <div class="invalid-feedback">Лутфан номи Китобро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан номи китобро ворид намоед</div>
                                     @enderror
                                 </div>
 
@@ -30,11 +30,19 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group row d-flex align-items-baseline">
-                                            <label class="col-md-3 col-form-label" for="image">Файли китоб : </label>
+                                            <label class="col-md-3 col-form-label" for="image">
+                                                <a class="text-black"
+                                                   href="/storage/uploads/pdf/{{$book->pdf_src}}">
+                                                    Файли китоб :
+                                                </a>
+                                            </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="pdf" id="pdf"
                                                     {{$role == 'moderator' ? 'disabled':''}}
                                                 >
+                                                @error('pdf')
+                                                <div style="display: inline-block" class="invalid-feedback">Лутфан файли дурустро (PDF) ворид намоед</div>
+                                                @enderror
                                                 @if(isset($book->pdf_src))
                                                     <label for="oldPdf">
                                                         <input value="1" type="checkbox" checked name="saveOldPdf"
@@ -45,9 +53,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        @error('pdf')
-                                        <div class="invalid-feedback">Лутфан файли дурустро (PDF) ворид намоед</div>
-                                        @enderror
+
                                     </div>
 
                                     <div class="col-sm-6">
@@ -62,6 +68,9 @@
                                                 <input class="" type="file" name="image"
                                                        id="image" {{$role == 'moderator' ? 'disabled':''}}
                                                 >
+                                                @error('image')
+                                                <div style="display: inline-block" class="invalid-feedback">Лутфан аксро ворид намоед</div>
+                                                @enderror
                                                 @if(isset($book->img_src))
                                                     <label for="oldImage">
                                                         <input value="1" type="checkbox" name="saveOldImage" checked

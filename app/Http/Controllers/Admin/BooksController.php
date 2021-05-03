@@ -60,8 +60,8 @@ class BooksController extends Controller
             'name' => 'required|string',
             'status' => 'nullable|boolean',
             'is_show' => 'required|boolean',
-            'image' => 'required|file',
-            'pdf' => 'required|file'
+            'image' => 'required|file|mimes:jpeg,jpg,png,gif|max:2048',
+            'pdf' => 'nullable|file|mimes:pdf|max:524288'
         ]);
 
         if (auth()->user()->role == 'teacher') $data['status'] = '0';
@@ -71,11 +71,11 @@ class BooksController extends Controller
             'is_show' => $data['is_show'],
             'user_id' => auth()->id(),
             'img_src' => str_replace('public/uploads/img/', '', Storage::putFile('public/uploads/img', $request->file('image'))),
-            'pdf_src' => str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf')))
+            'pdf_src' => $request->has('pdf') ? str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf'))) : ''
         ]);
 
         if ($book) {
-            alert()->success('Китоб бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
+            alert()->success('Китоб бо муваффақият илова шуд', 'Илова шуд');
             return redirect(route('books.index'));
         }
     }
@@ -126,8 +126,8 @@ class BooksController extends Controller
                 'name' => 'required|string',
                 'status' => 'nullable|boolean',
                 'is_show' => 'nullable|boolean',
-                'image' => 'nullable|file',
-                'pdf' => 'nullable|file',
+                'image' => 'nullable|file|mimes:jpeg,jpg,png,gif|max:2048',
+                'pdf' => 'nullable|file|mimes:pdf|max:524288',
                 'saveOldImage' => 'nullable|boolean',
                 'saveOldPdf' => 'nullable|boolean'
             ]);
