@@ -45,7 +45,9 @@
                                 @foreach($plans as $plan)
                                     <tr id="sub-{{$plan->id}}">
                                         <td>{{$plan->id}}</td>
-                                        <td>{{$plan->subject->name}}</td>
+                                        <td>
+                                            <a href="/subject/{{$plan->subject->slug}}??sinf={{$plan->sinf->id}}"> {{$plan->subject->name}}</a>
+                                        </td>
                                         <td>{{$plan->sinf->class}}</td>
 
                                         <td>{{$plan->book->name}}</td>
@@ -59,17 +61,19 @@
                                         </td>
                                         <td>{!!  $plan->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('plans.edit',$plan->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
-                                                <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$plan->id}})"> <i
-                                                        class="fa fa-trash-o"></i></a>
-                                            @endif
+                                        @if($plan->user_id == auth()->id() || in_array(auth()->user()->role,['admin','moderator','superadmin']))
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('plans.edit',$plan->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
+                                                    <a class="btn btn-danger"
+                                                       onclick="deleteSubjectHandler(event,{{$plan->id}})"> <i
+                                                            class="fa fa-trash-o"></i></a>
+                                                @endif
+                                            </td>
+                                        @endif
 
-                                        </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -101,8 +105,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Синф нобуд шуд!",
-                                text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                                title: "Плани дарсӣ нобуд шуд!",
+                                text: "Плани дарсии интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -130,7 +134,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин синфро нобуд кунед?",
+                title: "Мехоҳед ин плани дарсиро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,

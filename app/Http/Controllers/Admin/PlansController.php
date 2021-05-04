@@ -23,10 +23,10 @@ class PlansController extends Controller
     public function index()
     {
         $query = Plan::select();
-        $role = auth()->user()->role;
-        if ($role == 'teacher')
-            $query->whereUserId(auth()->id())->with(['subject', 'sinf', 'book', 'themes']);
-        else
+//        $role = auth()->user()->role;
+//        if ($role == 'teacher')
+//            $query->whereUserId(auth()->id())->with(['subject', 'sinf', 'book', 'themes']);
+//        else
             $query->with(['subject', 'sinf', 'book', 'themes', 'user']);
         $plans = $query->latest()->paginate(25);
         return view('admin.plans.index', compact('plans'));
