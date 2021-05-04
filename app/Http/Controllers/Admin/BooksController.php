@@ -24,10 +24,10 @@ class BooksController extends Controller
     public function index()
     {
         $query = Book::select();
-        $role = auth()->user()->role;
-        if ($role == 'teacher') {
-            $query->whereUserId(auth()->id());
-        }
+//        $role = auth()->user()->role;
+//        if ($role == 'teacher') {
+//            $query->whereUserId(auth()->id());
+//        }
         $books = $query->latest()->paginate(25);
         return view('admin.books.index', compact('books'));
     }

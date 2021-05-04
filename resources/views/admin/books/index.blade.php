@@ -1,11 +1,11 @@
 @extends('admin.layouts.main')
 
 @section('style')
-<style>
-   .table td{
-        vertical-align: middle;
-    }
-</style>
+    <style>
+        .table td {
+            vertical-align: middle;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -43,16 +43,20 @@
                                                href="/storage/uploads/pdf/{{$book->pdf_src}}">{{$book->name}}</a></td>
                                         <td>{!!  $book->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('books.edit',$book->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
-                                                <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
-                                                        class="fa fa-trash-o"></i></a>
-                                            @endif
-                                        </td>
+
+                                        @if($book->user_id == auth()->id() || in_array(auth()->user()->role,['admin','moderator','superadmin']))
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('books.edit',$book->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                @if(in_array(auth()->user()->role,['admin','teacher','superadmin']))
+                                                    <a class="btn btn-danger"
+                                                       onclick="deleteSubjectHandler(event,{{$book->id}})"> <i
+                                                            class="fa fa-trash-o"></i></a>
+                                                @endif
+                                            </td>
+                                        @endif
+
                                     </tr>
                                 @endforeach
                                 </tbody>
