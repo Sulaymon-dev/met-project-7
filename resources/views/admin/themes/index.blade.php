@@ -26,9 +26,7 @@
                                     <th>Ном</th>
                                     <th>Фан</th>
                                     <th>Синф</th>
-                                    @if($role !='teacher')
-                                        <th>Муаллиф</th>
-                                    @endif
+                                    <th>Муаллиф</th>
                                     <th>Вазъият</th>
                                     <th>Амал</th>
                                 </tr>
@@ -38,24 +36,28 @@
                                 @foreach($themes as $theme)
                                     <tr id="sub-{{$theme->id}}">
                                         <td>{{$theme->theme_num}}</td>
-                                        <td>{{$theme->name}}</td>
+                                        <td>
+                                            <a href="/theme/{{$theme->id}}?content=dars">
+                                                {{$theme->name}}
+                                            </a>
+                                        </td>
                                         <td>{{$theme->plan->subject->name}}</td>
                                         <td>{{$theme->plan->sinf->class}}</td>
-                                        @if($role !='teacher')
-                                            <td>{{$theme->user->name}}</td>
-                                        @endif
+                                        <td>{{$theme->user->name}}</td>
                                         <td>{!!  $theme->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('themes.edit',$theme->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            @if(in_array($role,['admin','teacher','superadmin']))
-                                                <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$theme->id}})"> <i
-                                                        class="fa fa-trash-o"></i></a>
-                                            @endif
-                                        </td>
+                                        @if($theme->user_id == auth()->id() || in_array(auth()->user()->role,['admin','moderator','superadmin']))
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('themes.edit',$theme->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                @if(in_array($role,['admin','teacher','superadmin']))
+                                                    <a class="btn btn-danger"
+                                                       onclick="deleteSubjectHandler(event,{{$theme->id}})"> <i
+                                                            class="fa fa-trash-o"></i></a>
+                                                @endif
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>

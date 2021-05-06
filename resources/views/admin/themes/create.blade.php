@@ -64,6 +64,7 @@
                                             <label class="col-md-5 col-form-label" for="image">Файли PDF дарс : </label>
                                             <div class="col-md-7">
                                                 <input class="" type="file" name="pdf" id="pdf">
+                                                <input class="form-control" type="text" placeholder="Номи файл" name="pdf_src" id="">
                                             </div>
                                         </div>
                                         @error('pdf')
@@ -76,6 +77,7 @@
                                             <label class="col-md-3 col-form-label" for="video">Дарси видеоӣ : </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="video" id="video">
+                                                <input class="form-control" type="text" name="video_src" placeholder="Номи файл" id="">
                                             </div>
                                         </div>
                                         @error('video')
@@ -109,6 +111,8 @@
                                     <label class="col-md-3 col-form-label" for="f_pdf_file">Файли Дарс : </label>
                                     <div class="col-md-9">
                                         <input class="" type="file" name="f_pdf_file" id="f_pdf_file">
+                                        <input class="form-control" type="text" name="f_pdf_file_src" placeholder="Номи файл" id="">
+
                                     </div>
                                 </div>
 

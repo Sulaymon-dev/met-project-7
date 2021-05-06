@@ -75,8 +75,14 @@
                                         <div class="form-group row d-flex align-items-baseline">
                                             <label class="col-md-5 col-form-label" for="image">Файли PDF дарс : </label>
                                             <div class="col-md-7">
-                                                <input class="" type="file" name="pdf" id="pdf"  {{$role == 'moderator' ? 'disabled':''}}>
-                                                @if(isset($theme->pdf_src))
+                                                <input class="" type="file" name="pdf"
+                                                       id="pdf" {{$role == 'moderator' ? 'disabled':''}}>
+                                                <input
+                                                    {{$role == 'moderator' ? 'disabled':''}}
+                                                        value="{{old('pdf_src') ?? $theme->pdf_src}}"
+                                                    class="form-control" type="text" placeholder="Номи файл" name="pdf_src" id="">
+
+                                            @if(isset($theme->pdf_src))
                                                     <label for="oldPdf">
                                                         <input value="1" type="checkbox" checked name="saveOldPdf"
                                                                id="oldPdf" {{$role == 'moderator' ? 'disabled':''}}
@@ -95,8 +101,14 @@
                                         <div class="form-group row d-flex align-items-baseline">
                                             <label class="col-md-3 col-form-label" for="video">Дарси видеоӣ : </label>
                                             <div class="col-md-9">
-                                                <input class="" type="file" name="video" id="video"  {{$role == 'moderator' ? 'disabled':''}}>
-                                                @if(isset($theme->video_src))
+                                                <input class="" type="file" name="video"
+                                                       id="video" {{$role == 'moderator' ? 'disabled':''}}>
+                                                <input
+                                                    {{$role == 'moderator' ? 'disabled':''}}
+                                                        value="{{old('video_src') ?? $theme->video_src}}"
+                                                    class="form-control" type="text" name="video_src" placeholder="Номи файл" id="">
+
+                                            @if(isset($theme->video_src))
                                                     <label for="oldVideo">
                                                         <input value="1" type="checkbox" checked name="saveOldVideos"
                                                                id="oldVideo" {{$role == 'moderator' ? 'disabled':''}}
@@ -116,7 +128,10 @@
 
                                 @php
                                     $ex_type = 'matni';
-                                        if (str_ends_with($theme->pdf_exercise,'.pdf')) $ex_type = 'pdf'
+                                        if (isset($theme->pdf_exercise)){
+                                            if (str_ends_with($theme->pdf_exercise,'.pdf'))
+                                                 $ex_type = 'pdf';
+                                        }
                                 @endphp
 
                                 <div class="form-group row">
@@ -144,8 +159,14 @@
                                      style="display: none">
                                     <label class="col-md-3 col-form-label" for="f_pdf_file">Файли Дарс : </label>
                                     <div class="col-md-5">
-                                        <input class="" type="file" name="f_pdf_file" id="f_pdf_file"  {{$role == 'moderator' ? 'disabled':''}}>
-                                        @if(isset($theme->pdf_exercise) && $ex_type =='pdf')
+                                        <input class="" type="file" name="f_pdf_file"
+                                               id="f_pdf_file" {{$role == 'moderator' ? 'disabled':''}}>
+                                        <input
+                                            {{$role == 'moderator' ? 'disabled':''}}
+                                                value="{{old('f_pdf_file_src') ?? $theme->f_pdf_file_src}}"
+                                            class="form-control" type="text" name="f_pdf_file_src" placeholder="Номи файл" id="">
+
+                                    @if(isset($theme->pdf_exercise) && $ex_type =='pdf')
                                             <label for="oldPdfExercise">
                                                 <input value="1" type="checkbox" checked name="saveOldPdfExercise"
                                                        id="oldPdfExercise" {{$role == 'moderator' ? 'disabled':''}}

@@ -30,14 +30,10 @@
                                     <th>Фан</th>
                                     <th>Синф</th>
                                     <th>Китоб</th>
-                                    @if(auth()->user()->role !='teacher')
-                                        <th>Муаллиф</th>
-                                    @endif
+                                    <th>Муаллиф</th>
                                     <th>Миқдори дарсҳо</th>
                                     <th>Статус</th>
-                                    @if(in_array(auth()->user()->role,['admin','superadmin','teacher'] ))
-                                        <th>Амал</th>
-                                    @endif
+                                    <th>Амал</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -51,9 +47,7 @@
                                         <td>{{$plan->sinf->class}}</td>
 
                                         <td>{{$plan->book->name}}</td>
-                                        @if(auth()->user()->role !='teacher')
-                                            <td>{{$plan->user->name}}</td>
-                                        @endif
+                                        <td>{{$plan->user->name}}</td>
                                         <td>
                                         <span class="badge badge-primary rounded-circle p-3">
                                              {{count($plan->themes)}}

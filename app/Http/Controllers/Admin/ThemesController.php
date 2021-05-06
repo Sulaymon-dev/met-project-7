@@ -25,9 +25,9 @@ class ThemesController extends Controller
     {
         $query = Theme::select();
         $role = auth()->user()->role;
-        if ($role == 'teacher') {
-            $query->whereUserId(auth()->id());
-        }
+//        if ($role == 'teacher') {
+//            $query->whereUserId(auth()->id());
+//        }
         $themes = $query->latest()->paginate(25);
         return view('admin.themes.index', compact('themes', 'role'));
     }
@@ -65,9 +65,12 @@ class ThemesController extends Controller
             'f_pdf_file' => 'nullable|file',
             'video' => 'nullable|file',
             'pdf' => 'nullable|file',
+            'video_src' => 'nullable|string',
+            'pdf_src' => 'nullable|string',
             'status' => 'nullable|boolean',
             'is_show' => 'required|boolean',
         ]);
+
         $theme = new Theme;
         $theme->plan_id = $data['plan_id'];
         $theme->user_id = auth()->id();
@@ -77,24 +80,30 @@ class ThemesController extends Controller
         $theme->is_show = $data['is_show'] ?? 0;
         $theme->introduction = $data['introduction'] ?? null;
         $theme->test = '{
-  "scripts": [
-    "/js/",
-    "/css/"
-  ],
-  "styles": [
-    "/css/",
-    "/js/"
-  ],
-  "tests": [
+          "scripts": [
+            "/js/",
+            "/css/"
+          ],
+          "styles": [
+            "/css/",
+            "/js/"
+          ],
+          "tests": [
 
-  ]
-}';
-        if ($data['exercise_type'] == 'matni') $theme->pdf_exercise = $data['matni_data']; else
-            $theme->pdf_exercise = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('f_pdf_file')));
+          ]
+        }';
+        if ($data['exercise_type'] == 'matni')
+            $theme->pdf_exercise = $data['matni_data'];
+        else
+            $theme->pdf_exercise = $request->has('f_pdf_file') ? str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('f_pdf_file'))) : $data['f_pdf_file_src'];
         if (isset($data['video']))
             $theme->video_src = str_replace('public/uploads/videos/', '', Storage::putFile('public/uploads/videos', $request->file('video')));
+        else
+            $theme->video_src = $data['video_src'];
         if (isset($data['pdf']))
             $theme->pdf_src = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf')));
+        else
+            $theme->pdf_src = $data['pdf_src'];
         $theme->save();
         if ($theme) {
             alert()->success('Мавзуъ бо муваффакият изофа шуд', 'Илова шуд');
@@ -163,6 +172,9 @@ class ThemesController extends Controller
                 'f_pdf_file' => 'nullable|file',
                 'video' => 'nullable|file',
                 'pdf' => 'nullable|file',
+                'video_src' => 'nullable|string',
+                'pdf_src' => 'nullable|string',
+                'f_pdf_file_src'=>'nullable|string',
                 'status' => 'nullable|boolean',
                 'is_show' => 'required|boolean',
                 'saveOldPdf' => 'nullable|boolean',
@@ -178,19 +190,26 @@ class ThemesController extends Controller
             $theme->status = $data['status'] ?? 0;
             $theme->introduction = $data['introduction'] ?? null;
             if (!isset($data['saveOldPdf'])) {
-                if (isset($data['pdf']))
+                if (isset($data['pdf']) && $request->has('pdf'))
                     $theme->pdf_src = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf')));
+                else
+                    $theme->pdf_src = $data['pdf_src'];
             }
             if (!isset($data['saveOldVideos'])) {
-                if (isset($data['video']))
+                if (isset($data['video']) && $request->has('video'))
                     $theme->video_src = str_replace('public/uploads/videos/', '', Storage::putFile('public/uploads/videos', $request->file('video')));
+                else
+                    $theme->video_src = $data['video_src'];
             }
             if ($data['exercise_type'] == 'f_pdf') {
                 if (!isset($data['saveOldPdfExercise'])) {
-                    if (isset($data['f_pdf_file']))
+                    if (isset($data['f_pdf_file']  ) && $request->has('f_pdf_file'))
                         $theme->pdf_exercise = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('f_pdf_file')));
+                    else
+                        $theme->pdf_exercise = $data['f_pdf_file_src'];
                 }
-            } else $theme->pdf_exercise = $data['matni_data'];
+            } else
+                $theme->pdf_exercise = $data['matni_data'];
             $theme->save();
             $isUpdatedSuccessfully = true;
         }
@@ -233,7 +252,7 @@ class ThemesController extends Controller
             $theme->delete();
             return response()->json([
                 'status' => 'ok',
-                'message' => 'book deleted successfully'
+                'message' => 'theme deleted successfully'
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
