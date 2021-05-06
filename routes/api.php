@@ -23,6 +23,8 @@ Route::get('/v1/olympics/','API\V1\AppController@getOlympics');
 Route::get('/v1/olympic/','API\V1\AppController@getOlympicById');
 Route::get('/v1/news/','API\V1\AppController@getNews');
 Route::get('/v1/new/','API\V1\AppController@getNewById');
+Route::get('/v1/main_slider/','API\V1\AppController@getMainSlider');
+Route::get('/v1/second_slider/','API\V1\AppController@getSecondSlider');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
