@@ -240,6 +240,12 @@ class ThemesController extends Controller
         return view('admin.themes.test_json', compact('role'));
     }
 
+    public function showOpenQuiz()
+    {
+        $role = auth()->user()->role;
+        return view('admin.themes.test_open', compact('role'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *

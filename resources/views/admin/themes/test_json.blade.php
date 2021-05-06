@@ -17,9 +17,7 @@
                                 Тести "4х1"-и фанҳо
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi muvofiqovari avval plani darsi va
-                                    nomi mabzuro intikhob namoed
-                                </div>
+
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label for="plan">
@@ -83,7 +81,7 @@
                     if (response.status == 'ok') {
                         swal({
                             title: "Мавод тағйир дода шуд!",
-                            text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                            text: "Тестҳо бо муваффақият тағйир дода шуд",
                             icon: "success",
                             button: "ОК!",
                         });
@@ -125,7 +123,7 @@
                     if (plan_id == item.id) {
                         $('#theme').empty();
                         $('#theme').select2({
-                            data: [{id: 0, text: "Darsro intikhob kuned"}].concat(item.themes.map(function (theme) {
+                            data: [{id: 0, text: "Дарсро интихоб намоед"}].concat(item.themes.map(function (theme) {
                                 return {
                                     id: theme.id,
                                     text: theme.theme_num + " - " + theme.name

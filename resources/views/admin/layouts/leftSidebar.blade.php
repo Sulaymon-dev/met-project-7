@@ -15,7 +15,7 @@
                 </li>
             @endif
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('sinfs.index')}}">
                     <i class="nav-icon icon-puzzle"></i> Синфҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -32,7 +32,7 @@
             </li>
 
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('subjects.index')}}">
                     <i class="nav-icon icon-puzzle"></i> Фанҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -49,7 +49,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('books.index')}}">
                     <i class="nav-icon icon-puzzle"></i> Китобҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -63,7 +63,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('plans.index')}}">
                     <i class="nav-icon icon-puzzle"></i> Планҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -77,7 +77,7 @@
                 </ul>
             </li>
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="{{route('themes.index')}}">
                     <i class="nav-icon icon-puzzle"></i> Мавзӯъҳо</a>
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
@@ -90,11 +90,15 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('themes.quiz4in1')}}">
-                            <i class="nav-icon icon-puzzle"></i>Тест </a>
+                            <i class="nav-icon icon-puzzle"></i>Тести оддӣ </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('themes.matching')}}">
                             <i class="nav-icon icon-puzzle"></i>Мувофиқоварӣ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('themes.openQuiz')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тести кушод</a>
                     </li>
                 </ul>
             </li>

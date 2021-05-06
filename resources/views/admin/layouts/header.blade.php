@@ -33,14 +33,12 @@
                 <div class="dropdown-header text-center">
                     <strong>Account</strong>
                 </div>
-                <a class="dropdown-item" href="/logout">
-                    <i class="fa fa-lock"></i> Баромад
-                </a>
                 <a class="dropdown-item" href="/profile">
                     <i class="fa fa-user"></i> Профил
                 </a>
-
-
+                <a class="dropdown-item" href="/logout">
+                    <i class="fa fa-lock"></i> Баромад
+                </a>
             </div>
         </li>
     </ul>

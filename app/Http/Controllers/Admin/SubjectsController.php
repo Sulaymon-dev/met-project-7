@@ -115,7 +115,7 @@ class SubjectsController extends Controller
         $data = $request->validate([
             'name' => 'required|string',
             'status' => 'required|boolean',
-            'image_src' => 'nullable|file',
+            'image_src' => 'nullable|file|mimes:jpeg,jpg,png,gif|max:2048',
             'saveOldImage' => 'nullable|boolean'
         ]);
         $image = $request->file('image_src');

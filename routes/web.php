@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/audit',function (){
+    return \App\History::all();
+});
 Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin.main');
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
@@ -26,9 +28,11 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('mmts', 'Admin\MmtsController',['parameters' => 'mmt']);
     Route::get('themes/quiz4x1','Admin\ThemesController@showQuiz4in1' )->name('themes.quiz4in1');
     Route::get('themes/matching', 'Admin\ThemesController@showMatching')->name('themes.matching');
+    Route::get('themes/openQuiz', 'Admin\ThemesController@showOpenQuiz')->name('themes.openQuiz');
     Route::get('themes/json', 'Admin\ThemesController@showJson')->name('themes.test_json');
     Route::get('mmt_fans/quiz4x1', 'Admin\MMTFansController@showQuiz4in1')->name('mmt_fans.quiz4in1');
     Route::get('mmt_fans/matching', 'Admin\MMTFansController@showMatching')->name('mmt_fans.matching');
+    Route::get('mmt_fans/openQuiz', 'Admin\MMTFansController@showOpenQuiz')->name('mmt_fans.openQuiz');
     Route::get('mmt_fans/json', 'Admin\MMTFansController@showJson')->name('mmt_fans.test_json');
     Route::get('olympics/quiz4x1','Admin\OlympicsController@showQuiz4in1' )->name('olympics.quiz4in1');
     Route::get('olympics/matching', 'Admin\OlympicsController@showMatching')->name('olympics.matching');
