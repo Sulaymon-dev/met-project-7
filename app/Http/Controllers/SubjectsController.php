@@ -19,7 +19,13 @@ class SubjectsController extends Controller
     public function show($slug, Request $request)
     {
         $subject = Subject::where('slug', $slug)->with(['plans.book', 'plans.sinf', 'plans.themes'])->first();
-        ($request->query('sinf')) ? $sinf = $request->query('sinf') : $sinf = 1;
+        if ($request->query('sinf')) {
+            $sinf = $request->query('sinf');
+        } elseif (count($subject->plans)>0) {
+            $sinf = $subject->plans[0]->sinf->class;
+        } else {
+            $sinf = 1;
+        }
         $theme = Plan::where('sinf_id', $sinf)->where('subject_id', $subject->id)->with(['themes', 'book'])->first();
         return view('front.pages.subject', compact(['subject', 'sinf', 'theme']));
     }
@@ -42,9 +48,11 @@ class SubjectsController extends Controller
         if (!empty($theme['test'])) {
             $test = json_decode($theme['test'], true);
         }
-        $type='';
-        foreach ($test['tests'] as $exercise) {
-            $data[] = json_encode($exercise['data']);
+        $type = '';
+        if ($test) {
+            foreach ($test['tests'] as $exercise) {
+                $data[] = json_encode($exercise['data']);
+            }
         }
         return view('front.pages.theme', compact(['theme', 'path', 'content', 'test', 'type']));
     }
