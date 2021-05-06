@@ -24,7 +24,7 @@ class IndexController extends Controller
         }
         $secondSliderQuery = Setting::where('key', '=', 'second_slider')->first();
         if ($secondSliderQuery) {
-            $secondSliderSlides = collect(json_decode($secondSliderQuery->value))['slides'];
+            $secondSliderSlides = collect(json_decode($secondSliderQuery->value));
         } else {
             $secondSliderSlides = [];
         }
