@@ -169,8 +169,8 @@
                 data: {
                     "data": {
                         description: $('textarea[name=description]').val(),
-                        btn_text: $('[name=btn_url]').val(),
-                        btn_url: $('[name=btn_text]').val(),
+                        btn_text: $('[name=btn_text]').val(),
+                        btn_url: $('[name=btn_url]').val(),
                         slides: data
                     },
                     "_method": 'PUT',
