@@ -80,14 +80,16 @@ class ThemesController extends Controller
         $theme->is_show = $data['is_show'] ?? 0;
         $theme->introduction = $data['introduction'] ?? null;
         $theme->test = '{
-          "scripts": [
-            "/js/",
-            "/css/"
-          ],
-          "styles": [
-            "/css/",
-            "/js/"
-          ],
+           "scripts": [
+                "\/js\/quiz4x1.js",
+                "\/js\/matching.js",
+                "\/js\/openQuiz.js"
+            ],
+            "styles": [
+                "\/css\/quiz4x1.css",
+                "\/css\/matching.css",
+                "\/css\/openQuiz.css"
+            ],
           "tests": [
 
           ]
