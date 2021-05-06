@@ -6,6 +6,7 @@ use App\Article;
 use App\Http\Controllers\Controller;
 use App\Olympic;
 use App\Plan;
+use App\Setting;
 use App\Sinf;
 use App\Subject;
 use App\Theme;
@@ -124,6 +125,19 @@ class AppController extends Controller
         $new_id = $request->input('new_id');
         $new= Article::where([['id', '=', $new_id], ['status', '=', '1']])->get();
         return response()->json(['data' => $new, 'status' => '200'], '200');
+    }
+
+    public function getMainSlider(){
+        $main_slider = Setting::where('key','=','main_slider')->first();
+        $main_slider->value =json_decode( $main_slider->value);
+        return response()->json(['data' => $main_slider,'status'=>200],200);
+    }
+
+    public function getSecondSlider()
+    {
+        $second_slider = Setting::where('key','=','second_slider')->first();
+        $second_slider->value =json_decode( $second_slider->value);
+        return response()->json(['data' => $second_slider,'status'=>200],200);
     }
 
 }
