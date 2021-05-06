@@ -78,8 +78,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Синф нобуд шуд!",
-                                text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                                title: "Кластер нобуд шуд!",
+                                text: "Кластери интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -107,7 +107,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин синфро нобуд кунед?",
+                title: "Мехоҳед ин кластерро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,

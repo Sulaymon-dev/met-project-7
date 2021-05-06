@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
                             <div>
-                                <i class="fa fa-align-justify"></i> Рӯйхати плани дарсӣ
+                                <i class="fa fa-align-justify"></i> Рӯйхати Тесҳо
                             </div>
                             <div>
                                 <a class="btn btn-info" href="{{route('mmts.create')}}">Ҳамҷоякунии нав</a>
@@ -91,8 +91,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Синф нобуд шуд!",
-                                text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                                title: "Маълумот нобуд шуд!",
+                                text: "Сабти интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -120,7 +120,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин синфро нобуд кунед?",
+                title: "Мехоҳед ин сабтро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,

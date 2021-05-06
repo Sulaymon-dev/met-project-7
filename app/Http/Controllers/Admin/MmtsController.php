@@ -64,7 +64,7 @@ class MmtsController extends Controller
         ]);
 
         if ($mmt) {
-            alert()->success('Нақша бо муваффақият илова шуд', 'Илова шуд');
+            alert()->success('Тестҳо бо муваффақият илова шуд', 'Илова шуд');
             return redirect(route('mmts.index'));
         }
         return abort(401);
@@ -122,10 +122,9 @@ class MmtsController extends Controller
             'component' => $data['component'],
         ]);
 
-        alert()->success('Нақша бо муваффақият илова шуд', 'Илова шуд');
+        alert()->success('Тестҳо бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
         return redirect(route('mmts.index'));
 
-        return $request->all();
     }
 
     /**

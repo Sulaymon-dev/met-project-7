@@ -55,7 +55,7 @@ class ClustersController extends Controller
         ]);
 
         if ($cluster) {
-            alert()->success('Синф бо муваффақият илова шуд', 'Илова шуд');
+            alert()->success('Кластери нав бо муваффақият илова шуд', 'Илова шуд');
             return redirect(route('clusters.index'));
         }
     }
@@ -104,7 +104,7 @@ class ClustersController extends Controller
             'status' => $data['status']
         ]);
 
-        alert()->success('Синф бо муваффақият илова шуд', 'Илова шуд');
+        alert()->success('Кластер бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
 
         return redirect(route('clusters.index'));
     }

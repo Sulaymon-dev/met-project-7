@@ -13,7 +13,7 @@
                         <form action="{{route('mmt_fans.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
-                                Тести "4х1"-и маркази миллии тестӣ
+                                Маҷмӯаи тестҳои маркази миллии тестӣ
                             </div>
                             <div class="card-body">
                                 <div class="row">

@@ -131,6 +131,10 @@
                         <a class="nav-link" href="{{route('mmt_fans.matching')}}">
                             <i class="nav-icon icon-puzzle"></i>Тести мувофиқоварӣ</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('mmt_fans.openQuiz')}}">
+                            <i class="nav-icon icon-puzzle"></i>Тести кушод</a>
+                    </li>
                 </ul>
             </li>
 

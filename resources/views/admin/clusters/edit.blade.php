@@ -21,7 +21,7 @@
                                     <input class="form-control @error('index') is-invalid @enderror" id="index"
                                            type="text" name="index" value="{{$cluster->index ?? old('index')}}">
                                     @error('index')
-                                    <div class="invalid-feedback">Лутфан номи синфро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан индекси кластерро ворид намоед</div>
                                     @enderror
                                 </div>
 

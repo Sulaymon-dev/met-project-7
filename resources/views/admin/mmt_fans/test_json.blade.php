@@ -14,12 +14,10 @@
                         <form action="{{route('subjects.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
-                                Тести "4х1"-и фанҳо
+                                Тести фанҳо
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi muvofiqovari avval plani darsi va
-                                    nomi mabzuro intikhob namoed
-                                </div>
+
 
                                 <div class="form-group row">
                                     <div class="col-sm-12">
@@ -81,7 +79,7 @@
                     if (response.status == 'ok') {
                         swal({
                             title: "Мавод тағйир дода шуд!",
-                            text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                            text: "Тестҳо бо муваффақият тағйир дода шуд",
                             icon: "success",
                             button: "ОК!",
                         });

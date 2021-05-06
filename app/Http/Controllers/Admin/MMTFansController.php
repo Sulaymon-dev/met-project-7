@@ -63,11 +63,26 @@ class MMTFansController extends Controller
             'status' => $data['status'],
             'is_show' => $data['is_show'],
             'user_id' => auth()->id(),
-            'pdf_src' => str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf')))
+            'test' => '{
+           "scripts": [
+                "\/js\/quiz4x1.js",
+                "\/js\/matching.js",
+                "\/js\/openQuiz.js"
+            ],
+            "styles": [
+                "\/css\/quiz4x1.css",
+                "\/css\/matching.css",
+                "\/css\/openQuiz.css"
+            ],
+          "tests": [
+
+          ]
+        }',
+            'pdf_src' =>str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('pdf')))
         ]);
 
         if ($book) {
-            alert()->success('Китоб бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
+            alert()->success('Маводи тестӣ бо муваффақият илова шуд', 'Илова шуд');
             return redirect(route('mmt_fans.index'));
         }
     }
@@ -144,7 +159,7 @@ class MMTFansController extends Controller
         }
 
         if ($isUpdatedSuccessfully) {
-            alert()->success('Китоб бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
+            alert()->success('Маводи тестӣ бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
             return redirect(route('mmt_fans.index'));
         }
         alert()->success('Хатогӣ рӯй додааст', 'Хатогӣ');
@@ -170,6 +185,16 @@ class MMTFansController extends Controller
             $mmt_fans->where('user_id', '=', auth()->user()->id);
         $mmt_resource = $mmt_fans->get();
         return view('admin.mmt_fans.test_match', compact('role', 'mmt_resource'));
+    }
+
+    public function showOpenQuiz()
+    {
+        $role = auth()->user()->role;
+        $mmt_fans = MmtFan::select('id', 'user_id', 'title');
+        if ($role == 'teacher')
+            $mmt_fans->where('user_id', '=', auth()->user()->id);
+        $mmt_resource = $mmt_fans->get();
+        return view('admin.mmt_fans.test_open', compact('role', 'mmt_resource'));
     }
 
     public function showJson()

@@ -22,7 +22,7 @@
                                     <input class="form-control @error('index') is-invalid @enderror" id="index"
                                            type="text" name="index" value="{{old('index')}}">
                                     @error('index')
-                                    <div class="invalid-feedback">Лутфан номи синфро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан индекси кластерро ворид намоед</div>
                                     @enderror
                                 </div>
 
@@ -31,7 +31,7 @@
                                     <input class="form-control @error('name') is-invalid @enderror" id="name"
                                            type="text" name="name" value="{{old('name')}}">
                                     @error('name')
-                                    <div class="invalid-feedback">Лутфан номи синфро ворид намоед</div>
+                                    <div class="invalid-feedback">Лутфан номи кластерро ворид намоед</div>
                                     @enderror
                                 </div>
 

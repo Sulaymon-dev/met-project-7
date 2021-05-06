@@ -17,8 +17,7 @@
                                 Тести "4х1"-и фанҳо
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi 4x1 avval plani darsi va nomi
-                                    mabzuro intikhob namoed
+                                <div class="alert alert-danger ">Барои иловаи тести оддӣ (4х1) ба тестҳои ММТ аввал маҷмӯи тестро интихоб кунед
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
@@ -96,7 +95,7 @@
             quiz4x1.forEach(function (quiz, i) {
                 domObject += `<div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Матни савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">
@@ -111,8 +110,8 @@
             });
             domObject += `</div>`;
             domObject += `<div class="d-flex align-items-baseline justify-content-between my-3">
-                <button type="button" class="btn btn-info" onclick="addQuiz()"> ADD</button>
-                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Save</button>
+                <button type="button" class="btn btn-info" onclick="addQuiz()"> Иловаи тест</button>
+                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Сабт кардан</button>
             </div>`;
 
             domObject += '</div>';
@@ -171,7 +170,7 @@
                     if (response.status == 'ok') {
                         swal({
                             title: "Мавод тағйир дода шуд!",
-                            text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                            text: "Тестҳо бо муваффақият сабт шуд",
                             icon: "success",
                             button: "ОК!",
                         });
@@ -205,7 +204,7 @@
             domObject = `
             <div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Манти савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">
