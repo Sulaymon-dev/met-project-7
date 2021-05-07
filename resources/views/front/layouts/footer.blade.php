@@ -43,10 +43,10 @@
                             <h6>Дастгирӣ</h6>
                         </div>
                         <ul>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Сиёсат</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i>Махфият</a></li>
-                            <li><a href="/page/ba-talaba-o"><i class="fa fa-angle-right"></i>Ба хонанда</a></li>
-                            <li><a href="/page/ba-maktab-o"><i class="fa fa-angle-right"></i>Ба мактаб</a></li>
+                            <li><a href="/page/siesat"><i class="fa fa-angle-right"></i>Сиёсат</a></li>
+                            <li><a href="/page/mahfiyat"><i class="fa fa-angle-right"></i>Махфият</a></li>
+                            <li><a href="/page/ba-talaba"><i class="fa fa-angle-right"></i>Ба хонанда</a></li>
+                            <li><a href="/page/ba-maktab"><i class="fa fa-angle-right"></i>Ба мактаб</a></li>
                             <li><a href="/page/ba-muallimon"><i class="fa fa-angle-right"></i>Ба муаллим</a></li>
                             <li><a href="/page/ba-volidayn"><i class="fa fa-angle-right"></i>Ба волидайн</a></li>
                         </ul>
@@ -83,6 +83,13 @@
                                 </div>
                             </li>
                         </ul>
+                        <div class="play-market">
+                            <a href="#">
+                                <img src="{{asset('front/images/play-market.png')}}"
+                                     alt="Дар Google Play дастрас аст"
+                                     width="200px">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
