@@ -18,9 +18,9 @@ class ArticlesController extends Controller
     {
         $query = Article::select();
         $role = auth()->user()->role;
-        if ($role == 'admin') {
-            $query->whereUserId(auth()->id());
-        }
+//        if ($role == 'admin') {
+//            $query->whereUserId(auth()->id());
+//        }
 
         $articles = $query->with('user')->latest()->paginate('25');
         return view('admin.news.index', compact('articles'));
@@ -89,7 +89,7 @@ class ArticlesController extends Controller
     public function edit($article_id)
     {
         $article = Article::where('id', '=', $article_id)->first();
-        if (auth()->user()->role == 'superadmin' || auth()->id() == $article->user()) {
+        if (auth()->user()->role == 'superadmin' || auth()->id() == $article->user->id) {
             return view('admin.news.edit', compact('article'));
         }
         return abort(404);
@@ -150,7 +150,7 @@ class ArticlesController extends Controller
             $article->delete();
             return response()->json([
                 'status' => 'ok',
-                'message' => 'book deleted successfully'
+                'message' => 'new deleted successfully'
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
