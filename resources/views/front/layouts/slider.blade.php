@@ -3,7 +3,7 @@
         @foreach((array)$mainSliderSlides as $slider)
             <div class="single-slider slider-4 bg_cover pt-150 position-relative"
                  style="background-image: url({{$slider->img_src}})">
-                <div class="position-absolute"></div>
+                <div class="position-absolute dark-fon"></div>
                 <div class="container">
                     <div class="row justify-content-left">
                         <div class="col-xl-6 col-lg-6">
