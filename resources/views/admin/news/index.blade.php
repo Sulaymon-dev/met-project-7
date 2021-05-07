@@ -2,7 +2,7 @@
 
 @section('style')
     <style>
-        .table td{
+        .table td {
             vertical-align: middle;
         }
     </style>
@@ -41,20 +41,24 @@
                                                 style="max-width: 100%"
                                                 src="/storage/uploads/img/{{$article->img_src}}" alt=""></td>
                                         <td><a class="text-black"
-                                               href="#">{{$article->title}}</a></td>
+                                               href="/news/{{$article->id}}">{{$article->title}}</a></td>
                                         <td>
                                             {{$article->user->name}}
                                         </td>
                                         <td>{!!  $article->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('news.edit',$article->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
+
+                                        @if($article->user->id == auth()->id())
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('news.edit',$article->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
                                                 <a class="btn btn-danger"
                                                    onclick="deleteSubjectHandler(event,{{$article->id}})"> <i
                                                         class="fa fa-trash-o"></i></a>
-                                        </td>
+                                            </td>
+                                        @endif
+
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -86,8 +90,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Китоб нобуд шуд!",
-                                text: "Китоби интихобшуда бо муваффақият нобуд шуд",
+                                title: "Хабар нобуд шуд!",
+                                text: "Хабари интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -115,7 +119,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин китобро нобуд кунед?",
+                title: "Мехоҳед ин хабарро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,
