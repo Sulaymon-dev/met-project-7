@@ -15,6 +15,8 @@ class Theme extends Model
         'pdf_src',
         'test',
         'pdf_exercise',
+        'status',
+        'is_show',
         'view_count',
     ];
 
