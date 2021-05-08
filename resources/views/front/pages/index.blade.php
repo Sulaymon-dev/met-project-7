@@ -31,7 +31,7 @@
                 <a data-animation="fadeInUp"
                    data-delay="2s"
                    class="main-btn mt-4"
-                   href="{{route('news')}}">Муфассалтар</a>
+                   href="{{route('news')}}">Ҳамаи хабарҳо</a>
             </div>
         </div>
     </section>

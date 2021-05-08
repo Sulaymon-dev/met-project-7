@@ -125,3 +125,8 @@
     background-color: black;
     opacity: 0.4;
 }
+
+.play-market{
+    position: absolute;
+    bottom: 0;
+}
