@@ -143,7 +143,7 @@ class AppController extends Controller
         if (isset($subject_id)) {
             $query->where('subject_id', '=', $subject_id);
         }
-        $olympics = $query->get();
+        $olympics = $query->first();
         return response()->json(['data' => $olympics, 'status' => '200'], '200');
     }
 

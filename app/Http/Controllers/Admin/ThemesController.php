@@ -217,7 +217,7 @@ class ThemesController extends Controller
         }
         if ($isUpdatedSuccessfully) {
             alert()->success('Мавзуъ бо муваффакият тағйир дода шуд', 'Тағйир ёфт');
-            return redirect(route('themes.index'));
+            return redirect(route('themes.edit',$theme->id));
         }
         return abort(403);
     }

@@ -45,6 +45,7 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('settings', 'Admin\SettingsController')->middleware('isAdmin');
     Route::resource('pages', 'Admin\PagesController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
+    Route::resource('histories', 'Admin\HistoriesController')->only('index')->middleware('isAdmin');
 });
 
 Route::get('/profile', 'UserController@profile')->name('profile')->middleware('auth');

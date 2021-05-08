@@ -39,7 +39,6 @@
                                 кунед.</h4>
                             <div class="p-3">
                                 <textarea class="form-control" rows="10"  id="test-data"></textarea>
-
                             </div>
                             <div class="d-flex align-items-baseline container justify-content-end my-3">
                                 <button type="button" class="btn btn-success" onclick="saveQuizzes()">Save</button>

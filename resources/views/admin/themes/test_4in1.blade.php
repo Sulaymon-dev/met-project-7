@@ -98,7 +98,7 @@
             quiz4x1.forEach(function (quiz, i) {
                 domObject += `<div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Манти Савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">
@@ -114,7 +114,7 @@
             domObject += `</div>`;
             domObject += `<div class="d-flex align-items-baseline justify-content-between my-3">
                 <button type="button" class="btn btn-info" onclick="addQuiz()"> Иловаи тест</button>
-                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Сабт</button>
+                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Сабт кардан</button>
             </div>`;
 
             domObject += '</div>';
@@ -207,7 +207,7 @@
             domObject = `
             <div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Матни савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">

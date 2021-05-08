@@ -20,6 +20,7 @@
         "laravel/passport": "~9.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "owen-it/laravel-auditing": "^12.0",
         "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {

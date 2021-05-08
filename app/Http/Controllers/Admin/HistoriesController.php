@@ -15,7 +15,8 @@ class HistoriesController extends Controller
      */
     public function index()
     {
-        //
+        $audits = History::with('user')->latest()->paginate(25);
+        return view('admin.histories.index',compact('audits'));
     }
 
     /**
