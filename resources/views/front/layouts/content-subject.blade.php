@@ -1,10 +1,6 @@
 <div class="accordion" id="accordionExample">
     @if($theme==null)
-        <div class="reviews-cont">
-            <div class="instructor-description pt-25">
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар синфи зерин маводи чунин фан вуҷуд надорад...</h4>
-            </div>
-        </div>
+        <x-danger-text text="Дар синфи зерин маводи чунин фан вуҷуд надорад..."></x-danger-text>
     @else
         @foreach($theme->themes as $key=>$item)
             <div class="card">
@@ -28,9 +24,7 @@
                      data-parent="#accordionExample">
                     <div class="card-body">{!! Illuminate\Support\Str::limit($item->introduction , 50, ' ...') !!}
                         <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
-                           class="btn btn-met stretched-link"
-                           style="float: right;  position: relative;">
-                            Дидан</a>
+                           class="btn btn-met stretched-link">Дидан</a>
                     </div>
                 </div>
             </div>

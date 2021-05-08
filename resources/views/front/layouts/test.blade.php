@@ -83,7 +83,7 @@
                 </div>
             </div>
         @else
-            <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин вуҷуд надорад...</h4>
+            <x-danger-text text="Зергурӯҳи зерин вуҷуд надорад..."></x-danger-text>
         @endif
     </div>
 </div>

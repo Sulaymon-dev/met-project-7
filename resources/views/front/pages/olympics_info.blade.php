@@ -13,7 +13,7 @@
 @section('content')
 
     <section id="page-banner" class="pt-10 pb-10 bg_cover" data-overlay="8"
-             style="background-image: url('../front/images/page-banner-1.jpg')">
+             style="background-image: url({{asset('/front/images/page-banner-1.jpg')}})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -61,15 +61,14 @@
                             <div class="reviews-cont">
 
                                 @if(substr($olympic->pdf_src,-4)==='.pdf')
-                                    <iframe
-                                        src="{{asset('laraview/#../storage/uploads/pdf/'.$olympic->pdf_src)}}"
-                                        width="100%"
-                                        height="600px"></iframe>
+                                    <object data="{{asset('storage/uploads/pdf/'.$olympic->pdf_src)}}#toolbar=0"
+                                            type="application/pdf"
+                                            width="100%"
+                                            height="700px"></object>
                                 @elseif(strlen($olympic->pdf_src)>0)
                                     <p>{{$olympic->pdf_src}}</p>
                                 @else
-                                    <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                                        қарор дорад...</h4>
+                                    <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
                                 @endif
                             </div>
                         </div>

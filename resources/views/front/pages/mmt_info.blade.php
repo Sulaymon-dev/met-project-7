@@ -61,15 +61,14 @@
                              aria-labelledby="reviews-tab">
                             <div class="reviews-cont">
                                 @if(substr($mmt->mmt_fan->pdf_src,-4)==='.pdf')
-                                    <iframe
-                                        src="{{asset('laraview/#../storage/uploads/pdf/'.$mmt->mmt_fan->pdf_src)}}"
-                                        width="100%"
-                                        height="600px"></iframe>
+                                    <object data="{{asset('storage/uploads/pdf/'.$mmt->mmt_fan->pdf_src)}}#toolbar=0"
+                                            type="application/pdf"
+                                            width="100%"
+                                            height="700px"></object>
                                 @elseif(strlen($mmt->mmt_fan->pdf_src)>0)
                                     <p>{{$mmt->mmt_fan->pdf_src}}</p>
                                 @else
-                                    <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                                        қарор дорад...</h4>
+                                    <x-danger-text text="Дар синфи зерин маводи чунин фан вуҷуд надорад..."></x-danger-text>
                                 @endif
                             </div>
                         </div>

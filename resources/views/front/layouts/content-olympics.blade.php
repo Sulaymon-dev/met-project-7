@@ -1,21 +1,11 @@
-<div class="courses-single-left " style="padding: 30px 50px;">
+<div>
     @if(sizeof($olympics)<=0)
-        <div class="reviews-cont">
-            <div class="instructor-description pt-25">
-                <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд
-                    надорад...</h4>
-                </p>
-            </div>
-        </div>
+        <x-danger-text text="Дар синфи зерин маводи чунин фан вуҷуд надорад..."></x-danger-text>
     @else
-
 
         <div class="category-2-items">
             <div class="row">
-
                 @foreach($olympics as $item)
- 
                     @if($item->sinf->class==$sinf)
                         <div class="col-md-6">
                             <div class="single-items text-center mt-30 ">
@@ -31,14 +21,10 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- single items -->
                         </div>
                     @endif
                 @endforeach
             </div>
-            <!-- row -->
         </div>
-
     @endif
 </div>
-<!-- courses single left -->

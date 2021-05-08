@@ -76,25 +76,24 @@
                 @if($content == 'conspect')
                     <div class="courses-tab mt-30">
                         @if(substr($theme->pdf_src,-4)==='.pdf')
-                            <iframe
-                                src="{{asset('laraview/#../storage/uploads/pdf/'.$theme->pdf_src)}}"
-                                width="100%"
-                                height="600px"></iframe>
+
+                            <object data="{{asset('storage/uploads/pdf/'.$theme->pdf_src)}}#toolbar=0"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="700px"></object>
                         @else
-                            <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                                қарор дорад...</h4>
+                            <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
                         @endif
                     </div>
                 @elseif($content == 'moreInfo')
                     <div class="courses-tab mt-30">
                         @if(substr($theme->plan->book->pdf_src,-4)==='.pdf')
-                            <iframe
-                                src="{{asset('laraview/#../storage/uploads/pdf/'.$theme->plan->book->pdf_src)}}"
-                                width="100%"
-                                height="600px"></iframe>
+                            <object data="{{asset('storage/uploads/pdf/'.$theme->plan->book->pdf_src)}}#toolbar=0"
+                                    type="application/pdf"
+                                    width="100%"
+                                    height="700px"></object>
                         @else
-                            <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                                қарор дорад...</h4>
+                            <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
                         @endif
                     </div>
                 @else
@@ -134,7 +133,7 @@
                                 <video width="100%" controls>
                                     <source src="{{asset("/storage/uploads/video/".$theme->video_src)}}"
                                             type="video/mp4">
-                                    Your browser does not support the video tag.
+                                    Браузери Шумо видеохоро дастгирӣ намекунад.
                                 </video>
                             </div>
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
@@ -150,8 +149,7 @@
                                     @elseif(strlen($theme->pdf_exercise)>0)
                                         <p>{!! $theme->pdf_exercise !!}</p>
                                     @else
-                                        <h4 class="pt-10 pb-10 " style="color:darkred">Зергурӯҳи зерин дар сатҳи коркард
-                                            қарор дорад...</h4>
+                                        <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
                                     @endif
                                 </div>
                             </div>

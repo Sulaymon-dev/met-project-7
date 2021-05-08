@@ -47,9 +47,7 @@
             </div>
         </section>
     @else
-        <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">
-            Дар зергурӯҳи зерин мавод вуҷуд надорад...
-        </h4>
+        <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
     @endif
 @endsection
 

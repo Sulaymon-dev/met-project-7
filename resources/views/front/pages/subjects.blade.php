@@ -14,7 +14,7 @@
                         <h2>Фанҳои омӯзиш</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.php">Асосӣ</a></li>
+                                <li class="breadcrumb-item"><a href="{{route('index')}}">Асосӣ</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Фанҳо</li>
                             </ol>
                         </nav>

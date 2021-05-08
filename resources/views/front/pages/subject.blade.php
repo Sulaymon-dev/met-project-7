@@ -25,14 +25,7 @@
     </section>
 
     @if(sizeof($subject->plans)<=0)
-        <div class="reviews-cont">
-            <div class="instructor-description pt-25">
-                <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд
-                    надорад...</h4>
-                </p>
-            </div>
-        </div>
+        <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
     @else
 
         <section class="py-5 header">
@@ -56,7 +49,7 @@
                         </div>
                     </div>
                     <div class="col-md-9 shadow">
-                        <div class="courses-single-left mt-30">
+                        <div class="mt-30 mb-30">
                             <div class="title">
                                 <h3> {{$theme->book->name}}</h3>
                             </div>

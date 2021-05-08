@@ -126,7 +126,7 @@
     opacity: 0.4;
 }
 
-.play-market{
-    position: absolute;
-    bottom: 0;
+.danger-text {
+    color:darkred;
+    text-align: center;
 }

@@ -1,16 +1,7 @@
-<div class="courses-single-left " style="padding: 30px 50px;">
+<div>
     @if(!$data||(sizeof($data->mmts)<=0))
-        <div class="reviews-cont">
-            <div class="instructor-description">
-                <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд
-                    надорад...</h4>
-                </p>
-            </div>
-        </div>
+        <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
     @else
-
-
         <div class="category-2-items">
             <div class="row">
                 @foreach($data->mmts as $item)
@@ -36,7 +27,6 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- single items -->
                         </div>
                     @endif
                 @endforeach
@@ -44,12 +34,9 @@
                     $first = false
                 @endphp
             </div>
-            <!-- row -->
 
             <div class="row">
-
                 @foreach($data->mmts as $item)
-
                     @if($item->component == "B")
                         @if($first == false)
                             <div class="col-md-12 mt-40"><h3 style="color: #234565"> Компоненти "B" </h3></div>
@@ -71,14 +58,10 @@
                                     </div>
                                 </a>
                             </div>
-                            <!-- single items -->
                         </div>
                     @endif
                 @endforeach
             </div>
-            <!-- row -->
         </div>
-
     @endif
 </div>
-<!-- courses single left -->

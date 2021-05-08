@@ -1,12 +1,6 @@
-<div class="courses-single-left " style="padding: 30px 50px;">
+<div>
     @if(sizeof($theme)<=0)
-        <div class="reviews-cont">
-            <div class="instructor-description pt-25">
-                <p>
-                <h4 class="pt-10 pb-10 " style="color:darkred; text-align: center">Дар зергурӯҳи зерин мавод вуҷуд надорад...</h4>
-                </p>
-            </div>
-        </div>
+        <x-danger-text text="Дар синфи зерин маводи чунин фан вуҷуд надорад..."></x-danger-text>
     @else
         <div class="category-2-items">
             <div class="row">
@@ -20,8 +14,8 @@
                                 <div class="items-image">
                                     <img src="{{asset('/storage/uploads/img/'.$item->book->img_src)}}"
                                          width="372px"
-                                         height="145px"
-                                         alt="Category">
+                                         height="200px"
+                                         alt="{{$item->book->name}}">
                                 </div>
                                 <div class="items-cont">
                                     <h5>{{$item->book->name}}</h5>

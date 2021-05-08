@@ -92,13 +92,7 @@
                                             <h5>Маълумоти умумӣ</h5>
                                             <p>{{ $profile->about }}</p>
                                         @else
-                                            <div class="reviews-cont">
-                                                <div class="instructor-description">
-                                                    <h4 style="color:darkred; text-align: center">
-                                                        Шумо профили худро пурра накардаед. Лутфан ба сахифаи ТАНЗИМОТ
-                                                        гузаред...</h4>
-                                                </div>
-                                            </div>
+                                            <x-danger-text text="Шумо профили худро пурра накардаед. Лутфан ба сахифаи ТАНЗИМОТ гузаред..."></x-danger-text>
                                         @endif
                                     </div>
                                 </div>
