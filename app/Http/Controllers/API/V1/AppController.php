@@ -39,7 +39,7 @@ class AppController extends Controller
     public function getSubjectsByClasses(Request $request)
     {
         $sinf_id = $request->input('sinf_id');
-        $subjects = Subject::select('subjects.id as id', 'subjects.slug', 'subjects.name','image_src', 'plans.sinf_id as sinf_id')
+        $subjects = Subject::select('subjects.id as id', 'subjects.slug', 'subjects.name', 'image_src', 'plans.sinf_id as sinf_id')
             ->leftJoin('plans', 'plans.subject_id', '=', 'subjects.id')->where('plans.sinf_id', '=', $sinf_id)->get()
             ->unique(function ($item) {
                 return $item->name;
@@ -54,7 +54,7 @@ class AppController extends Controller
     {
         $sinf_id = $request->input('sinf_id');
         $subject_id = $request->input('subject_id');
-        $query = Plan::where([ ['status', '=', '1'], ['is_show', '=', '1']]);
+        $query = Plan::where([['status', '=', '1'], ['is_show', '=', '1']]);
         if (isset($sinf_id)) {
             $query->where('sinf_id', '=', $sinf_id);
         }
@@ -71,7 +71,7 @@ class AppController extends Controller
     {
         $sinf_id = $request->input('sinf_id');
         $subject_id = $request->input('subject_id');
-        $query = Plan::where([ ['status', '=', '1'], ['is_show', '=', '1']]);
+        $query = Plan::where([['status', '=', '1'], ['is_show', '=', '1']]);
         if (isset($sinf_id)) {
             $query->where('sinf_id', '=', $sinf_id);
         }
@@ -92,6 +92,46 @@ class AppController extends Controller
         return response()->json(['data' => $theme, 'status' => '200'], '200');
     }
 
+    public function getOlympicsSinfs()
+    {
+        $sinfs = Olympic::select('sinf_id', 'id')->with('sinf')->get()->unique(function ($item) {
+            return $item->sinf->class;
+        });
+        $data = [];
+        foreach ($sinfs as $sinf) {
+            $data[] = [
+                'sinf' => $sinf->sinf->class,
+                'sinf_id' => $sinf->sinf->id
+            ];
+        }
+        return response()->json(['data' => $data, 'status' => 200], 200);
+    }
+
+    public function getOlympicSubjectsByClass(Request $request)
+    {
+        $sinf_id = $request->get('sinf_id');
+        $subjects = Olympic::select('id', 'sinf_id', 'subject_id')->with(['sinf', 'subject'])
+            ->get()
+            ->filter(function ($q) use ($sinf_id) {
+                return $q->sinf->id == $sinf_id;
+            })
+            ->unique(function ($q) {
+                return $q->subject->id;
+            });
+
+        $data = [];
+        foreach ($subjects as $subject) {
+            $data[] = [
+                'subject_id' => $subject->subject->id,
+                'subject_name' => $subject->subject->name,
+                'class_id'=>$subject->sinf->id,
+                'class_name'=>$subject->sinf->id
+            ];
+        }
+        return response()->json(['data' => $data, 'status' => 200], 200);
+
+    }
+
     public function getOlympics(Request $request)
     {
         $sinf_id = $request->input('sinf_id');
@@ -103,9 +143,10 @@ class AppController extends Controller
         if (isset($subject_id)) {
             $query->where('subject_id', '=', $subject_id);
         }
-        $olympics = $query->get()->makeHidden('test');
+        $olympics = $query->get();
         return response()->json(['data' => $olympics, 'status' => '200'], '200');
     }
+
 
     public function getOlympicById(Request $request)
     {
@@ -123,21 +164,22 @@ class AppController extends Controller
     public function getNewById(Request $request)
     {
         $new_id = $request->input('new_id');
-        $new= Article::where([['id', '=', $new_id], ['status', '=', '1']])->get();
+        $new = Article::where([['id', '=', $new_id], ['status', '=', '1']])->get();
         return response()->json(['data' => $new, 'status' => '200'], '200');
     }
 
-    public function getMainSlider(){
-        $main_slider = Setting::where('key','=','main_slider')->first();
-        $main_slider->value =json_decode( $main_slider->value);
-        return response()->json(['data' => $main_slider,'status'=>200],200);
+    public function getMainSlider()
+    {
+        $main_slider = Setting::where('key', '=', 'main_slider')->first();
+        $main_slider->value = json_decode($main_slider->value);
+        return response()->json(['data' => $main_slider, 'status' => 200], 200);
     }
 
     public function getSecondSlider()
     {
-        $second_slider = Setting::where('key','=','second_slider')->first();
-        $second_slider->value =json_decode( $second_slider->value);
-        return response()->json(['data' => $second_slider,'status'=>200],200);
+        $second_slider = Setting::where('key', '=', 'second_slider')->first();
+        $second_slider->value = json_decode($second_slider->value);
+        return response()->json(['data' => $second_slider, 'status' => 200], 200);
     }
 
 }
