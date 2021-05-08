@@ -2,7 +2,7 @@
     @if(sizeof($theme)<=0)
         <x-danger-text text="Дар синфи зерин маводи чунин фан вуҷуд надорад..."></x-danger-text>
     @else
-        <div class="category-2-items">
+        <div class="category-2-items mb-4">
             <div class="row">
                 @foreach($theme as $item)
                     <div class="col-md-6">

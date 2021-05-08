@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade shadow rounded bg-white  show active  p-5"
+                        <div class="tab-pane fade shadow rounded bg-white  show active  p-3"
                              role="tabpanel" aria-labelledby="v-pills-home-tab">
                             <div class="category-2-items">
                                 <div class="row">

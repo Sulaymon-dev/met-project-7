@@ -99,7 +99,7 @@
                             </div>
 
                             <div class="tab-pane fade" id="courses" role="tabpanel" aria-labelledby="courses-tab">
-                                <div class="courses-cont pt-20" style="margin: -30px -50px">
+                                <div>
                                     @include('front.layouts.content-subject-class')
                                 </div>
                             </div>

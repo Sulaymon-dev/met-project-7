@@ -2,7 +2,7 @@
     @if(!$data||(sizeof($data->mmts)<=0))
         <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
     @else
-        <div class="category-2-items">
+        <div class="category-2-items mt-4 mb-4">
             <div class="row">
                 @foreach($data->mmts as $item)
 
@@ -13,14 +13,14 @@
                                 $first = true
                             @endphp
                         @endif
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="single-items text-center mt-20 ">
                                 <a href="{{route('mmt-info',[
                                                     'id'=>$item->mmt_fan_id
                                                 ])}}">
                                     <div class="items-image">
                                         <img src="/storage/uploads/img/{{$item->subject->image_src}}" width="372px"
-                                             height="145px" alt="{{$item->subject->name}}">
+                                             height="200px" alt="{{$item->subject->name}}">
                                     </div>
                                     <div class="items-cont">
                                         <h5>{{$item->subject->name}}</h5>
@@ -44,14 +44,14 @@
                                 $first = true
                             @endphp
                         @endif
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="single-items text-center mt-20 ">
                                 <a href="{{route('mmt-info',[
                                                     'id'=>$item->mmt_fan_id
                                                 ])}}">
                                     <div class="items-image">
                                         <img src="/storage/uploads/img/{{$item->subject->image_src}}" width="372px"
-                                             height="145px" alt="{{$item->subject->name}}">
+                                             height="200px" alt="{{$item->subject->name}}">
                                     </div>
                                     <div class="items-cont">
                                         <h5>{{$item->subject->name}}</h5>
