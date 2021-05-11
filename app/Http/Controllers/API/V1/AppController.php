@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1;
 
 use App\Article;
+use App\Cluster;
 use App\Http\Controllers\Controller;
 use App\Olympic;
 use App\Plan;
@@ -124,8 +125,8 @@ class AppController extends Controller
             $data[] = [
                 'subject_id' => $subject->subject->id,
                 'subject_name' => $subject->subject->name,
-                'class_id'=>$subject->sinf->id,
-                'class_name'=>$subject->sinf->id
+                'class_id' => $subject->sinf->id,
+                'class_name' => $subject->sinf->id
             ];
         }
         return response()->json(['data' => $data, 'status' => 200], 200);
@@ -182,4 +183,16 @@ class AppController extends Controller
         return response()->json(['data' => $second_slider, 'status' => 200], 200);
     }
 
+    public function getClusters()
+    {
+        $clusters = Cluster::where('status', '=', '1')->get();
+        return response()->json(['data' => $clusters], 200);
+    }
+
+    public function getClusterById(Request $request)
+    {
+        $new_id = $request->input('cluster_id');
+        $new = Cluster::with('mmts')->where([['id', '=', $new_id], ['status', '=', '1']])->first();
+        return response()->json(['data' => $new, 'status' => '200'], '200');
+    }
 }

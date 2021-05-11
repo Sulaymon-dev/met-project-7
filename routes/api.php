@@ -21,6 +21,8 @@ Route::get('/v1/themes','API\V1\AppController@getThemes');
 Route::get('/v1/theme/','API\V1\AppController@getThemeById');
 Route::get('/v1/olympics/','API\V1\AppController@getOlympics');
 Route::get('/v1/olympic/','API\V1\AppController@getOlympicById');
+Route::get('/v1/clusters/','API\V1\AppController@getClusters');
+Route::get('/v1/cluster/','API\V1\AppController@getClusterById');
 Route::get('/v1/olympicClasses/','API\V1\AppController@getOlympicsSinfs');
 Route::get('/v1/olympicSubjects/','API\V1\AppController@getOlympicSubjectsByClass');
 Route::get('/v1/news/','API\V1\AppController@getNews');
