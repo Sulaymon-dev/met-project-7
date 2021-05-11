@@ -2,12 +2,14 @@
     "scripts": [
         "\/js\/quiz4x1.js",
         "\/js\/matching.js",
-        "\/js\/openQuiz.js"
+        "\/js\/openQuiz.js",
+        "\/js\/qiuz-icon.js"
     ],
     "styles": [
         "\/css\/quiz4x1.css",
         "\/css\/matching.css",
-        "\/css\/openQuiz.css"
+        "\/css\/openQuiz.css",
+        "\/css\/qiuz-icon.css"
     ],
     "tests": [
         {
@@ -16,67 +18,67 @@
                     "answers": [
                         {
                             "id": "1",
-                            "text": "\u0414\u0443\u0440\u0443\u0441\u0442: \u0434\u0443\u0441\u0442\u0438 \u043c\u043e"
+                            "text": "lorem ipsum dolor set 1"
                         },
                         {
                             "id": "2",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442: \u0430\u0448\u0451"
+                            "text": "lorem ipsum dolor set 2"
                         },
                         {
                             "id": "3",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442: \u043c\u0443\u043a\u0430\u0434\u0434\u0430\u0441\u043e\u0442"
+                            "text": "lorem ipsum dolor set 3"
                         },
                         {
                             "id": "4",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442: \u0434\u0430\u0444\u0442\u0430\u0440"
+                            "text": "lorem ipsum dolor set 4"
                         }
                     ],
-                    "question": "\u041a\u0438\u0442\u043e\u0431 \u043a\u0438\u0441\u0442?",
+                    "question": "Who invented JavaScript?",
                     "correctAnswer": "1"
                 },
                 {
                     "answers": [
                         {
                             "id": "1",
-                            "text": "\u0414\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 1"
                         },
                         {
                             "id": "2",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 2"
                         },
                         {
                             "id": "3",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 3"
                         },
                         {
                             "id": "4",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 4"
                         }
                     ],
-                    "question": "\u0422\u0435\u0441\u0442\u0438 \u041a\u0438\u0442\u043e\u0431",
-                    "correctAnswer": "1"
+                    "question": "Which one of these is a JavaScript package manager?",
+                    "correctAnswer": "2"
                 },
                 {
                     "answers": [
                         {
                             "id": "1",
-                            "text": "\u0414\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 1"
                         },
                         {
                             "id": "2",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 2"
                         },
                         {
                             "id": "3",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 3"
                         },
                         {
                             "id": "4",
-                            "text": "\u041d\u043e\u0434\u0443\u0440\u0443\u0441\u0442"
+                            "text": "lorem ipsum dolor set 4"
                         }
                     ],
-                    "question": "\u0422\u0435\u0441\u0442\u0438 \u041a\u0438\u0442\u043e\u0431 2",
-                    "correctAnswer": "1"
+                    "question": "Which tool can you use to ensure code quality?",
+                    "correctAnswer": "3"
                 }
             ],
             "type": "quiz4x1"
@@ -87,128 +89,126 @@
                     "terms": [
                         {
                             "id": "1",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 1"
+                            "text": "qwe"
                         },
                         {
                             "id": "2",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 2"
+                            "text": "qwe"
                         },
                         {
                             "id": "3",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 3"
+                            "text": "qwer"
                         },
                         {
                             "id": "4",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 4"
+                            "text": "qwer"
                         },
                         {
                             "id": "5",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 5"
+                            "text": "qwer"
                         },
                         {
                             "id": "6",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 6"
+                            "text": "qwe"
                         }
                     ],
                     "definitions": [
                         {
                             "id": "1",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 1"
+                            "text": "qweqwer"
                         },
                         {
                             "id": "2",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 2"
+                            "text": "qwer"
                         },
                         {
                             "id": "3",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 3"
+                            "text": "qwer"
                         },
                         {
                             "id": "4",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 4"
+                            "text": "qwert"
                         },
                         {
                             "id": "5",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 5"
+                            "text": "qwert"
                         },
                         {
                             "id": "6",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438  6"
+                            "text": "qwerty"
                         }
                     ],
-                    "question": "\u0421\u0430\u0432\u043e\u043b\u0438 \u043c\u0430\u0442\u043d\u04e3...",
+                    "question": "qwer",
                     "pairs": [
                         "0",
                         "1",
                         "2",
                         "3",
                         "4",
-                        "5",
-                        "6"
+                        "5"
                     ]
                 },
                 {
                     "terms": [
                         {
                             "id": "1",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 1"
+                            "text": "qwer1"
                         },
                         {
                             "id": "2",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 2"
+                            "text": "qwer2"
                         },
                         {
                             "id": "3",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 3"
+                            "text": "wer3"
                         },
                         {
                             "id": "4",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 4"
+                            "text": "wer4"
                         },
                         {
                             "id": "5",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 5"
+                            "text": "we5"
                         },
                         {
                             "id": "6",
-                            "text": "\u0421\u0430\u0432\u043e\u043b\u0438 6"
+                            "text": "rt6"
                         }
                     ],
                     "definitions": [
                         {
                             "id": "1",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 1"
+                            "text": "eyrt1"
                         },
                         {
                             "id": "2",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 2"
+                            "text": "eyrtfy2"
                         },
                         {
                             "id": "3",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 3"
+                            "text": "yret3"
                         },
                         {
                             "id": "4",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 4"
+                            "text": "uydy4"
                         },
                         {
                             "id": "5",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438 5"
+                            "text": "fgh5"
                         },
                         {
                             "id": "6",
-                            "text": "\u04b6\u0430\u0432\u043e\u0431\u0438  6"
+                            "text": "dfgh6"
                         }
                     ],
-                    "question": "\u0421\u0430\u0432\u043e\u043b\u0438 \u043c\u0430\u0442\u043d\u04e3...",
+                    "question": "qwe",
                     "pairs": [
                         "0",
                         "1",
                         "2",
                         "3",
                         "4",
-                        "5",
-                        "6"
+                        "5"
                     ]
                 }
             ],
@@ -217,22 +217,527 @@
         {
             "data": [
                 {
-                    "id": "1",
+                    "id": 1,
                     "text": "2*2",
                     "answer": "4"
                 },
                 {
-                    "id": "2",
+                    "id": 2,
                     "text": "3*3",
                     "answer": "9"
                 },
                 {
-                    "id": "3",
+                    "id": 3,
                     "text": "4*4",
                     "answer": "16"
                 }
             ],
             "type": "openQuiz"
+        },
+        {
+            "data": [
+                {
+                    "iconName": "adobe",
+                    "brandName": "Adobe",
+                    "color": "#ff0000"
+                },
+                {
+                    "iconName": "airbnb",
+                    "brandName": "Airbnb",
+                    "color": "#fd5c63"
+                },
+                {
+                    "iconName": "amazon",
+                    "brandName": "Amazon",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "android",
+                    "brandName": "Android",
+                    "color": "#a4c639"
+                },
+                {
+                    "iconName": "angellist",
+                    "brandName": "AngelList",
+                    "color": "#000000"
+                },
+                {
+                    "iconName": "angular",
+                    "brandName": "Angular",
+                    "color": "#b52e31"
+                },
+                {
+                    "iconName": "app-store-ios",
+                    "brandName": "App Store",
+                    "color": "#5fc9f8"
+                },
+                {
+                    "iconName": "apple",
+                    "brandName": "Apple",
+                    "color": "#aaaaaa"
+                },
+                {
+                    "iconName": "bitcoin",
+                    "brandName": "Bitcoin",
+                    "color": "#d4af37"
+                },
+                {
+                    "iconName": "blackberry",
+                    "brandName": "BlackBerry",
+                    "color": "#000000"
+                },
+                {
+                    "iconName": "blogger",
+                    "brandName": "Blogger",
+                    "color": "#f57d00"
+                },
+                {
+                    "iconName": "bluetooth",
+                    "brandName": "Bluetooth",
+                    "color": "#3b5998"
+                },
+                {
+                    "iconName": "bootstrap",
+                    "brandName": "Bootstrap",
+                    "color": "#553c7b"
+                },
+                {
+                    "iconName": "chrome",
+                    "brandName": "Google Chrome",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "codepen",
+                    "brandName": "CodePen",
+                    "color": "#111111"
+                },
+                {
+                    "iconName": "cpanel",
+                    "brandName": "cPanel",
+                    "color": "#ff6c2c"
+                },
+                {
+                    "iconName": "css3-alt",
+                    "brandName": "CSS3",
+                    "color": "#264de4"
+                },
+                {
+                    "iconName": "dev",
+                    "brandName": "Dev",
+                    "color": "#111111"
+                },
+                {
+                    "iconName": "dhl",
+                    "brandName": "DHL",
+                    "color": "#ba0c2f"
+                },
+                {
+                    "iconName": "digital-ocean",
+                    "brandName": "DigitalOcean",
+                    "color": "#008bcf"
+                },
+                {
+                    "iconName": "discord",
+                    "brandName": "Discord",
+                    "color": "#7289da"
+                },
+                {
+                    "iconName": "docker",
+                    "brandName": "Docker",
+                    "color": "#0db7ed"
+                },
+                {
+                    "iconName": "dribbble",
+                    "brandName": "Dribbble",
+                    "color": "#ea4c89"
+                },
+                {
+                    "iconName": "dropbox",
+                    "brandName": "Dropbox",
+                    "color": "#007ee5"
+                },
+                {
+                    "iconName": "drupal",
+                    "brandName": "Drupal",
+                    "color": "#0077c0"
+                },
+                {
+                    "iconName": "ebay",
+                    "brandName": "eBay",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "edge",
+                    "brandName": "Microsoft Edge",
+                    "color": "#0078d7"
+                },
+                {
+                    "iconName": "ember",
+                    "brandName": "Ember.js",
+                    "color": "#f23819"
+                },
+                {
+                    "iconName": "ethereum",
+                    "brandName": "Ethereum",
+                    "color": "#666666"
+                },
+                {
+                    "iconName": "etsy",
+                    "brandName": "Etsy",
+                    "color": "#d5641c"
+                },
+                {
+                    "iconName": "evernote",
+                    "brandName": "Evernote",
+                    "color": "#2dbe60"
+                },
+                {
+                    "iconName": "facebook-square",
+                    "brandName": "Facebook",
+                    "color": "#3b5998"
+                },
+                {
+                    "iconName": "fedex",
+                    "brandName": "FedEx",
+                    "color": "#4d148c"
+                },
+                {
+                    "iconName": "firefox",
+                    "brandName": "Firefox",
+                    "color": "#e66000"
+                },
+                {
+                    "iconName": "font-awesome",
+                    "brandName": "Font Awesome",
+                    "color": "#228ae6"
+                },
+                {
+                    "iconName": "free-code-camp",
+                    "brandName": "freeCodeCamp",
+                    "color": "#006400"
+                },
+                {
+                    "iconName": "git-alt",
+                    "brandName": "Git",
+                    "color": "#f1502f"
+                },
+                {
+                    "iconName": "github",
+                    "brandName": "GitHub",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "google",
+                    "brandName": "Google",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "google-play",
+                    "brandName": "Google Play",
+                    "color": "#3bccff"
+                },
+                {
+                    "iconName": "grunt",
+                    "brandName": "Grunt",
+                    "color": "#fba919"
+                },
+                {
+                    "iconName": "gulp",
+                    "brandName": "gulp.js",
+                    "color": "#db4446"
+                },
+                {
+                    "iconName": "html5",
+                    "brandName": "HTML5",
+                    "color": "#e34f26"
+                },
+                {
+                    "iconName": "imdb",
+                    "brandName": "IMDb",
+                    "color": "#dba506"
+                },
+                {
+                    "iconName": "instagram",
+                    "brandName": "Instagram",
+                    "color": "#e1306c"
+                },
+                {
+                    "iconName": "internet-explorer",
+                    "brandName": "Internet Explorer",
+                    "color": "#1ebbee"
+                },
+                {
+                    "iconName": "itunes",
+                    "brandName": "iTunes",
+                    "color": "#ea4cc0"
+                },
+                {
+                    "iconName": "java",
+                    "brandName": "Java",
+                    "color": "#5382a1"
+                },
+                {
+                    "iconName": "js-square",
+                    "brandName": "JavaScript",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "jsfiddle",
+                    "brandName": "JSFiddle",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "kickstarter",
+                    "brandName": "Kickstarter",
+                    "color": "#2bde73"
+                },
+                {
+                    "iconName": "laravel",
+                    "brandName": "Laravel",
+                    "color": "#f55247"
+                },
+                {
+                    "iconName": "less",
+                    "brandName": "Less",
+                    "color": "#00316e"
+                },
+                {
+                    "iconName": "linkedin",
+                    "brandName": "LinkedIn",
+                    "color": "#0077b5"
+                },
+                {
+                    "iconName": "linux",
+                    "brandName": "Linux",
+                    "color": "#000000"
+                },
+                {
+                    "iconName": "mailchimp",
+                    "brandName": "Mailchimp",
+                    "color": "#239ab9"
+                },
+                {
+                    "iconName": "medium",
+                    "brandName": "Medium",
+                    "color": "#00ab6c"
+                },
+                {
+                    "iconName": "meetup",
+                    "brandName": "Meetup",
+                    "color": "#e0393e"
+                },
+                {
+                    "iconName": "microsoft",
+                    "brandName": "Microsoft",
+                    "color": "#111111"
+                },
+                {
+                    "iconName": "napster",
+                    "brandName": "Napster",
+                    "color": "#111111"
+                },
+                {
+                    "iconName": "node",
+                    "brandName": "Node.js",
+                    "color": "#68a063"
+                },
+                {
+                    "iconName": "npm",
+                    "brandName": "npm",
+                    "color": "#cc3534"
+                },
+                {
+                    "iconName": "opera",
+                    "brandName": "Opera",
+                    "color": "#cc0f16"
+                },
+                {
+                    "iconName": "patreon",
+                    "brandName": "Patreon",
+                    "color": "#f96854"
+                },
+                {
+                    "iconName": "paypal",
+                    "brandName": "PayPal",
+                    "color": "#003087"
+                },
+                {
+                    "iconName": "php",
+                    "brandName": "PHP",
+                    "color": "#8892be"
+                },
+                {
+                    "iconName": "pinterest",
+                    "brandName": "Pinterest",
+                    "color": "#bd081c"
+                },
+                {
+                    "iconName": "playstation",
+                    "brandName": "PlayStation",
+                    "color": "#003087"
+                },
+                {
+                    "iconName": "product-hunt",
+                    "brandName": "Product Hunt",
+                    "color": "#da552f"
+                },
+                {
+                    "iconName": "python",
+                    "brandName": "Python",
+                    "color": "#4584b6"
+                },
+                {
+                    "iconName": "quora",
+                    "brandName": "Quora",
+                    "color": "#a82400"
+                },
+                {
+                    "iconName": "react",
+                    "brandName": "React",
+                    "color": "#00d8ff"
+                },
+                {
+                    "iconName": "reddit",
+                    "brandName": "reddit",
+                    "color": "#ff4500"
+                },
+                {
+                    "iconName": "safari",
+                    "brandName": "Safari",
+                    "color": "#0fb5ee"
+                },
+                {
+                    "iconName": "sass",
+                    "brandName": "Sass",
+                    "color": "#cd6799"
+                },
+                {
+                    "iconName": "skype",
+                    "brandName": "Skype",
+                    "color": "#00aff0"
+                },
+                {
+                    "iconName": "slack",
+                    "brandName": "Slack",
+                    "color": "#3eb991"
+                },
+                {
+                    "iconName": "snapchat-square",
+                    "brandName": "Snapchat",
+                    "color": "#fffc00"
+                },
+                {
+                    "iconName": "soundcloud",
+                    "brandName": "SoundCloud",
+                    "color": "#ff8800"
+                },
+                {
+                    "iconName": "spotify",
+                    "brandName": "Spotify",
+                    "color": "#1db954"
+                },
+                {
+                    "iconName": "squarespace",
+                    "brandName": "Squarespace",
+                    "color": "#222222"
+                },
+                {
+                    "iconName": "stack-overflow",
+                    "brandName": "Stack Overflow",
+                    "color": "#f48024"
+                },
+                {
+                    "iconName": "stripe",
+                    "brandName": "Stripe",
+                    "color": "#00afe1"
+                },
+                {
+                    "iconName": "trello",
+                    "brandName": "Trello",
+                    "color": "#0079bf"
+                },
+                {
+                    "iconName": "tripadvisor",
+                    "brandName": "TripAdvisor",
+                    "color": "#00af87"
+                },
+                {
+                    "iconName": "twitch",
+                    "brandName": "Twitch",
+                    "color": "#6441a5"
+                },
+                {
+                    "iconName": "twitter",
+                    "brandName": "Twitter",
+                    "color": "#1da1f2"
+                },
+                {
+                    "iconName": "uber",
+                    "brandName": "Uber",
+                    "color": "#09091a"
+                },
+                {
+                    "iconName": "viber",
+                    "brandName": "Viber",
+                    "color": "#59267c"
+                },
+                {
+                    "iconName": "vimeo",
+                    "brandName": "Vimeo",
+                    "color": "#1ab7ea"
+                },
+                {
+                    "iconName": "vk",
+                    "brandName": "VKontakte",
+                    "color": "#45668e"
+                },
+                {
+                    "iconName": "vuejs",
+                    "brandName": "Vue.js",
+                    "color": "#42b883"
+                },
+                {
+                    "iconName": "whatsapp",
+                    "brandName": "WhatsApp",
+                    "color": "#075e54"
+                },
+                {
+                    "iconName": "wikipedia-w",
+                    "brandName": "Wikipedia",
+                    "color": "#000000"
+                },
+                {
+                    "iconName": "windows",
+                    "brandName": "Microsoft Windows",
+                    "color": "#0078d7"
+                },
+                {
+                    "iconName": "wix",
+                    "brandName": "Wix.com",
+                    "color": "#333333"
+                },
+                {
+                    "iconName": "wordpress",
+                    "brandName": "WordPress",
+                    "color": "#21759b"
+                },
+                {
+                    "iconName": "xbox",
+                    "brandName": "Xbox",
+                    "color": "#52b043"
+                },
+                {
+                    "iconName": "yahoo",
+                    "brandName": "Yahoo!",
+                    "color": "#410093"
+                },
+                {
+                    "iconName": "youtube",
+                    "brandName": "YouTube",
+                    "color": "#ff0000"
+                }
+            ],
+            "type": "quiz-icon"
         }
     ]
 }

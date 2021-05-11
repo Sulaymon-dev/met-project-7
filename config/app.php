@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\DuskServiceProvider::class,
 //        Goodnesskay\LaravelPdfViewer\LaravelPdfViewerServiceProvider::class,
-        OwenIt\Auditing\AuditingServiceProvider::class,
+//        OwenIt\Auditing\AuditingServiceProvider::class,
 
     ],
 
