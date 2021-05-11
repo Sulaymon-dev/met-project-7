@@ -50,6 +50,15 @@
                                             </div>
                                         @elseif($item['type']=='openQuiz')
                                             <div id="openQuiz"></div>
+                                        @elseif($item['type']=='quiz-icon')
+                                            <div id="icon-quiz">
+                                                <section class="scores">
+                                                    <span class="correct">0</span>/<span class="total">0</span>
+                                                    <button id="play-again-btn">Аз нав бозӣ кардан</button>
+                                                </section>
+                                                <section class="draggable-items"></section>
+                                                <section class="matching-pairs"></section>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -70,11 +79,13 @@
                                    aria-controls="dashboard{{$key}}"
                                    aria-selected="true">
                                     @if($item['type']=='quiz4x1')
-                                        Тести кушод
+                                        Тести пӯшида
                                     @elseif($item['type']=='matching')
                                         Мувофиковарӣ
                                     @elseif($item['type']=='openQuiz')
                                         Тести кушод
+                                    @elseif($item['type']=='quiz-icon')
+                                        Расмҳо
                                     @endif
                                 </a>
                             </li>

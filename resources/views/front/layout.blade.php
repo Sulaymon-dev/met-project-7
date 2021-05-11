@@ -16,11 +16,13 @@
     <link rel="stylesheet" href="{{asset('/front/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('/front/css/font-awesome.all.min.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/default.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/responsive.css')}}">
     <link rel="stylesheet" href="{{asset('/front/css/my.css')}}">
-    {{--    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>--}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     @yield('style')
 </head>
 
