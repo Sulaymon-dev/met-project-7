@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\V1;
 use App\Article;
 use App\Cluster;
 use App\Http\Controllers\Controller;
+use App\MmtFan;
 use App\Olympic;
 use App\Plan;
 use App\Setting;
@@ -192,7 +193,15 @@ class AppController extends Controller
     public function getClusterById(Request $request)
     {
         $new_id = $request->input('cluster_id');
-        $new = Cluster::with(['mmts.subjects','mmts.mmt_fan'])->where([['id', '=', $new_id], ['status', '=', '1']])->first();
+        $new = Cluster::with(['mmts.subject'])->where([['id', '=', $new_id], ['status', '=', '1']])->first();
         return response()->json(['data' => $new, 'status' => '200'], '200');
+    }
+
+    public function getMmtResourceById(Request $request)
+    {
+        $res_id = $request->input('mmt_fan_id');
+        $data = MmtFan::where([['id', '=', $res_id], ['status', '=', '1'], ['is_show', '=', '1']])->first();
+        $data->test = json_decode($data->test);
+        return response()->json(['data' => $data,'status'=>'200'],200);
     }
 }
