@@ -192,7 +192,7 @@ class AppController extends Controller
     public function getClusterById(Request $request)
     {
         $new_id = $request->input('cluster_id');
-        $new = Cluster::with('mmts')->where([['id', '=', $new_id], ['status', '=', '1']])->first();
+        $new = Cluster::with(['mmts.subjects','mmts.mmt_fan'])->where([['id', '=', $new_id], ['status', '=', '1']])->first();
         return response()->json(['data' => $new, 'status' => '200'], '200');
     }
 }
