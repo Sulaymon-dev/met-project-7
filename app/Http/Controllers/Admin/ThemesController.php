@@ -28,7 +28,9 @@ class ThemesController extends Controller
 //        if ($role == 'teacher') {
 //            $query->whereUserId(auth()->id());
 //        }
-        $themes = $query->latest()->paginate(25);
+        $themes = $query
+            ->orderBy("id", "desc")
+        ()->paginate(25);
         return view('admin.themes.index', compact('themes', 'role'));
     }
 
