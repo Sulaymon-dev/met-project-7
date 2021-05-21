@@ -73,7 +73,11 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                            @include('front.layouts.test', $test)
+                            @if($test!=null && $test['tests'])
+                                @include('front.layouts.test', $test)
+                            @else
+                                <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -84,25 +88,23 @@
 
 @section('scripts')
     <script>
-        let testData;
-        $.ajax('/admin/mmt_fans/' + `{{$mmt->mmt_fan->id}}`)
-            .done(function (data) {
-                testData = JSON.parse(data.test);
 
-                testData.tests.forEach((el) => {
-                    if (el.type === 'quiz4x1') {
-                        <?php $type = 'quiz4x1' ?>
-
-                            window.quiz = el.data;
-                    } else if (el.type === 'matching') {
-                        <?php $type = 'matching' ?>
-                            window.crosswordData = el.data;
-                    }
-                });
-                testData.scripts.forEach(script => {
-                    var tag = `<script src="/front` + script + ` " ><\/script>`;
-                    $('body').append(tag)
-                });
-            });
+        const testData = {!! json_encode($test) !!};
+        testData.tests.forEach((el) => {
+            if (el.type === 'quiz4x1') {
+                <?php $type = 'quiz4x1' ?>
+                    window.quiz = el.data;
+            } else if (el.type === 'matching') {
+                <?php $type = 'matching' ?>
+                    window.crosswordData = el.data;
+            } else if (el.type === 'openQuiz') {
+                <?php $type = 'openQuiz' ?>
+                    window.openQuiz = el.data;
+            }
+        });
+        testData.scripts.forEach(script => {
+            var tag = `<script src="/front` + script + `"><\/script>`;
+            $('body').append(tag)
+        });
     </script>
 @endsection

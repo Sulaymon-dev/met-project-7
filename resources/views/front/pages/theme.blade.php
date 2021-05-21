@@ -137,7 +137,11 @@
                                 </video>
                             </div>
                             <div class="tab-pane fade" id="instructor" role="tabpanel" aria-labelledby="instructor-tab">
-                                @include('front.layouts.test', $test)
+                                @if($test!=null && $test['tests'])
+                                    @include('front.layouts.test', $test)
+                                @else
+                                    <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
+                                @endif
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="reviews-cont">
@@ -149,7 +153,8 @@
                                     @elseif(strlen($theme->pdf_exercise)>0)
                                         <p>{!! $theme->pdf_exercise !!}</p>
                                     @else
-                                        <x-danger-text text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
+                                        <x-danger-text
+                                            text="Дар зергурӯҳи зерин мавод вуҷуд надорад..."></x-danger-text>
                                     @endif
                                 </div>
                             </div>
@@ -162,9 +167,23 @@
 @endsection
 
 @section('scripts')
-    @if(isset($test['scripts']))
-        @foreach ($test['scripts'] as $src)
-            <script src="/front{{ $src }}"></script>
-        @endforeach
-    @endif
+    <script>
+        const testData = {!! json_encode($test) !!};
+        testData.tests.forEach((el) => {
+            if (el.type === 'quiz4x1') {
+                <?php $type = 'quiz4x1' ?>
+                    window.quiz = el.data;
+            } else if (el.type === 'matching') {
+                <?php $type = 'matching' ?>
+                    window.crosswordData = el.data;
+            } else if (el.type === 'openQuiz') {
+                <?php $type = 'openQuiz' ?>
+                    window.openQuiz = el.data;
+            }
+        });
+        testData.scripts.forEach(script => {
+            var tag = `<script src="/front` + script + `"><\/script>`;
+            $('body').append(tag)
+        });
+    </script>
 @endsection

@@ -14,7 +14,7 @@ use App\Olympic;
 class OlympicsController extends Controller
 {
    public function index(Request $request){
-        ($request->query('sinf')) ? $sinf =(int)$request->query('sinf') : $sinf = 5;
+        ($request->query('sinf')) ? $sinf =(int)$request->query('sinf') : $sinf = 0;
         $class = Sinf::where('status', 1)->with('olympics')->get()->sortBy("class");
         $olympics = Olympic::with('sinf','subject')->get();
         return view('front.pages.olympics', compact(['class', 'sinf','olympics']));
@@ -32,10 +32,13 @@ class OlympicsController extends Controller
         if (!empty($olympic['test'])) {
             $test = json_decode($olympic['test'], true);
         }
-        $type='';
-        foreach ($test['tests'] as $exercise) {
-            $data[] = json_encode($exercise['data']);
+        $type = '';
+        if ($test) {
+            foreach ($test['tests'] as $exercise) {
+                $data[] = json_encode($exercise['data']);
+            }
         }
+        $test = (array)$test;
         return view('front.pages.olympics_info', compact(['olympic', 'path', 'level', 'test', 'type']));
     }
 }

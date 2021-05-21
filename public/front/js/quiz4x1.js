@@ -1,3 +1,4 @@
+if(window.quiz) {
 (function () {
     var k = 0;
 
@@ -109,3 +110,4 @@
     previousButton.addEventListener("click", showPreviousSlide);
     nextButton.addEventListener("click", showNextSlide);
 })();
+}

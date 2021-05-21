@@ -24,6 +24,12 @@ class MmtsController extends Controller
         if (!empty($mmt->mmt_fan->test)) {
             $test = json_decode($mmt->mmt_fan->test, true);
         }
+        if ($test) {
+            foreach ($test['tests'] as $exercise) {
+                $data[] = json_encode($exercise['data']);
+            }
+        }
+        $test = (array)$test;
         return view('front.pages.mmt_info', compact(['mmt', 'test']));
     }
 }
