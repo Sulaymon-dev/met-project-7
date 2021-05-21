@@ -34,17 +34,17 @@
                     <div class="col-md-3">
                         <div class="nav flex-column nav-pills nav-pills-custom" id="v-pills-tab" role="tablist"
                              aria-orientation="vertical" style="color: #234565">
-                            @foreach($subject->plans as $key=>$item)
-                                <a class="nav-link mb-3 p-3 shadow {{($item->sinf_id==$sinf)? $active = 'active' : $active = ''}}  "
+                            @foreach($class as $key=>$item)
+                                <a class="nav-link mb-3 p-3 shadow {{($item->class==$sinf)? $active = 'active' : $active = ''}}  "
                                    id="v-pills-home-tab" href="{{route('subject',[
                                                     'slug'=>$subject->slug,
-                                                    'sinf'=>$item->sinf_id
+                                                    'sinf'=>$item->class
                                                 ])}}" role="tab"
                                    aria-controls="v-pills-home"
                                    aria-selected="true">
                                     <i class="fa fa-user-circle-o mr-2"></i>
                                     <span
-                                        class="font-weight-bold small text-uppercase">Синфи {{$item->sinf->class}} </span></a>
+                                        class="font-weight-bold small text-uppercase">Синфи {{$item->class}} </span></a>
                             @endforeach
                         </div>
                     </div>

@@ -16,7 +16,7 @@
                         <div class="col-md-6">
                             <div class="single-items text-center mt-20 ">
                                 <a href="{{route('mmt-info',[
-                                                    'id'=>$item->mmt_fan_id
+                                                    'id'=>$item->id
                                                 ])}}">
                                     <div class="items-image">
                                         <img src="/storage/uploads/img/{{$item->subject->image_src}}" width="372px"
@@ -47,7 +47,7 @@
                         <div class="col-md-6">
                             <div class="single-items text-center mt-20 ">
                                 <a href="{{route('mmt-info',[
-                                                    'id'=>$item->mmt_fan_id
+                                                    'id'=>$item->id
                                                 ])}}">
                                     <div class="items-image">
                                         <img src="/storage/uploads/img/{{$item->subject->image_src}}" width="372px"

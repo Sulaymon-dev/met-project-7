@@ -22,7 +22,7 @@
                      class="{{($key==0) ? 'collapse show' : 'collapse'}} "
                      aria-labelledby="heading{{$key}}"
                      data-parent="#accordionExample">
-                    <div class="card-body">{!! Illuminate\Support\Str::limit($item->introduction , 50, ' ...') !!}
+                    <div class="card-body">
                         <a href="{{route('theme',['id'=> $item->id,'content'=>'dars'])}}"
                            class="btn btn-met stretched-link">Дидан</a>
                     </div>

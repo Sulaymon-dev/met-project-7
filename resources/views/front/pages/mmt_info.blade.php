@@ -84,23 +84,23 @@
 @endsection
 
 @section('scripts')
-    <script>
-            <?php $testData = json_encode($test['tests']);?>
+{{--    <script>--}}
+{{--            <?php $testData = json_encode($test['tests']);?>--}}
 
-        var testData = JSON.parse(`<?= $testData ?>`);
-        testData.forEach((el) => {
-            if (el.type === 'quiz4x1') {
-                <?php $type = 'quiz4x1' ?>
-                    window.quiz = el.data;
-            } else if (el.type === 'matching') {
-                <?php $type = 'matching' ?>
-                    window.crosswordData = el.data;
-            }
-        });
-    </script>
-    @if(isset($test['scripts']))
-        @foreach ($test['scripts'] as $src)
-            <script src="/front{{ $src }}"></script>
-        @endforeach
-    @endif
+{{--        var testData = JSON.parse(`<?= $testData ?>`);--}}
+{{--        testData.forEach((el) => {--}}
+{{--            if (el.type === 'quiz4x1') {--}}
+{{--                <?php $type = 'quiz4x1' ?>--}}
+{{--                    window.quiz = el.data;--}}
+{{--            } else if (el.type === 'matching') {--}}
+{{--                <?php $type = 'matching' ?>--}}
+{{--                    window.crosswordData = el.data;--}}
+{{--            }--}}
+{{--        });--}}
+{{--    </script>--}}
+{{--    @if(isset($test['scripts']))--}}
+{{--        @foreach ($test['scripts'] as $src)--}}
+{{--            <script src="/front{{ $src }}"></script>--}}
+{{--        @endforeach--}}
+{{--    @endif--}}
 @endsection

@@ -7,7 +7,7 @@ const yourAnswer = 'Ҷавоби Шумо: ';
 var currentQuestion = 0;
 let userAnswers = [];
 
-const obj = window.openQuiz;
+const obj = window.quiz;
 
 const table = document.createElement('TABLE');
 table.id = 'myTable';
