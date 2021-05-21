@@ -80,27 +80,29 @@
             </div>
         </div>
     </div>
-    </div>
 @endsection
 
 @section('scripts')
-{{--    <script>--}}
-{{--            <?php $testData = json_encode($test['tests']);?>--}}
+    <script>
+        let testData;
+        $.ajax('/admin/mmt_fans/' + `{{$mmt->mmt_fan->id}}`)
+            .done(function (data) {
+                testData = JSON.parse(data.test);
 
-{{--        var testData = JSON.parse(`<?= $testData ?>`);--}}
-{{--        testData.forEach((el) => {--}}
-{{--            if (el.type === 'quiz4x1') {--}}
-{{--                <?php $type = 'quiz4x1' ?>--}}
-{{--                    window.quiz = el.data;--}}
-{{--            } else if (el.type === 'matching') {--}}
-{{--                <?php $type = 'matching' ?>--}}
-{{--                    window.crosswordData = el.data;--}}
-{{--            }--}}
-{{--        });--}}
-{{--    </script>--}}
-{{--    @if(isset($test['scripts']))--}}
-{{--        @foreach ($test['scripts'] as $src)--}}
-{{--            <script src="/front{{ $src }}"></script>--}}
-{{--        @endforeach--}}
-{{--    @endif--}}
+                testData.tests.forEach((el) => {
+                    if (el.type === 'quiz4x1') {
+                        <?php $type = 'quiz4x1' ?>
+
+                            window.quiz = el.data;
+                    } else if (el.type === 'matching') {
+                        <?php $type = 'matching' ?>
+                            window.crosswordData = el.data;
+                    }
+                });
+                testData.scripts.forEach(script => {
+                    var tag = `<script src="/front` + script + ` " ><\/script>`;
+                    $('body').append(tag)
+                });
+            });
+    </script>
 @endsection
