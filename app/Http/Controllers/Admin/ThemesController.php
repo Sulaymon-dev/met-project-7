@@ -35,6 +35,7 @@ class ThemesController extends Controller
         $themes = $query
             ->orderBy("id", "desc")->paginate(25)
             ->appends(request()->query());
+//        return $themes;
         return view('admin.themes.index', compact('themes', 'role'));
     }
 
@@ -223,7 +224,7 @@ class ThemesController extends Controller
         }
         if ($isUpdatedSuccessfully) {
             alert()->success('Мавзуъ бо муваффакият тағйир дода шуд', 'Тағйир ёфт');
-            return redirect(route('themes.edit', $theme->id));
+            return redirect('/admin/themes?page='.\request()->input('page'));
         }
         return abort(403);
     }

@@ -12,14 +12,14 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
                             <div class="d-flex items-center justify-content-around align-items-baseline">
-                               <span >
+                               <span>
                                     <i class="fa fa-align-justify"></i> Рӯйхати мавзӯъҳо
                                </span>
                             </div>
                             <form class="form-inline mx-3">
 
                                 <input value="{{request()->input('search')}}"
-                                    class="form-control mx-2" type="text" name="search" placeholder="Ҷустуҷӯ" id="">
+                                       class="form-control mx-2" type="text" name="search" placeholder="Ҷустуҷӯ" id="">
 
                                 <label for="onlyThemes">
                                     <input value="1" type="checkbox" checked name="onlyThemes"
@@ -67,7 +67,7 @@
                                         @if($theme->user_id == auth()->id() || in_array(auth()->user()->role,['admin','moderator','superadmin']))
                                             <td>
                                                 <a class="btn btn-primary"
-                                                   href="{{route('themes.edit',$theme->id)}}"><i
+                                                   href="{{route('themes.edit',$theme->id)}}?page={{ request()->has('page') ? request()->input('page') : 1}}"><i
                                                         class="fa fa-edit"></i></a>
                                                 @if(in_array($role,['admin','teacher','superadmin']))
                                                     <a class="btn btn-danger"

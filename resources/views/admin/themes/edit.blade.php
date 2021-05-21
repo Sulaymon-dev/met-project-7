@@ -17,6 +17,7 @@
                             <div class="card-header">
                                 Тағйироти <strong> Мавзӯъ </strong>
                             </div>
+                            <input type="hidden" name="page" value="{{request()->input('page')}}">
                             <div class="card-body">
 
                                 {{--                                plan_id--}}
