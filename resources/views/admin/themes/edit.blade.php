@@ -73,7 +73,9 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group row d-flex align-items-baseline">
-                                            <label class="col-md-5 col-form-label" for="image">Файли PDF дарс : </label>
+                                            <label class="col-md-5 col-form-label" for="image">
+                                                <a href="{{asset('storage/uploads/pdf/'.$theme->pdf_src)}}">Файли PDF дарс :</a>
+                                            </label>
                                             <div class="col-md-7">
                                                 <input class="" type="file" name="pdf"
                                                        id="pdf" {{$role == 'moderator' ? 'disabled':''}}>
@@ -99,7 +101,11 @@
 
                                     <div class="col-sm-6">
                                         <div class="form-group row d-flex align-items-baseline">
-                                            <label class="col-md-3 col-form-label" for="video">Дарси видеоӣ : </label>
+                                            <label class="col-md-3 col-form-label" for="video">
+                                                <a href="{{asset('storage/uploads/pdf/'.$theme->video_src)}}">
+                                                    Дарси видеоӣ :
+                                                </a>
+                                            </label>
                                             <div class="col-md-9">
                                                 <input class="" type="file" name="video"
                                                        id="video" {{$role == 'moderator' ? 'disabled':''}}>

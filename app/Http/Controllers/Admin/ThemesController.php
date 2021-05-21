@@ -21,15 +21,20 @@ class ThemesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $query = Theme::select();
         $role = auth()->user()->role;
-//        if ($role == 'teacher') {
-//            $query->whereUserId(auth()->id());
-//        }
+        if ($request->has('onlyThemes')) {
+            $query->whereUserId(auth()->id());
+        }
+        if ($request->has('search')) {
+            $search = $request->input('search');
+            $query->where('name', 'like', "%$search%");
+        }
         $themes = $query
-            ->orderBy("id", "desc")->paginate(25);
+            ->orderBy("id", "desc")->paginate(25)
+            ->appends(request()->query());
         return view('admin.themes.index', compact('themes', 'role'));
     }
 
@@ -177,7 +182,7 @@ class ThemesController extends Controller
                 'pdf' => 'nullable|file',
                 'video_src' => 'nullable|string',
                 'pdf_src' => 'nullable|string',
-                'f_pdf_file_src'=>'nullable|string',
+                'f_pdf_file_src' => 'nullable|string',
                 'status' => 'nullable|boolean',
                 'is_show' => 'required|boolean',
                 'saveOldPdf' => 'nullable|boolean',
@@ -206,7 +211,7 @@ class ThemesController extends Controller
             }
             if ($data['exercise_type'] == 'f_pdf') {
                 if (!isset($data['saveOldPdfExercise'])) {
-                    if (isset($data['f_pdf_file']  ) && $request->has('f_pdf_file'))
+                    if (isset($data['f_pdf_file']) && $request->has('f_pdf_file'))
                         $theme->pdf_exercise = str_replace('public/uploads/pdf/', '', Storage::putFile('public/uploads/pdf', $request->file('f_pdf_file')));
                     else
                         $theme->pdf_exercise = $data['f_pdf_file_src'];
@@ -218,7 +223,7 @@ class ThemesController extends Controller
         }
         if ($isUpdatedSuccessfully) {
             alert()->success('Мавзуъ бо муваффакият тағйир дода шуд', 'Тағйир ёфт');
-            return redirect(route('themes.edit',$theme->id));
+            return redirect(route('themes.edit', $theme->id));
         }
         return abort(403);
     }

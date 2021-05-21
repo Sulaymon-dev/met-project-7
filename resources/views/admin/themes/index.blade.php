@@ -11,11 +11,29 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
-                            <div>
-                                <i class="fa fa-align-justify"></i> Рӯйхати мавзӯъҳо
+                            <div class="d-flex items-center justify-content-around align-items-baseline">
+                               <span >
+                                    <i class="fa fa-align-justify"></i> Рӯйхати мавзӯъҳо
+                               </span>
                             </div>
+                            <form class="form-inline mx-3">
+
+                                <input value="{{request()->input('search')}}"
+                                    class="form-control mx-2" type="text" name="search" placeholder="Ҷустуҷӯ" id="">
+
+                                <label for="onlyThemes">
+                                    <input value="1" type="checkbox" checked name="onlyThemes"
+                                           id="onlyThemes"
+                                    >
+                                    <span class="mx-2">
+                                        Мавзӯъҳои ман
+                                   </span>
+                                </label>
+                                <button class="btn btn-outline-primary mx-2" type="submit">OK</button>
+                            </form>
+
                             <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
+                                <a class="btn btn-warning" href="{{route('themes.create')}}">Иловаи мавзӯъ</a>
                             </div>
                         </div>
                         <div class="card-body">
