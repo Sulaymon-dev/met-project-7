@@ -32,7 +32,7 @@
                             @if(count($item->olympics)!==0)
                                 <a class="nav-link mb-3 p-3 shadow
                                 @php
-                                    if(($sinf == 0 && $key == 0) || ($sinf!=0 && $sinf == $item->class)){
+                                if(($sinf == 0 && $class[$key]->class == $item->class)  || ($sinf!=0 && $sinf == $item->class)){
                                      echo 'active' ;
                                      $sinf=$item->class;}
                                     else{

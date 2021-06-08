@@ -84,7 +84,7 @@
                             </li>
                         </ul>
                         <div class="play-market">
-                            <a href="#">
+                            <a href="https://play.google.com/store/apps/details?id=com.app.maktabielektroni" target="_blank">
                                 <img src="{{asset('front/images/play-market.png')}}"
                                      alt="Дар Google Play дастрас аст"
                                      width="200px">
