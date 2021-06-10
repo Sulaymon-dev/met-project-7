@@ -59,7 +59,7 @@
                                                 @foreach($audit->new_values as  $attribute  => $data)
                                                     <tr>
                                                         <td><b>{{  $attribute  }}</b></td>
-                                                        <td>{{ $value }}</td>
+                                                        <td>{{ $data }}</td>
                                                     </tr>
                                                 @endforeach
                                             </table>

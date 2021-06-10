@@ -15,7 +15,7 @@
                               enctype="multipart/form-data">
                             @csrf @method("PUT")
                             <div class="card-header">
-                                Тағйироти <strong> Olimpic </strong>
+                                Тағйироти <strong> маводи олимапиада </strong>
                             </div>
                             <div class="card-body">
 
@@ -52,7 +52,7 @@
 
 
                                 <div class="form-group">
-                                    <label for="introduction">Пешгуфтор</label>
+                                    <label for="introduction">Пешгуфтор :</label>
                                     <textarea class="form-control" id="introduction" type="text" name="introduction"
                                               placeholder="Пешгуфторро ворид намоед"  {{$role == 'moderator' ? 'disabled':''}}
                                     >{{old('introduction') ?? $olympic->introduction}}</textarea>
@@ -91,7 +91,7 @@
                                                         <input value="1" type="checkbox" checked name="saveOldImg"
                                                                id="oldImg" {{$role == 'moderator' ? 'disabled':''}}
                                                         >
-                                                        Aksi кӯҳнаро нигоҳ дор
+                                                        Акси кӯҳнаро нигоҳ дор
                                                     </label>
                                                 @endif
                                             </div>

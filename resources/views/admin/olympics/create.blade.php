@@ -14,7 +14,7 @@
                         <form action="{{route('olympics.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
-                                Иловаи <strong> Олимпиадаи </strong> нав
+                                Иловаи <strong> маводи олимпиадаи </strong> нав
                             </div>
                             <div class="card-body">
 

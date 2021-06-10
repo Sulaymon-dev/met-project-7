@@ -25,9 +25,7 @@
                                     <th>№</th>
                                     <th>Фан</th>
                                     <th>Синф</th>
-                                    @if($role !='teacher')
-                                        <th>Муаллиф</th>
-                                    @endif
+                                    <th>Муаллиф</th>
                                     <th>Вазъият</th>
                                     <th>Амал</th>
                                 </tr>
@@ -39,21 +37,21 @@
                                         <td>{{$olympic->id}}</td>
                                         <td>{{$olympic->subject->name}}</td>
                                         <td>{{$olympic->sinf->class}}</td>
-                                        @if($role !='teacher')
-                                            <td>{{$olympic->user->name}}</td>
-                                        @endif
+                                        <td>{{$olympic->user->name}}</td>
                                         <td>{!!  $olympic->status == 1 ? '<span class="badge badge-success">Active</span>' :
                                                                 '<span class="badge badge-secondary">Inactive</span>'!!}</td>
-                                        <td>
-                                            <a class="btn btn-primary"
-                                               href="{{route('olympics.edit',$olympic->id)}}"><i
-                                                    class="fa fa-edit"></i></a>
-                                            @if(in_array($role,['admin','teacher','superadmin']))
-                                                <a class="btn btn-danger"
-                                                   onclick="deleteSubjectHandler(event,{{$olympic->id}})"> <i
-                                                        class="fa fa-trash-o"></i></a>
-                                            @endif
-                                        </td>
+                                        @if($olympic->user_id == auth()->id() || in_array(auth()->user()->role,['admin','moderator','superadmin']))
+                                            <td>
+                                                <a class="btn btn-primary"
+                                                   href="{{route('olympics.edit',$olympic->id)}}"><i
+                                                        class="fa fa-edit"></i></a>
+                                                @if(in_array($role,['admin','teacher','superadmin']))
+                                                    <a class="btn btn-danger"
+                                                       onclick="deleteSubjectHandler(event,{{$olympic->id}})"> <i
+                                                            class="fa fa-trash-o"></i></a>
+                                                @endif
+                                            </td>
+                                        @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
@@ -85,8 +83,8 @@
                     success: function (response) {
                         if (response.status == 'ok') {
                             swal({
-                                title: "Мавзӯъ нобуд шуд!",
-                                text: "Мавзӯъи интихобшуда бо муваффақият нобуд шуд",
+                                title: "Мавод нобуд шуд!",
+                                text: "Маводи олимпиадаи интихобшуда бо муваффақият нобуд шуд",
                                 icon: "success",
                                 button: "ОК!",
                             });
@@ -114,7 +112,7 @@
         function deleteSubjectHandler(e, id) {
             e.preventDefault();
             swal({
-                title: "Мехоҳед ин мавзӯъро нобуд кунед?",
+                title: "Мехоҳед ин маводро нобуд кунед?",
                 text: "Дар ҳолати нобуд кардани сабт он бар намегардад!",
                 icon: "warning",
                 buttons: true,

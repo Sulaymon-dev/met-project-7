@@ -14,9 +14,12 @@
                             <div>
                                 <i class="fa fa-align-justify"></i> Рӯйхати синфҳо
                             </div>
-                            <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
-                            </div>
+                            @if(in_array(auth()->user()->role,['admin','superadmin']))
+                                <div>
+                                    <a class="btn btn-info" href="{{route('sinfs.pdf')}}">Нусхаи PDF</a>
+                                    <a class="btn btn-warning" href="{{route('sinfs.create')}}">Синфи нав</a>
+                                </div>
+                            @endif
                         </div>
                         <div class="card-body">
                             <table class="table table-hover table-responsive-sm">

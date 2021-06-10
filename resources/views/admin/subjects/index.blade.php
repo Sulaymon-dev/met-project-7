@@ -15,7 +15,8 @@
                                 <i class="fa fa-align-justify"></i> Рӯйхати фанҳо
                             </div>
                             <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
+                                <a class="btn btn-info" href="{{route('subjects.pdf')}}">Нусхаи PDF</a>
+                                <a class="btn btn-warning" href="{{route('subjects.create')}}">Иловаи фан</a>
                             </div>
 
                         </div>

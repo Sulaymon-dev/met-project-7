@@ -19,7 +19,9 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin.main');
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
+    Route::get('sinfs/pdf', 'Admin\SinfsController@makePdf')->name('sinfs.pdf');
     Route::resource('sinfs', 'Admin\SinfsController');
+
     Route::get('books/list', 'Admin\BooksController@list');
     Route::resource('books', 'Admin\BooksController');
     Route::get('plans/list', 'Admin\PlansController@list');
@@ -45,6 +47,7 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('settings', 'Admin\SettingsController')->middleware('isAdmin');
     Route::resource('pages', 'Admin\PagesController')->middleware('isAdmin');
     Route::resource('users', 'Admin\UsersController')->only(['index', 'update', 'destroy']);
+    Route::get('users/pdf', 'Admin\UsersController@makePdf')->name('users.pdf');
     Route::resource('histories', 'Admin\HistoriesController')->only('index')->middleware('isAdmin');
 });
 

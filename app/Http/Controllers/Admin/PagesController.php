@@ -60,7 +60,7 @@ class PagesController extends Controller
         ]);
 
         if ($page) {
-            alert()->success('Хабар бо муваффақият илова шуд. ', 'Илова шуд');
+            alert()->success('Саҳифа бо муваффақият илова шуд. ', 'Илова шуд');
             return redirect(route('pages.index'));
         }
 
@@ -119,7 +119,7 @@ class PagesController extends Controller
         }
 
         if ($page->update($data)){
-            alert()->success('Навгонӣ бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
+            alert()->success('Саҳифа бо муваффақият ислоҳ шуд', 'Ислоҳ шуд');
             return redirect(route('pages.index'));
         }
 

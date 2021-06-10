@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Subject;
 use App\User;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class UsersController extends Controller
@@ -125,5 +127,19 @@ class UsersController extends Controller
                 'message' => 'error : ' . $e->getMessage()
             ], 401);
         }
+    }
+
+
+    public function makePdf()
+    {
+        $users = User::all();
+
+        $data = [
+            'title' => 'Рӯйхати Истифодабарандагон',
+            'users' => $users
+        ];
+
+        $pdf = PDF::loadView('admin.users.pdf', $data);
+        return $pdf->download('Рӯйхати истифодабарандагон.pdf');
     }
 }

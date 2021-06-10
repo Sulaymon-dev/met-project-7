@@ -12,10 +12,10 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-baseline">
                             <div>
-                                <i class="fa fa-align-justify"></i> Рӯйхати китобҳо
+                                <i class="fa fa-align-justify"></i> Рӯйхати истифодабарандагон
                             </div>
                             <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
+                                <a class="btn btn-warning" href="{{route('users.pdf')}}">Гирифтани PDF</a>
                             </div>
                         </div>
                         <div class="card-body">

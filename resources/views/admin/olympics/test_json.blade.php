@@ -17,17 +17,13 @@
                                 Тести "4х1"-и фанҳо
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi muvofiqovari avval plani darsi va
-                                    nomi mabzuro intikhob namoed
-                                </div>
-
                                 <div class="form-group row">
                                     <div class="col-sm-12">
                                         <label for="plan">
                                             Мавзӯи тестҳо :
                                         </label>
                                         <select class="form-control" name="theme_id" id="theme">
-                                            <option value="0">Тестро интихоб кунед</option>
+                                            <option value="0">Мавзӯъро интихоб кунед</option>
                                             @foreach($resource as $res)
                                                 <option value="{{$res->id}}">{{$res->title}}</option>
                                             @endforeach
@@ -81,7 +77,7 @@
                     if (response.status == 'ok') {
                         swal({
                             title: "Мавод тағйир дода шуд!",
-                            text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                            text: "Маводи интихобшуда бо муваффақият нобуд шуд",
                             icon: "success",
                             button: "ОК!",
                         });

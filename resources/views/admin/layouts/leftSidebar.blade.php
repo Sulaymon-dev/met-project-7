@@ -2,9 +2,8 @@
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="nav-icon icon-speedometer"></i> Dashboard
-                    <span class="badge badge-primary">NEW</span>
+                <a class="nav-link" href="/admin">
+                    <i class="nav-icon icon-speedometer"></i> Асосӣ
                 </a>
             </li>
             @if(auth()->user()->role=='superadmin')

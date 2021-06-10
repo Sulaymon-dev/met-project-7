@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Book;
+use App\Olympic;
 use App\Plan;
 use App\Policies\BookPolicy;
+use App\Policies\OlympicPolicy;
 use App\Policies\PlanPolicy;
 use App\Policies\ThemePolicy;
 use App\Theme;
@@ -23,6 +25,7 @@ class AuthServiceProvider extends ServiceProvider
         Book::class => BookPolicy::class,
         Plan::class => PlanPolicy::class,
         Theme::class => ThemePolicy::class,
+        Olympic::class => OlympicPolicy::class
     ];
 
     /**

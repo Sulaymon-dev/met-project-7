@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Sinf;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class SinfsController extends Controller
@@ -125,5 +126,18 @@ class SinfsController extends Controller
                 'message' => 'error : ' . $e->getMessage()
             ], 401);
         }
+    }
+
+    public function makePdf()
+    {
+        $user = Sinf::all();
+
+        $data = [
+            'title' => 'Рӯйхати Синфҳо',
+            'users' => $user
+        ];
+
+        $pdf = PDF::loadView('admin.classes.pdf', $data);
+        return $pdf->download('Рӯйхати синфҳо.pdf');
     }
 }

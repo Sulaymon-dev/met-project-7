@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Storage;
 
 class OlympicsController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Olympic::class);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +25,9 @@ class OlympicsController extends Controller
     {
         $query = Olympic::select();
         $role = auth()->user()->role;
-        if ($role == 'teacher') {
-            $query->whereUserId(auth()->id());
-        }
+//        if ($role == 'teacher') {
+//            $query->whereUserId(auth()->id());
+//        }
         $olympics = $query->with(['subject', 'sinf'])->latest()->paginate(25);
 
         return view('admin.olympics.index', compact('olympics', 'role'));
@@ -76,9 +81,10 @@ class OlympicsController extends Controller
         $olympic->save();
 
         if ($olympic) {
-            alert()->success('Мавзуъ бо муваффакият изофа шуд', 'Илова шуд');
+            alert()->success('Маводи олимпиадавӣ бо муваффакият изофа шуд', 'Илова шуд');
             return redirect(route('olympics.index'));
         }
+
         return abort(419);
     }
 
@@ -179,7 +185,7 @@ class OlympicsController extends Controller
 
         }
         if ($isUpdatedSuccessfully) {
-            alert()->success('Мавзуъ бо муваффакият тағйир дода шуд', 'Тағйир ёфт');
+            alert()->success('Маводи олимпиадавӣ бо муваффакият тағйир дода шуд', 'Тағйир ёфт');
             return redirect(route('olympics.index'));
         }
         return abort(403);

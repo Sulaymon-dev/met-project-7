@@ -32,6 +32,9 @@ class ThemesController extends Controller
             $search = $request->input('search');
             $query->where('name', 'like', "%$search%");
         }
+        if ($request->has('user_id')){
+            $query->whereUserId($request->input('user_id'));
+        }
         $themes = $query
             ->orderBy("id", "desc")->paginate(25)
             ->appends(request()->query());

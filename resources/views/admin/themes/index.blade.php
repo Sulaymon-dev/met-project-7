@@ -22,7 +22,7 @@
                                        class="form-control mx-2" type="text" name="search" placeholder="Ҷустуҷӯ" id="">
 
                                 <label for="onlyThemes">
-                                    <input value="1" type="checkbox" checked name="onlyThemes"
+                                    <input value="1" type="checkbox"  name="onlyThemes"
                                            id="onlyThemes"
                                     >
                                     <span class="mx-2">

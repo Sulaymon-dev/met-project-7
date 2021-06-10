@@ -14,11 +14,11 @@
                         <form action="" method="post">
                             @csrf
                             <div class="card-header">
-                                Тести "4х1"-и фанҳо
+                                Тести мувофиқоварии маводиҳои олимпиадавӣ
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi muvofiqovari avval plani darsi va
-                                    nomi mabzuro intikhob namoed
+                                <div class="alert alert-danger ">
+                                    Барои иловаи тести мувофиқоварӣ аввал номи маводҳои олимпиадавиро интихоб кунед.
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
@@ -26,7 +26,7 @@
                                             Мавзӯи тест :
                                         </label>
                                         <select class="form-control" name="theme_id" id="theme">
-                                            <option value="0">Тестро интихоб кунед</option>
+                                            <option value="0">Маводро интихоб кунед</option>
                                             @foreach($resource as $res)
                                                 <option value="{{$res->id}}">{{$res->title}}</option>
                                             @endforeach

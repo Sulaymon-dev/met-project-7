@@ -14,11 +14,11 @@
                         <form action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
-                                Тести "4х1"-и фанҳо
+                                Тести "4х1"-и маводи олимпиадавӣ
                             </div>
                             <div class="card-body">
-                                <div class="alert alert-danger ">baroi ilovai testi 4x1 avval plani darsi va nomi
-                                    mabzuro intikhob namoed
+                                <div class="alert alert-danger ">
+                                    Барои иловаи тести оддӣ (4х1) аввал номи маводҳои олимпиадавиро интихоб намоед
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
@@ -26,7 +26,7 @@
                                             Мавзӯъ :
                                         </label>
                                         <select class="form-control" name="theme_id" id="theme">
-                                            <option value="0">Тестро интихоб кунед</option>
+                                            <option value="0">Мавзӯъро интихоб кунед :</option>
                                             @foreach($resource as $res)
                                                 <option value="{{$res->id}}">{{$res->title}}</option>
                                             @endforeach
@@ -96,7 +96,7 @@
             quiz4x1.forEach(function (quiz, i) {
                 domObject += `<div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Манти Савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">
@@ -111,8 +111,8 @@
             });
             domObject += `</div>`;
             domObject += `<div class="d-flex align-items-baseline justify-content-between my-3">
-                <button type="button" class="btn btn-info" onclick="addQuiz()"> ADD</button>
-                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Save</button>
+                <button type="button" class="btn btn-info" onclick="addQuiz()"> Иловаи тест</button>
+                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Сабт кардан</button>
             </div>`;
 
             domObject += '</div>';
@@ -171,7 +171,7 @@
                     if (response.status == 'ok') {
                         swal({
                             title: "Мавод тағйир дода шуд!",
-                            text: "Синфии интихобшуда бо муваффақият нобуд шуд",
+                            text: "Тестҳо бо муваффақият тағйир дода шуд",
                             icon: "success",
                             button: "ОК!",
                         });
@@ -205,7 +205,7 @@
             domObject = `
             <div class="border border-primary p-3 mt-3 quizList"  id="quiz${i}">
                     <div class="d-flex justify-content-between mb-1 align-items-baseline">
-                                        <label for="q${i}">Matni Savol</label>
+                                        <label for="q${i}">Матни савол</label>
                     <button type="button" class="btn btn-danger" onclick="removeQuiz(${i})">X</button>
                     </div>
                     <div class="quizAnswers">
