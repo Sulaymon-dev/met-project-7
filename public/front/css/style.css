@@ -3415,7 +3415,7 @@ p {
     color: #315377;
 }
 .teachers-right .tab-content {
-    padding: 0px 50px 35px;
+    /*padding: 0px 50px 35px;*/
     background-color: #fff;
 }
 .teachers-right .tab-content .dashboard-cont {}

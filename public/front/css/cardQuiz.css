@@ -1,0 +1,124 @@
+/* Add some margin to the page and set a default font and colour */
+
+#card-quiz body {
+    margin: 30px;
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+}
+
+#card-quiz #content {
+    margin: 20px 0;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#card-quiz .wideBox h1 {
+    font-weight: bold;
+    margin: 20px;
+    color: #666;
+    font-size: 1.5em;
+}
+
+/* Slots for final card positions */
+
+#card-quiz #cardSlots {
+    margin: 50px auto 0 auto;
+    background: #ddf;
+}
+
+/* The initial pile of unsorted cards */
+
+#card-quiz #cardPile {
+    margin: 0 auto;
+    background: #ffd;
+}
+
+#card-quiz #cardSlots, #cardPile {
+    /*width: 910px;*/
+    height: 120px;
+    padding: 20px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+
+/* Individual cards and slots */
+
+#card-quiz #cardSlots div, #cardPile div {
+    float: left;
+    width: 65px;
+    height: 80px;
+    padding-bottom: 0;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    background: #fff;
+}
+
+#card-quiz #cardSlots div:first-child, #card-quiz #cardPile div:first-child {
+    margin-left: 0;
+}
+
+#card-quiz #cardSlots div.hovered {
+    background: #aaa;
+}
+
+#card-quiz #cardSlots div {
+    border-style: dashed;
+}
+
+#card-quiz #cardPile div {
+    background: #666;
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 3px #000;
+}
+
+#card-quiz #cardPile div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+/* Individually coloured cards */
+
+#card-quiz #card1.correct { background: red; }
+#card-quiz #card2.correct { background: brown; }
+#card-quiz #card3.correct { background: orange; }
+#card-quiz #card4.correct { background: yellow; }
+#card-quiz #card5.correct { background: green; }
+#card-quiz #card6.correct { background: cyan; }
+#card-quiz #card7.correct { background: blue; }
+#card-quiz #card8.correct { background: indigo; }
+#card-quiz #card9.correct { background: purple; }
+#card-quiz #card10.correct { background: violet; }
+
+
+/* "You did it!" message */
+#card-quiz #successMessage {
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    z-index: 100;
+    background: #315377;
+    border: 2px solid #ffc627;
+    color: #fff !important;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px;
+}
+
+

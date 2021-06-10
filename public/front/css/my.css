@@ -55,7 +55,7 @@
     position: absolute;
     margin: 0;
     left: 208px;
-    bottom: 0px;
+    bottom: -50px;
     width: 220px;
     transition: background-color 0.3s ease-out;
     border-radius: 3px;

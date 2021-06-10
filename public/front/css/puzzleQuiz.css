@@ -5,120 +5,121 @@
     font-size: 1.5rem;
     line-height: 1.5rem;
     padding: 10px 20px;
-  }
-  
-  #puzzleQuiz  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+}
+
+#puzzleQuiz h1,
+#puzzleQuiz h2,
+#puzzleQuiz h3,
+#puzzleQuiz h4,
+#puzzleQuiz h5,
+#puzzleQuiz h6 {
     font-weight: 600;
     line-height: 1.4;
     margin: 1.5rem 0;
-  }
-  
-  #puzzleQuiz  h1 {
+}
+
+#puzzleQuiz h1 {
     font-size: 2.8rem;
     margin: .85rem 0rem;
     text-align: center;
-  }
-  
-  #puzzleQuiz h2 {
+}
+
+#puzzleQuiz h2 {
     font-size: 2.8rem;
     margin: 2.1rem 0rem;
-  }
-  
-  #puzzleQuiz h3 {
+}
+
+#puzzleQuiz h3 {
     font-size: 2.1rem;
     margin: 1.57rem 0rem;
     text-align: center;
-  }
-  
-  #puzzleQuiz h4 {
+}
+
+#puzzleQuiz h4 {
     font-size: 1.8rem;
-  }
-  
-  #puzzleQuiz  h5 {
+}
+
+#puzzleQuiz h5 {
     font-size: 1.3rem;
-  }
-  
-  #puzzleQuiz  h6 {
+}
+
+#puzzleQuiz h6 {
     font-size: 1.0rem;
-  }
-  
-  #puzzleQuiz  p {
+}
+
+#puzzleQuiz p {
     margin: 0rem 0rem 2.4rem 0rem;
     line-height: 150%;
     text-align: center;
-  }
-  
-  #puzzleQuiz ul,
-  ol {
+}
+
+#puzzleQuiz ul,
+#puzzleQuiz ol {
     margin-left: 25px;
     margin-bottom: 15px;
     line-height: 150%;
-  }
-  /*clearfixes*/
-  
-  #puzzleQuiz .cf:before,
-  .cf:after {
+}
+
+/*clearfixes*/
+
+#puzzleQuiz .cf:before,
+.cf:after {
     content: " ";
     display: table;
-  }
-  
-  #puzzleQuiz .cf:after {
+}
+
+#puzzleQuiz .cf:after {
     clear: both;
-  }
-  
-  #puzzleQuiz  *,
-  *:before,
-  *:after {
+}
+
+#puzzleQuiz article,
+#puzzleQuiz aside,
+#puzzleQuiz details,
+#puzzleQuiz figcaption,
+#puzzleQuiz figure,
+#puzzleQuiz footer,
+#puzzleQuiz header,
+#puzzleQuiz hgroup,
+#puzzleQuiz menu,
+#puzzleQuiz nav,
+#puzzleQuiz section,
+#puzzleQuiz div {
+    margin: 0;
+}
+
+#puzzleQuiz *,
+#puzzleQuiz *:before,
+#puzzleQuiz *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-  }
-  
-  #puzzleQuiz  article,
-  aside,
-  details,
-  figcaption,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section,
-  div {
-    margin: 0;
-  }
-  
-  #puzzleQuiz  div {
+}
+
+#puzzleQuiz div {
     margin: 0rem;
-  }
-  
-  #puzzleQuiz  .page {
+}
+
+#puzzleQuiz .page {
     max-width: 690px;
     margin: 0px auto;
-  }
-  
-  
-  /*drag and drop styles*/
-  #puzzleQuiz .dnd-image-drag .container {
+}
+
+
+/*drag and drop styles*/
+#puzzleQuiz .dnd-image-drag .container {
     float: left;
     margin: 0 10px 20px 10px;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-list {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-list {
     width: 320px;
     min-height: 317px;
     background: #eee;
     border: solid 1px #ccc;
     padding: 5px 0 5px 5px;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-list .drag {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-list .drag {
     width: 150px;
     display: inline-block;
     height: 150px;
@@ -126,22 +127,22 @@
     cursor: -webkit-grab;
     cursor: -moz-grab;
     border: solid 1px transparent;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-list .drag.drag-active {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-list .drag.drag-active {
     border: solid 1px #2c3e50;
-  }
-  
-  #puzzleQuiz  .dnd-image-drag .gallery-painting {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting {
     width: 320px;
     background: #eee;
     background-position: center center;
     background-size: cover;
     border: solid 1px #ccc;
     padding: 5px 0 5px 5px;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-painting .drop {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting .drop {
     position: relative;
     height: 150px;
     width: 150px;
@@ -149,26 +150,26 @@
     background: rgba(50, 50, 50, 0.7);
     border: solid 1px transparent;
     overflow: hidden;
-  }
-  
-  #puzzleQuiz  .dnd-image-drag .gallery-painting .drop.drop-active {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting .drop.drop-active {
     border: solid 1px #f1c40f;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-painting .drop.correct {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting .drop.correct {
     border: solid 1px #32ce74;
-  }
-  
-  #puzzleQuiz  .dnd-image-drag .gallery-painting .drop.incorrect {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting .drop.incorrect {
     border: solid 1px #c0392b;
-  }
-  
-  #puzzleQuiz .dnd-image-drag .gallery-painting .drop img {
+}
+
+#puzzleQuiz .dnd-image-drag .gallery-painting .drop img {
     max-width: 100%;
     height: auto;
-  }
-  
-  #puzzleQuiz  .reset-button {
+}
+
+#puzzleQuiz .reset-button {
     background: #eee;
     border: solid 1px #ccc;
     padding: 12px 15px;
@@ -177,23 +178,23 @@
     margin: 0 auto;
     min-width: 100px;
     clear: both;
-  }
-  
-  #puzzleQuiz  .message-container {
+}
+
+#puzzleQuiz .message-container {
     clear: both;
-  }
-  
-  #puzzleQuiz  .ie-message {
+}
+
+#puzzleQuiz .ie-message {
     display: none;
     padding: 15px;
     background: #e74c3c;
     color: #fff;
     border: dashed 2px #c0392b;
     margin-bottom: 15px;
-  }
-  
-  #puzzleQuiz .p {
+}
+
+#puzzleQuiz .p {
     font-size: 15px;
     padding-top: 150px;
     clear: both;
-  }
+}
