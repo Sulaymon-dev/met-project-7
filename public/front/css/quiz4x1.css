@@ -14,7 +14,7 @@
 }
 
 .question {
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 10px;
 }
 
@@ -47,7 +47,7 @@
 }
 
 .quiz-buttons {
-    margin-top: 130px;
+    /*margin-top: 130px;*/
 }
 
 .slide {
@@ -68,7 +68,7 @@
 .quiz-container {
     position: relative;
     height: 200px;
-    margin-top: 40px;
+    /*margin-top: 40px;*/
 }
 
 .answers {

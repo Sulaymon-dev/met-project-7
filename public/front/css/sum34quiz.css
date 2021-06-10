@@ -1,0 +1,268 @@
+
+[id^=div-]
+{
+  box-sizing: border-box;
+
+  /* display: inline-block; */
+  float: left;
+  width: 50px;
+  height: 50px;
+
+  border: 2px solid black;
+}
+
+#sum34quiz #square
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -100px;
+  margin-top:  -100px;
+
+  width: 200px;
+  height: 200px;
+  border: 4px solid black;
+}
+
+#sum34quiz #numbers
+{
+  position: absolute;
+  width: 400px;
+  height: 100px;
+
+  top: 50%;
+  left: 50%;
+  margin-left: -200px;
+  margin-top:  150px;
+
+  border-bottom: 6px solid lime;
+  /* background-color: yellow; */
+
+}
+
+[id^=number-]
+{
+  box-sizing: border-box;
+  display: inline-block;
+  /* float: right;
+  margin-left: 25px;
+  padding-left: 20px; */
+  text-align: center;
+  width: 50px;
+  height: 50px;
+ padding-bottom: 20px;
+  /* border: 2px solid black; */
+
+}
+
+#sum34quiz p
+{
+  display: inline;
+  font-size: 2.5em;
+  /* padding: 1px;
+  text-align: center; */
+}
+
+[id^=number-]:hover { cursor: pointer; }
+
+#sum34quiz #div-4, #div-5, #div-6, #div-13, #div-16
+{
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+#sum34quiz #sum-info
+{
+  position: absolute;
+
+  width: 300px;
+  height: 300px;
+
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top:  -150px;
+
+  /* background-color: yellow; */
+  z-index: -1;
+
+}
+
+#sum34quiz #sum-diag-1
+{
+  position: relative;
+  top: 0;
+  left: 5px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-col-1
+{
+  position: relative;
+  top: -50px;
+  left: 55px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-col-2
+{
+  position: relative;
+  top: -100px;
+  left: 105px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-col-3
+{
+  position: relative;
+  top: -150px;
+  left: 155px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-col-4
+{
+  position: relative;
+  top: -200px;
+  left: 205px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-diag-2
+{
+  position: relative;
+  top: -250px;
+  left: 255px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-row-1
+{
+  position: relative;
+  top: -250px;
+  left: 255px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-row-2
+{
+  position: relative;
+  top: -250px;
+  left: 255px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-row-3
+{
+  position: relative;
+  top: -250px;
+  left: 255px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz #sum-row-4
+{
+  position: relative;
+  top: -250px;
+  left: 255px;
+
+  width: 50px;
+  height: 50px;
+  background-color: red;
+
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+}
+
+#sum34quiz .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+
+}
+
+#sum34quiz .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+#sum34quiz .tooltip:hover .tooltiptext {
+    visibility: visible;
+}
