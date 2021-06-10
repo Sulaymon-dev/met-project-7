@@ -42,7 +42,7 @@
     @foreach($users as $user)
         @php
             $status = 'Фаъол';
-            if ($user->status == 1)
+            if ($user->status == 0)
                 $status = 'Ғайрифаъол'
         @endphp
         <tr id="sub-{{$user->id}}">

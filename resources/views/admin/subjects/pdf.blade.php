@@ -42,7 +42,7 @@
     @foreach($subjects as $subject)
         @php
             $status = 'Фаъол';
-            if ($subject->status == 1)
+            if ($subject->status == 0)
                 $status = 'Ғайрифаъол'
         @endphp
         <tr id="sub-{{$subject->id}}">

@@ -49,7 +49,7 @@
         <tr id="sub-{{$user->id}}">
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
+            <td style="font-size: 12px">{{$user->email}}</td>
             <td>{{$user->role}}</td>
             <td>{{$status}}</td>
         </tr>
