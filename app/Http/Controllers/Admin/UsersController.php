@@ -139,7 +139,9 @@ class UsersController extends Controller
             'users' => $users
         ];
 
-        $pdf = PDF::loadView('admin.users.pdf', $data);
+        $customPaper = array(0,0,1380.00,1044.80);
+
+        $pdf = PDF::loadView('admin.users.pdf', $data)->setPaper($customPaper, 'landscape');
         return $pdf->download('Рӯйхати истифодабарандагон.pdf');
     }
 }

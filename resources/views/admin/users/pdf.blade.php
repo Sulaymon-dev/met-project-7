@@ -43,13 +43,13 @@
     @foreach($users as $user)
         @php
             $status = 'Фаъол';
-            if ($user->status == 1)
+            if ($user->status == 0)
                 $status = 'Ғайрифаъол'
         @endphp
         <tr id="sub-{{$user->id}}">
             <td>{{$user->id}}</td>
             <td>{{$user->name}}</td>
-            <td style="font-size: 12px">{{$user->email}}</td>
+            <td >{{$user->email}}</td>
             <td>{{$user->role}}</td>
             <td>{{$status}}</td>
         </tr>

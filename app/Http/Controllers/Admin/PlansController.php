@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Sinf;
 use App\Subject;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class PlansController extends Controller
@@ -192,5 +193,20 @@ class PlansController extends Controller
                 'message' => 'error : ' . $e->getMessage()
             ], 401);
         }
+    }
+
+    public function makePdf()
+    {
+        $query = Plan::with(['subject', 'sinf', 'book', 'themes', 'user'])->get();
+
+        $data = [
+            'title' => 'Рӯйхати Нақшаҳои дарсӣ',
+            'plans' => $query
+        ];
+
+        $customPaper = array(0,0,1380.00,1044.80);
+
+        $pdf = PDF::loadView('admin.plans.pdf', $data)->setPaper($customPaper, 'landscape');
+        return $pdf->download('Нақшаҳои дарсӣ.pdf');
     }
 }

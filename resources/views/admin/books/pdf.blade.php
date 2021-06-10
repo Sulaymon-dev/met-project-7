@@ -48,7 +48,7 @@
         @endphp
         <tr id="sub-{{$book->id}}">
             <td>{{$book->id}}</td>
-            <td><img style="width: 150px" src="{{public_path("storage/uploads/img/".$book->img_src)}}" alt=""></td>
+            <td><img style="width: 250px" src="{{public_path("storage/uploads/img/".$book->img_src)}}" alt=""></td>
             <td>{{$book->name}}</td>
             <td>{{$status}}</td>
         </tr>

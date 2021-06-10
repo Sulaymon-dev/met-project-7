@@ -200,8 +200,9 @@ class BooksController extends Controller
             'title' => 'Рӯйхати Китобҳо',
             'books' => $books
         ];
+        $customPaper = array(0,0,1380.00,1044.80);
 
-        $pdf = PDF::loadView('admin.books.pdf', $data);
+        $pdf = PDF::loadView('admin.books.pdf', $data)->setPaper($customPaper, 'landscape');
         return $pdf->download('Рӯйхати Китобҳо.pdf');
     }
 }

@@ -33,6 +33,7 @@
                             </form>
 
                             <div>
+                                <a class="btn btn-info" href="{{route('themes.pdf')}}">Нусхаи PDF</a>
                                 <a class="btn btn-warning" href="{{route('themes.create')}}">Иловаи мавзӯъ</a>
                             </div>
                         </div>
@@ -40,7 +41,7 @@
                             <table class="table table-hover table-responsive-sm">
                                 <thead>
                                 <tr>
-                                    <th>№</th>
+                                    <th>Параграф</th>
                                     <th>Ном</th>
                                     <th>Фан</th>
                                     <th>Синф</th>

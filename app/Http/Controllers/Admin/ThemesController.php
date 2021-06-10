@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Plan;
 use App\Theme;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -278,5 +280,20 @@ class ThemesController extends Controller
                 'message' => 'error : ' . $e->getMessage()
             ], 401);
         }
+    }
+
+    public function makePdf()
+    {
+        $query = Theme::with('plan.subject','plan.sinf','user')->get();
+
+        $data = [
+            'title' => 'Рӯйхати мавзӯъҳои дарсӣ',
+            'themes' => $query
+        ];
+
+        $customPaper = array(0,0,1380.00,1044.80);
+
+        $pdf = PDF::loadView('admin.themes.pdf', $data)->setPaper($customPaper, 'landscape');
+        return $pdf->download('Рӯйхати мавзӯъҳо.pdf');
     }
 }

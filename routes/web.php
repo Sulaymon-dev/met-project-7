@@ -25,9 +25,11 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::get('books/list', 'Admin\BooksController@list');
     Route::resource('books', 'Admin\BooksController');
     Route::get('plans/list', 'Admin\PlansController@list');
+    Route::get('plans/pdf', 'Admin\PlansController@makePdf')->name('plans.pdf');
     Route::resource('plans', 'Admin\PlansController');
     Route::resource('clusters', 'Admin\ClustersController');
     Route::resource('mmts', 'Admin\MmtsController',['parameters' => 'mmt']);
+    Route::get('themes/pdf', 'Admin\ThemesController@makePdf')->name('themes.pdf');
     Route::get('themes/quiz4x1','Admin\ThemesController@showQuiz4in1' )->name('themes.quiz4in1');
     Route::get('themes/matching', 'Admin\ThemesController@showMatching')->name('themes.matching');
     Route::get('themes/openQuiz', 'Admin\ThemesController@showOpenQuiz')->name('themes.openQuiz');

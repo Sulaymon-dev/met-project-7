@@ -19,7 +19,8 @@
                                 <i class="fa fa-align-justify"></i> Рӯйхати плани дарсӣ
                             </div>
                             <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
+                                <a class="btn btn-info" href="{{route('plans.pdf')}}">Нусхаи PDF</a>
+                                <a class="btn btn-warning" href="{{route('plans.create')}}">Иловаи Нақша</a>
                             </div>
                         </div>
                         <div class="card-body">
