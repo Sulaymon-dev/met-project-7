@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
-//use OwenIt\Auditing\Contracts\Auditable;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class User extends Authenticatable //implements Auditable
+class User extends Authenticatable// implements Auditable
 {
     use HasApiTokens, Notifiable;//, \OwenIt\Auditing\Auditable;
 
@@ -42,6 +42,16 @@ class User extends Authenticatable //implements Auditable
     public function themes()
     {
         return $this->hasMany(Theme::class);
+    }
+
+    public function plans()
+    {
+        return $this->hasMany(Plan::class);
+    }
+
+    public function books()
+    {
+        return $this->hasMany(Book::class);
     }
 
     public function profile()

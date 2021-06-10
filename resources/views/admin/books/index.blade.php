@@ -19,7 +19,7 @@
                                 <i class="fa fa-align-justify"></i> Рӯйхати китобҳо
                             </div>
                             <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
+                                <a class="btn btn-warning" href="{{route('books.pdf')}}">Гирифтани PDF</a>
                             </div>
                         </div>
                         <div class="card-body">

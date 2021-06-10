@@ -4,38 +4,53 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>{{ $title }}</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style type="text/css">
+        .zui-table {
+            border: solid 1px #DDEEEE;
+            border-collapse: collapse;
+            border-spacing: 0;
+            /*font: normal 13px Arial, sans-serif;*/
+        }
+        .zui-table thead th {
+            background-color: #DDEFEF;
+            border: solid 1px #DDEEEE;
+            color: #336B6B;
+            padding: 10px;
+            text-align: left;
+            text-shadow: 1px 1px 1px #fff;
+        }
+        .zui-table tbody td {
+            border: solid 1px #DDEEEE;
+            color: #333;
+            padding: 10px;
+            text-shadow: 1px 1px 1px #fff;
+        }
+    </style>
 
+    {{--    <link rel="stylesheet" href="http://127.0.0.1:8000/libs/bootstrap-4.5.3-dist/css/bootstrap.min.css">--}}
 </head>
 <body style="  font-family: 'DejaVu Sans', sans-serif; ">
-<p class="text-center h4 alert alert-info font-weight-bold">Руйхати фанҳо</p>
-<table width="100%" style="width:100%" border="0" class="table table-hover table-striped">
-    <tr class="thead-dark">
+<p
+    style="text-align: center; font-weight: bold; font-size: 24px; background-color: #07294d; color: white; padding: 6px; width: 100%">
+    Руйхати китобҳо</p>
+<table width="100%" style="width:100%" border="0" class="zui-table">
+    <tr >
         <th>ID</th>
-        <th>Номи Фан</th>
-        <th>Синф</th>
-        <th>Намуди фан</th>
+        <th>Акс</th>
+        <th>Ном</th>
+        <th>Ҳолат</th>
     </tr>
-    @foreach($subjects as $subject)
-        @switch($subject->type)
-            @case('1')
-            {{$type = 'Ҳатмӣ'}}
-            @break
-            @case('2')
-            {{$type = 'Олимпиадавӣ'}}
-            @break
-            @case('3')
-            {{$type = 'ММТ'}}
-            @break
-            @case('4')
-            {{$type = 'Иловагӣ'}}
-        @endswitch
-        <tr id="sub-{{$subject->id}}">
-            <td>{{$subject->id}}</td>
-            <td>{{$subject->label}}</td>
-            <td>{{$subject->class}}</td>
-            <td>{{$type}}</td>
+    @foreach($books as $book)
+        @php
+            $status = 'Фаъол';
+            if ($book->status == 1)
+                $status = 'Ғайрифаъол'
+        @endphp
+        <tr id="sub-{{$book->id}}">
+            <td>{{$book->id}}</td>
+            <td><img style="width: 150px" src="{{public_path("storage/uploads/img/".$book->img_src)}}" alt=""></td>
+            <td>{{$book->name}}</td>
+            <td>{{$status}}</td>
         </tr>
     @endforeach
 

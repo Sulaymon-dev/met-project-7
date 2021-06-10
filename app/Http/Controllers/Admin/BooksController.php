@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Book;
 use App\Http\Controllers\Controller;
+use App\Sinf;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -188,5 +190,18 @@ class BooksController extends Controller
             ], 401);
         }
 
+    }
+
+    public function makePdf()
+    {
+        $books = Book::all();
+
+        $data = [
+            'title' => 'Рӯйхати Китобҳо',
+            'books' => $books
+        ];
+
+        $pdf = PDF::loadView('admin.books.pdf', $data);
+        return $pdf->download('Рӯйхати Китобҳо.pdf');
     }
 }

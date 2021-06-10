@@ -21,7 +21,7 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::get('sinfs/pdf', 'Admin\SinfsController@makePdf')->name('sinfs.pdf');
     Route::resource('sinfs', 'Admin\SinfsController');
-
+    Route::get('books/pdf', 'Admin\BooksController@makePdf')->name('books.pdf');
     Route::get('books/list', 'Admin\BooksController@list');
     Route::resource('books', 'Admin\BooksController');
     Route::get('plans/list', 'Admin\PlansController@list');
