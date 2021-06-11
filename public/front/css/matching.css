@@ -234,7 +234,7 @@ span:hover {
   width: 100px;
   height: 30px;
   left: 640px;
-  bottom: 0px;
+  bottom: -50px;
   font-weight: bold;
   transition: background-color 0.3s ease-out;
   background-color: #07294d;

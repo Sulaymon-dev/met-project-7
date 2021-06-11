@@ -57,6 +57,20 @@
                                                 <section class="draggable-items"></section>
                                                 <section class="matching-pairs"></section>
                                             </div>
+                                        @elseif($item['type']=='cardQuiz')
+                                            <div id="card-quiz">
+                                                <div class="wideBox">
+                                                    <h6>Рақамҳоро ба қуттии мувофиқ гузоред.</h6>
+                                                </div>
+                                                <div id="content">
+                                                    <div id="cardPile"></div>
+                                                    <div id="cardSlots"></div>
+                                                    <div id="successMessage">
+                                                        <h2>Бурд кардед.</h2>
+                                                        <button onclick="init()">Аз нав</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @elseif($item['type']=='sortQuiz')
                                             <div id="sortQuiz">
                                                 <h6>Номҳоро аз рӯйи алфавит ҷобаҷо намоед</h6>
@@ -198,6 +212,8 @@
                                         Суммаи квадрат
                                     @elseif($item['type']=='puzzleQuiz')
                                         Пазлҳо
+                                    @elseif($item['type']=='cardQuiz')
+                                        Рақамҳо
                                     @endif
                                 </a>
                             </li>

@@ -23,7 +23,7 @@ class OlympicsController extends Controller
 
     public function show($id, Request $request)
     {
-        $olympic = Olympic::where('id', $id)->with(['sinf', 'subject'])->first();
+        $olympic = Olympic::where([['id', $id], ['status', 1], ['is_show', 1]])->with(['sinf', 'subject'])->first();
         ($request->query('level')) ? $level = (int)$request->query('level') : $level = 1;
 		$levels = Olympic::where('subject_id', $olympic['subject_id'])->where('sinf_id', $olympic['sinf_id'])->get()->pluck('level');
         $path = '';
