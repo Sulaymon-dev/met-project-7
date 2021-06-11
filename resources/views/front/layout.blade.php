@@ -39,7 +39,7 @@
 <script src="{{asset('/front/js/slick.min.js')}}"></script>
 <script src="{{asset('/front/js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('/front/js/waypoints.min.js')}}"></script>
-<script src="{{asset('/front/js/jquery.min.js')}}"></script>
+{{--<script src="{{asset('/front/js/jquery.min.js')}}"></script>--}}
 <script src="{{asset('/front/js/jquery-ui.min.js')}}"></script>
 <script src="{{asset('/front/js/jquery.counterup.min.js')}}"></script>
 <script src="{{asset('/front/js/jquery.nice-select.min.js')}}"></script>
