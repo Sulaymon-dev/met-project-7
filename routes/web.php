@@ -17,6 +17,8 @@ Route::get('/audit',function (){
 });
 Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::get('/', 'Admin\AdminController@index')->name('admin.main');
+    Route::get('admin-teacher/pdf', 'Admin\AdminController@makePdf')->name('admin-teacher.pdf');
+
     Route::get('subjects/pdf', 'Admin\SubjectsController@makePdf')->name('subjects.pdf');
     Route::resource('subjects', 'Admin\SubjectsController');
     Route::get('sinfs/pdf', 'Admin\SinfsController@makePdf')->name('sinfs.pdf');
@@ -36,6 +38,7 @@ Route::prefix('/admin/')->middleware('admin_access')->group(function () {
     Route::get('themes/json', 'Admin\ThemesController@showJson')->name('themes.test_json');
     Route::get('mmt_fans/quiz4x1', 'Admin\MMTFansController@showQuiz4in1')->name('mmt_fans.quiz4in1');
     Route::get('mmt_fans/matching', 'Admin\MMTFansController@showMatching')->name('mmt_fans.matching');
+    Route::get('mmt_fans/matching_2', 'Admin\MMTFansController@showMatching_2')->name('mmt_fans.matching_2');
     Route::get('mmt_fans/openQuiz', 'Admin\MMTFansController@showOpenQuiz')->name('mmt_fans.openQuiz');
     Route::get('mmt_fans/json', 'Admin\MMTFansController@showJson')->name('mmt_fans.test_json');
     Route::get('olympics/quiz4x1','Admin\OlympicsController@showQuiz4in1' )->name('olympics.quiz4in1');
