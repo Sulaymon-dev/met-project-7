@@ -20,7 +20,6 @@
                             </div>
                             <div>
                                 <a class="btn btn-info" href="{{route('mmts.create')}}">Ҳамҷоякунии нав</a>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
                             </div>
                         </div>
                         <div class="card-body">

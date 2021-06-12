@@ -18,9 +18,6 @@
                             <div>
                                 <i class="fa fa-align-justify"></i> Рӯйхати фаъолияти истифодабарандагон
                             </div>
-                            <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
-                            </div>
                         </div>
                         <div class="card-body">
                             <table id="datatable" class="table table-bordered table-responsive" style="width:100%">

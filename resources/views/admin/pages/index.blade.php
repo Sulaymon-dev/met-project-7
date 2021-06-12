@@ -18,9 +18,6 @@
                             <div>
                                 <i class="fa fa-align-justify"></i> Рӯйхати навгониҳо
                             </div>
-                            <div>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
-                            </div>
                         </div>
                         <div class="card-body">
                             <table class="table table-hover table-responsive-sm">

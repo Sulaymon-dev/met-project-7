@@ -17,12 +17,7 @@
                         <h3 class="text-center text-info my-3">Рӯйхати танзимоти сайт </h3>
                         <table class="table table-hover">
                             <tbody>
-                            <tr>
-                                <th class="align-items-center">Танзимоти Асосӣ</th>
-                                <td><a class="btn btn-primary"
-                                       href="{{route('settings.index')}}?key=main_settings"><i
-                                            class="fa fa-edit"></i></a></td>
-                            </tr>
+
                             <tr>
                                 <th class="align-items-center">Слайдери асосӣ</th>
                                 <td><a class="btn btn-primary"

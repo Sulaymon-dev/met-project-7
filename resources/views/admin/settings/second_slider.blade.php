@@ -13,7 +13,7 @@
                         <form action="" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="card-header">
-                                Тести "4х1"-и фанҳо
+                                Танзимоти слайдери асосӣ
                             </div>
                             <div class="card-body">
                             </div>
@@ -136,8 +136,8 @@
             domObject += `</div>`; // #quizContainer
 
             domObject += `<div class="d-flex align-items-baseline justify-content-between my-3">
-                <button type="button" class="btn btn-info" onclick="addQuiz()"> ADD</button>
-                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Save</button>
+                <button type="button" class="btn btn-info" onclick="addQuiz()"> Иловаи слайд</button>
+                <button type="button" class="btn btn-success" onclick="saveQuizzes()">Сабт кардан</button>
             </div>`;
 
             domObject += '</div>'; // container

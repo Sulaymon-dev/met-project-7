@@ -16,7 +16,6 @@
                             </div>
                             <div>
                                 <a class="btn btn-success" href="{{route('mmts.index')}}"> Ҳамҷоякунии тестҳо ва мавзӯъҳо </a>
-                                <a class="btn btn-warning" href="{{route('subjects.pdf')}}">Гирифтани PDF</a>
                             </div>
                         </div>
                         <div class="card-body">
